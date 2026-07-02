@@ -139,8 +139,10 @@ const routes = {
   '/plan': renderPlan,
   '/menu': renderMenu,
   '/create': renderCreate,
+  '/shake': renderShake,
   '/foods': renderFoods,
   '/cart': renderCart,
+  '/dashboard': renderDashboard,
   '/account': renderAccount
 };
 
@@ -448,6 +450,366 @@ window.saveCustomMeal = async () => {
     errBox.innerHTML = `<div class="error-box">${esc(e.message)}</div>`;
   }
 };
+
+/* ---------------- Shake mixer ---------------- */
+
+const SHAKE_GROUPS = [
+  { key: 'base', label: '1 · Pick your liquid base', single: true, step: 50, defaultQty: 250, unit: 'ml',
+    ids: ['drinking-water', 'milk-toned', 'milk-full-cream', 'milk-skim', 'milk-buffalo', 'oat-milk', 'almond-milk', 'soy-milk', 'coconut-water'] },
+  { key: 'fruit', label: '2 · Fruits', step: 25, defaultQty: 100, unit: 'g',
+    ids: ['banana', 'mango', 'papaya', 'strawberry', 'chikoo', 'apple', 'pineapple', 'blueberries', 'frozen-berries-mix', 'dates-dried'] },
+  { key: 'protein', label: '3 · Protein', step: 10, defaultQty: 30, unit: 'g',
+    ids: ['whey-protein', 'pea-protein-powder', 'casein-protein-powder', 'greek-yogurt', 'curd-low-fat', 'sattu-flour', 'peanut-butter', 'almond-butter'] },
+  { key: 'boost', label: '4 · Boosters', step: 5, defaultQty: 10, unit: 'g',
+    ids: ['chia-seeds', 'flax-seeds', 'basil-seeds-sabja', 'oats-raw', 'cocoa-powder', 'spirulina', 'wheat-germ', 'almonds', 'walnuts', 'coconut-cream', 'dried-dates-powder', 'honey', 'jaggery', 'spinach', 'beetroot'] }
+];
+
+const shake = { qty: {} }; // foodId -> grams/ml
+
+async function renderShake() {
+  if (!state.foods) {
+    const res = await api('/api/foods');
+    state.foods = res.foods;
+    state.foodCategories = res.categories;
+  }
+  const myShakes = state.customMeals.filter((m) => (m.tags || []).includes('shake'));
+  app.innerHTML = `
+  <h2 class="section-title" style="margin-top:.4rem">🥤 Shake Mixer</h2>
+  <p class="muted">Mix your own shake — pick a base, throw in fruits, protein and boosters. Nutrition updates live as you pour. We blend it fresh and deliver it chilled.</p>
+  <div class="builder-grid" style="margin-top:1rem">
+    <div>
+      ${SHAKE_GROUPS.map((g) => `
+      <div class="card" style="margin-bottom:1rem">
+        <h3 style="font-size:1.02rem">${esc(g.label)}</h3>
+        <div class="shake-grid">
+          ${g.ids.map((id) => {
+            const f = state.foods.find((x) => x.id === id);
+            if (!f) return '';
+            const qty = shake.qty[id] || 0;
+            return `<div class="shake-item ${qty ? 'on' : ''}">
+              <button class="shake-pick" onclick="shakeToggle('${id}','${g.key}')">
+                <span class="shake-emoji">${foodEmoji(f)}</span>
+                <small>${esc(f.name.split('/')[0].split('(')[0].trim())}</small>
+                <span class="kc">${f.kcal} kcal/${f.unit === '100ml' ? '100ml' : '100g'}</span>
+              </button>
+              ${qty ? `<span class="qty-ctrl">
+                <button onclick="shakeQty('${id}',${-g.step})">−</button>
+                <span>${qty}${g.unit}</span>
+                <button onclick="shakeQty('${id}',${g.step})">+</button>
+              </span>` : ''}
+            </div>`;
+          }).join('')}
+        </div>
+      </div>`).join('')}
+    </div>
+    <div class="card" style="position:sticky;top:70px">
+      <h3>Your shake</h3>
+      <div class="field" style="margin-top:.6rem"><label>Shake name</label>
+        <input id="sh-name" placeholder="e.g. Morning Power Shake" maxlength="60"></div>
+      <div id="sh-recipe"></div>
+      <div id="sh-totals"></div>
+      <button class="btn btn-primary" style="margin-top:.8rem" onclick="saveShake()">🥤 Blend, save & add to box</button>
+      <div id="sh-error"></div>
+    </div>
+  </div>
+  ${myShakes.length ? `
+    <h2 class="section-title">My shakes</h2>
+    <div class="grid grid-3">${myShakes.map(mealCardHtml).join('')}</div>` : ''}`;
+  renderShakeSummary();
+}
+
+function foodEmoji(f) {
+  const n = f.name.toLowerCase();
+  if (/water|coconut/.test(n)) return '💧';
+  if (/milk/.test(n)) return '🥛';
+  if (/banana/.test(n)) return '🍌';
+  if (/mango/.test(n)) return '🥭';
+  if (/apple/.test(n)) return '🍎';
+  if (/strawberr|berr/.test(n)) return '🍓';
+  if (/pineapple/.test(n)) return '🍍';
+  if (/papaya|chikoo/.test(n)) return '🍈';
+  if (/date/.test(n)) return '🌴';
+  if (/whey|protein|casein|sattu/.test(n)) return '💪';
+  if (/yogurt|curd/.test(n)) return '🥣';
+  if (/peanut|almond butter/.test(n)) return '🥜';
+  if (/almond|walnut/.test(n)) return '🌰';
+  if (/cocoa/.test(n)) return '🍫';
+  if (/honey/.test(n)) return '🍯';
+  if (/jaggery/.test(n)) return '🟤';
+  if (/spinach/.test(n)) return '🥬';
+  if (/beetroot/.test(n)) return '🟣';
+  if (/spirulina/.test(n)) return '🌿';
+  return '✨';
+}
+
+window.shakeToggle = (id, groupKey) => {
+  const g = SHAKE_GROUPS.find((x) => x.key === groupKey);
+  if (shake.qty[id]) {
+    delete shake.qty[id];
+  } else {
+    if (g.single) for (const other of g.ids) delete shake.qty[other];
+    shake.qty[id] = g.defaultQty;
+  }
+  renderShake();
+};
+
+window.shakeQty = (id, delta) => {
+  const next = (shake.qty[id] || 0) + delta;
+  if (next <= 0) delete shake.qty[id];
+  else shake.qty[id] = Math.min(next, 500);
+  renderShake();
+};
+
+function shakeTotals() {
+  let kcal = 0, protein = 0, carbs = 0, fat = 0, fiber = 0;
+  for (const [id, grams] of Object.entries(shake.qty)) {
+    const f = state.foods.find((x) => x.id === id);
+    if (!f) continue;
+    const k = grams / 100;
+    kcal += f.kcal * k; protein += f.protein * k; carbs += f.carbs * k;
+    fat += f.fat * k; fiber += (f.fiber || 0) * k;
+  }
+  return { kcal, protein, carbs, fat, fiber };
+}
+
+function renderShakeSummary() {
+  const entries = Object.entries(shake.qty);
+  const recipeBox = document.getElementById('sh-recipe');
+  const totalsBox = document.getElementById('sh-totals');
+  if (!recipeBox) return;
+  recipeBox.innerHTML = entries.length === 0
+    ? '<p class="muted" style="padding:.5rem 0">Empty glass — pick a base to start.</p>'
+    : entries.map(([id, grams]) => {
+      const f = state.foods.find((x) => x.id === id);
+      return `<div class="picked-row"><span style="flex:1">${foodEmoji(f)} ${esc(f.name.split('/')[0].split('(')[0].trim())}</span>
+        <span class="muted">${grams}${f.unit === '100ml' ? ' ml' : ' g'}</span></div>`;
+    }).join('');
+  const t = shakeTotals();
+  const price = Math.max(49, Math.round((40 + (t.kcal / 100) * 6) / 5) * 5);
+  totalsBox.innerHTML = entries.length === 0 ? '' : `
+    <div class="result-strip" style="margin:.8rem 0 0">
+      <div class="stat"><b>${Math.round(t.kcal)}</b><small>kcal</small></div>
+      <div class="stat"><b>${Math.round(t.protein)} g</b><small>Protein</small></div>
+      <div class="stat"><b>${Math.round(t.carbs)} g</b><small>Carbs</small></div>
+      <div class="stat"><b>${Math.round(t.fat)} g</b><small>Fat</small></div>
+      <div class="stat"><b>${Math.round(t.fiber)} g</b><small>Fiber</small></div>
+      <div class="stat"><b>${inr(price)}</b><small>Price</small></div>
+    </div>`;
+}
+
+window.saveShake = async () => {
+  const errBox = document.getElementById('sh-error');
+  errBox.innerHTML = '';
+  try {
+    const entries = Object.entries(shake.qty);
+    if (entries.length === 0) throw new Error('Pick at least a base and one ingredient');
+    let name = document.getElementById('sh-name').value.trim();
+    if (name && !/shake|smoothie/i.test(name)) name += ' Shake';
+    const res = await api('/api/custom-meals', {
+      name,
+      kind: 'shake',
+      phone: load('tindam.phone') || null,
+      slots: ['breakfast', 'snack'],
+      items: entries.map(([foodId, grams]) => ({ foodId, grams }))
+    });
+    state.customMeals.push(res.meal);
+    state.myMealIds.push(res.meal.id);
+    persist('tindam.myMeals', state.myMealIds);
+    shake.qty = {};
+    window.cartAdd(res.meal.id, 1);
+    renderShake();
+  } catch (e) {
+    errBox.innerHTML = `<div class="error-box">${esc(e.message)}</div>`;
+  }
+};
+
+/* ---------------- Dashboard ---------------- */
+
+const dash = { from: null, to: null };
+
+function renderDashboard() {
+  const savedPhone = load('tindam.phone') || '';
+  const today = new Date().toISOString().slice(0, 10);
+  const monthAgo = new Date(Date.now() - 29 * 86400000).toISOString().slice(0, 10);
+  dash.from = dash.from || monthAgo;
+  dash.to = dash.to || today;
+  app.innerHTML = `
+  <h2 class="section-title" style="margin-top:.4rem">📊 My dashboard</h2>
+  <div class="card">
+    <div class="dash-controls">
+      <div class="field" style="margin:0"><label>Phone</label>
+        <input id="d-phone" maxlength="10" placeholder="10-digit phone" value="${esc(savedPhone)}"></div>
+      <div class="field" style="margin:0"><label>From</label><input id="d-from" type="date" value="${dash.from}" max="${today}"></div>
+      <div class="field" style="margin:0"><label>To</label><input id="d-to" type="date" value="${dash.to}" max="${today}"></div>
+      <div class="chip-row" style="margin:0;align-self:end">
+        <button class="chip-btn" onclick="dashRange(7)">7 days</button>
+        <button class="chip-btn" onclick="dashRange(30)">30 days</button>
+        <button class="chip-btn" onclick="dashRange(90)">90 days</button>
+      </div>
+      <button class="btn btn-primary" style="align-self:end" onclick="loadDash()">Show</button>
+    </div>
+    <div id="d-error"></div>
+  </div>
+  <div id="dash-body"></div>
+  <div id="viz-tip" class="viz-tip" hidden></div>`;
+  if (savedPhone) loadDash();
+}
+
+window.dashRange = (days) => {
+  const today = new Date().toISOString().slice(0, 10);
+  dash.to = today;
+  dash.from = new Date(Date.now() - (days - 1) * 86400000).toISOString().slice(0, 10);
+  document.getElementById('d-from').value = dash.from;
+  document.getElementById('d-to').value = dash.to;
+  loadDash();
+};
+
+window.loadDash = async () => {
+  const phone = document.getElementById('d-phone').value.trim();
+  dash.from = document.getElementById('d-from').value;
+  dash.to = document.getElementById('d-to').value;
+  const errBox = document.getElementById('d-error');
+  errBox.innerHTML = '';
+  try {
+    const d = await api(`/api/dashboard?phone=${encodeURIComponent(phone)}&from=${dash.from}&to=${dash.to}`);
+    persist('tindam.phone', phone);
+    renderDashBody(d);
+  } catch (e) {
+    errBox.innerHTML = `<div class="error-box">${esc(e.message)}</div>`;
+  }
+};
+
+function renderDashBody(d) {
+  const box = document.getElementById('dash-body');
+  if (d.daysTracked === 0 && d.orders.length === 0) {
+    box.innerHTML = `<div class="card" style="margin-top:1rem;text-align:center;padding:3rem">
+      <p style="font-size:3rem">📭</p>
+      <p class="muted">No history for this number yet. <a href="#/plan">Start a subscription</a> and your nutrition will show up here.<br>
+      (Demo: run <code>node scripts/seed-demo.js</code> and look up <b>9000000001</b>.)</p></div>`;
+    return;
+  }
+  const t = d.targets && d.targets.kcal ? d.targets : null;
+  box.innerHTML = `
+  <div class="result-strip" style="margin-top:1.2rem">
+    <div class="stat"><b>${d.daysTracked}</b><small>Days delivered</small></div>
+    <div class="stat"><b>${d.averages.kcal}</b><small>Avg kcal/day</small></div>
+    <div class="stat"><b>${d.averages.protein} g</b><small>Avg protein/day</small></div>
+    <div class="stat"><b>${d.averages.fiber} g</b><small>Avg fiber/day</small></div>
+    <div class="stat"><b>${inr(d.totals.price)}</b><small>Spent in range</small></div>
+  </div>
+
+  <div class="card" style="margin-top:1rem">
+    <h3>Calories per day</h3>
+    <p class="muted" style="font-size:.82rem">${esc(d.from)} → ${esc(d.to)}${t ? ` · dashed line = your ${t.kcal} kcal target` : ''}</p>
+    ${barChartSvg(d.daily, 'kcal', '#eb6834', t && t.kcal, 'kcal')}
+  </div>
+  <div class="card" style="margin-top:1rem">
+    <h3>Protein per day</h3>
+    <p class="muted" style="font-size:.82rem">grams of protein delivered${t ? ` · dashed line = your ${t.protein} g target` : ''}</p>
+    ${barChartSvg(d.daily, 'protein', '#008300', t && t.protein, 'g')}
+  </div>
+
+  <div class="grid grid-2" style="margin-top:1rem;align-items:start">
+    <div class="card">
+      <h3>Where your calories came from</h3>
+      <p class="muted" style="font-size:.82rem">average daily macro split (by energy)</p>
+      ${macroSplitHtml(d.averages)}
+    </div>
+    <div class="card">
+      <h3>Your most-eaten meals</h3>
+      ${d.topMeals.length === 0 ? '<p class="muted">No meals in range.</p>' :
+        d.topMeals.map((m) => `
+        <div class="slot-line">
+          <span style="flex:1">${esc(m.name)}</span>
+          <span class="chip">${m.count}×</span>
+        </div>`).join('')}
+    </div>
+  </div>
+
+  <h2 class="section-title">Order history</h2>
+  ${d.orders.map((o) => `
+    <div class="card" style="margin-bottom:.8rem">
+      <div class="day-head">
+        <h3 style="font-size:1rem">${esc(o.id)} <span class="pill-status ${esc(o.status)}">${esc(o.status)}</span></h3>
+        <span class="muted">${o.weeks} week${o.weeks > 1 ? 's' : ''} · ${esc(o.slot)} · ${esc(o.diet)} · ${esc(o.start || '')} → ${esc(o.end || '')}</span>
+        <b>${inr(o.total)}</b>
+      </div>
+    </div>`).join('')}`;
+  wireVizTips();
+}
+
+/* Single-series bar chart. Recessive grid, sparse date ticks, 2px bar gaps,
+   rounded data-ends, dashed target line, hover tooltip per bar. */
+function barChartSvg(daily, key, color, target, unit) {
+  if (daily.length === 0) return '<p class="muted">No delivered days in this range.</p>';
+  const W = 760, H = 220, padL = 44, padR = 10, padT = 12, padB = 26;
+  const iw = W - padL - padR, ih = H - padT - padB;
+  const max = Math.max(...daily.map((d) => d[key]), target || 0) * 1.12 || 1;
+  const bw = Math.max(3, Math.min(34, iw / daily.length - 2));
+  const x = (i) => padL + (iw / daily.length) * i + ((iw / daily.length) - bw) / 2;
+  const y = (v) => padT + ih - (v / max) * ih;
+
+  const gridN = 4;
+  const grid = Array.from({ length: gridN + 1 }, (_, i) => {
+    const v = Math.round((max / gridN) * i);
+    return `<line x1="${padL}" y1="${y(v)}" x2="${W - padR}" y2="${y(v)}" stroke="#eef0ee" stroke-width="1"/>
+      <text x="${padL - 6}" y="${y(v) + 4}" text-anchor="end" class="viz-axis">${v}</text>`;
+  }).join('');
+
+  const tickEvery = Math.max(1, Math.ceil(daily.length / 8));
+  const bars = daily.map((d, i) => {
+    const h = Math.max(2, padT + ih - y(d[key]));
+    return `<rect x="${x(i)}" y="${y(d[key])}" width="${bw}" height="${h}" rx="3"
+      fill="${color}" class="viz-bar" data-tip="${esc(d.date)} — ${d[key]} ${unit}"/>` +
+      (i % tickEvery === 0
+        ? `<text x="${x(i) + bw / 2}" y="${H - 8}" text-anchor="middle" class="viz-axis">${d.date.slice(5)}</text>`
+        : '');
+  }).join('');
+
+  const targetLine = target ? `
+    <line x1="${padL}" y1="${y(target)}" x2="${W - padR}" y2="${y(target)}"
+      stroke="#52514e" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="${W - padR}" y="${y(target) - 5}" text-anchor="end" class="viz-target">target ${target}</text>` : '';
+
+  return `<svg viewBox="0 0 ${W} ${H}" class="viz" role="img" aria-label="${key} per day bar chart">
+    ${grid}${bars}${targetLine}
+  </svg>`;
+}
+
+/* Average macro split as one horizontal stacked bar: 3 fixed-order hues,
+   2px surface gaps, direct labels (relief rule for low-contrast hues). */
+function macroSplitHtml(avg) {
+  const eC = avg.carbs * 4, eP = avg.protein * 4, eF = avg.fat * 9;
+  const total = eC + eP + eF || 1;
+  const segs = [
+    { name: 'Carbs', kcal: eC, grams: avg.carbs, color: '#2a78d6' },
+    { name: 'Protein', kcal: eP, grams: avg.protein, color: '#1baf7a' },
+    { name: 'Fat', kcal: eF, grams: avg.fat, color: '#eda100' }
+  ].map((s) => ({ ...s, pct: Math.round((s.kcal / total) * 100) }));
+  return `
+  <div class="macro-stack">
+    ${segs.map((s) => `<div class="seg" style="width:${(s.kcal / total) * 100}%;background:${s.color}"
+      title="${s.name}: ${s.pct}% of calories"></div>`).join('')}
+  </div>
+  <div class="macro-legend">
+    ${segs.map((s) => `<span><i style="background:${s.color}"></i> ${s.name} <b>${s.pct}%</b> · ${s.grams} g/day</span>`).join('')}
+  </div>`;
+}
+
+function wireVizTips() {
+  const tip = document.getElementById('viz-tip');
+  document.querySelectorAll('.viz-bar').forEach((bar) => {
+    bar.addEventListener('mouseenter', (e) => {
+      tip.textContent = bar.dataset.tip;
+      tip.hidden = false;
+    });
+    bar.addEventListener('mousemove', (e) => {
+      tip.style.left = (e.pageX + 12) + 'px';
+      tip.style.top = (e.pageY - 30) + 'px';
+    });
+    bar.addEventListener('mouseleave', () => { tip.hidden = true; });
+  });
+}
 
 /* ---------------- Cart / Daily box ---------------- */
 

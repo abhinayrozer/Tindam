@@ -1,0 +1,4766 @@
+{
+ "note": "Distinct Indian dishes, drinks and additional whole foods (no variants of items already in the database). Values per 100 g / 100 ml estimated from standard home-style, low-oil recipes; energy computed from macros using the IFCT convention (4/4/9 + 2 kcal/g fiber).",
+ "foods": [
+  {
+   "id": "paneer-butter-masala",
+   "name": "Paneer Butter Masala (light)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 195,
+   "protein": 8.5,
+   "carbs": 8,
+   "fat": 14,
+   "fiber": 1.5,
+   "season": null,
+   "tags": [
+    "paneer"
+   ]
+  },
+  {
+   "id": "paneer-tikka-masala",
+   "name": "Paneer Tikka Masala (light)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 188,
+   "protein": 9,
+   "carbs": 8,
+   "fat": 13,
+   "fiber": 1.6,
+   "season": null,
+   "tags": [
+    "paneer"
+   ]
+  },
+  {
+   "id": "paneer-pasanda",
+   "name": "Paneer Pasanda (light)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 194,
+   "protein": 8.5,
+   "carbs": 9,
+   "fat": 13.5,
+   "fiber": 1.4,
+   "season": null,
+   "tags": [
+    "paneer"
+   ]
+  },
+  {
+   "id": "veg-makhanwala",
+   "name": "Veg Makhanwala (light)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 135,
+   "protein": 3.5,
+   "carbs": 11,
+   "fat": 8,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "sabzi"
+   ]
+  },
+  {
+   "id": "malai-kofta",
+   "name": "Malai Kofta (baked, light)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 170,
+   "protein": 5,
+   "carbs": 14,
+   "fat": 10,
+   "fiber": 2,
+   "season": null,
+   "tags": [
+    "sabzi"
+   ]
+  },
+  {
+   "id": "navratan-korma",
+   "name": "Navratan Korma (light)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 154,
+   "protein": 4,
+   "carbs": 13,
+   "fat": 9,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "sabzi"
+   ]
+  },
+  {
+   "id": "kadhi-pakora",
+   "name": "Kadhi Pakora (light)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 108,
+   "protein": 4,
+   "carbs": 9,
+   "fat": 6,
+   "fiber": 1.2,
+   "season": null,
+   "tags": [
+    "kadhi"
+   ]
+  },
+  {
+   "id": "langar-wali-dal",
+   "name": "Langar Wali Dal",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 119,
+   "protein": 6,
+   "carbs": 14,
+   "fat": 3.5,
+   "fiber": 3.5,
+   "season": null,
+   "tags": [
+    "dal"
+   ]
+  },
+  {
+   "id": "tandoori-gobi",
+   "name": "Tandoori Gobi",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 95,
+   "protein": 3,
+   "carbs": 8,
+   "fat": 5,
+   "fiber": 3,
+   "season": "Oct–Mar",
+   "tags": [
+    "grilled"
+   ]
+  },
+  {
+   "id": "tandoori-mushroom",
+   "name": "Tandoori Mushroom",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 89,
+   "protein": 4,
+   "carbs": 6,
+   "fat": 5,
+   "fiber": 1.8,
+   "season": null,
+   "tags": [
+    "grilled"
+   ]
+  },
+  {
+   "id": "gobhi-musallam",
+   "name": "Gobhi Musallam",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 109,
+   "protein": 3.2,
+   "carbs": 9,
+   "fat": 6,
+   "fiber": 3,
+   "season": "Oct–Mar",
+   "tags": [
+    "sabzi"
+   ]
+  },
+  {
+   "id": "kadai-mushroom",
+   "name": "Kadai Mushroom",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 101,
+   "protein": 3.8,
+   "carbs": 7,
+   "fat": 6,
+   "fiber": 2,
+   "season": null,
+   "tags": [
+    "sabzi"
+   ]
+  },
+  {
+   "id": "palak-corn",
+   "name": "Palak Corn",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 112,
+   "protein": 3.5,
+   "carbs": 12,
+   "fat": 5,
+   "fiber": 2.5,
+   "season": "Oct–Mar",
+   "tags": [
+    "sabzi",
+    "iron-rich"
+   ]
+  },
+  {
+   "id": "corn-capsicum-masala",
+   "name": "Corn Capsicum Masala",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 119,
+   "protein": 3.4,
+   "carbs": 14,
+   "fat": 5,
+   "fiber": 2.2,
+   "season": null,
+   "tags": [
+    "sabzi"
+   ]
+  },
+  {
+   "id": "veg-jalfrezi",
+   "name": "Veg Jalfrezi",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 103,
+   "protein": 3,
+   "carbs": 10,
+   "fat": 5,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "sabzi"
+   ]
+  },
+  {
+   "id": "paneer-jalfrezi",
+   "name": "Paneer Jalfrezi",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 167,
+   "protein": 8,
+   "carbs": 8,
+   "fat": 11,
+   "fiber": 2.2,
+   "season": null,
+   "tags": [
+    "paneer"
+   ]
+  },
+  {
+   "id": "veg-handi",
+   "name": "Veg Handi",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 116,
+   "protein": 3.2,
+   "carbs": 11,
+   "fat": 6,
+   "fiber": 2.8,
+   "season": null,
+   "tags": [
+    "sabzi"
+   ]
+  },
+  {
+   "id": "stuffed-capsicum",
+   "name": "Stuffed Capsicum (baked)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 123,
+   "protein": 4,
+   "carbs": 12,
+   "fat": 6,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "sabzi",
+    "baked"
+   ]
+  },
+  {
+   "id": "bharwan-karela",
+   "name": "Bharwan Karela",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 120,
+   "protein": 3.5,
+   "carbs": 10,
+   "fat": 6.5,
+   "fiber": 3.5,
+   "season": "Apr–Sep",
+   "tags": [
+    "sabzi"
+   ]
+  },
+  {
+   "id": "aloo-tikki",
+   "name": "Aloo Tikki (pan-grilled)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 150,
+   "protein": 3,
+   "carbs": 22,
+   "fat": 5,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "snack"
+   ]
+  },
+  {
+   "id": "veg-seekh-kebab",
+   "name": "Veg Seekh Kebab (grilled)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 149,
+   "protein": 6,
+   "carbs": 16,
+   "fat": 6,
+   "fiber": 3.5,
+   "season": null,
+   "tags": [
+    "kebab",
+    "grilled"
+   ]
+  },
+  {
+   "id": "haak-saag",
+   "name": "Haak Saag (Kashmiri)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 75,
+   "protein": 3.5,
+   "carbs": 5,
+   "fat": 4,
+   "fiber": 2.5,
+   "season": "Oct–Mar",
+   "tags": [
+    "saag",
+    "kashmiri"
+   ]
+  },
+  {
+   "id": "gatte-ki-sabzi",
+   "name": "Gatte Ki Sabzi",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 152,
+   "protein": 7,
+   "carbs": 14,
+   "fat": 7,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "rajasthani",
+    "sabzi"
+   ]
+  },
+  {
+   "id": "ker-sangri",
+   "name": "Ker Sangri",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 145,
+   "protein": 4,
+   "carbs": 12,
+   "fat": 8,
+   "fiber": 4.5,
+   "season": null,
+   "tags": [
+    "rajasthani",
+    "sabzi"
+   ]
+  },
+  {
+   "id": "papad-ki-sabzi",
+   "name": "Papad Ki Sabzi",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 130,
+   "protein": 6,
+   "carbs": 12,
+   "fat": 6,
+   "fiber": 2,
+   "season": null,
+   "tags": [
+    "rajasthani",
+    "sabzi"
+   ]
+  },
+  {
+   "id": "dal-baati",
+   "name": "Dal Baati (baked, light churma-free)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 219,
+   "protein": 7,
+   "carbs": 30,
+   "fat": 7,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "rajasthani"
+   ]
+  },
+  {
+   "id": "sev-tameta-nu-shaak",
+   "name": "Sev Tameta Nu Shaak",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 117,
+   "protein": 3.5,
+   "carbs": 9,
+   "fat": 7,
+   "fiber": 1.8,
+   "season": null,
+   "tags": [
+    "gujarati",
+    "sabzi"
+   ]
+  },
+  {
+   "id": "undhiyu",
+   "name": "Undhiyu (light)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 143,
+   "protein": 4,
+   "carbs": 14,
+   "fat": 7,
+   "fiber": 4,
+   "season": "Nov–Feb",
+   "tags": [
+    "gujarati",
+    "seasonal"
+   ]
+  },
+  {
+   "id": "handvo",
+   "name": "Handvo",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 181,
+   "protein": 6,
+   "carbs": 22,
+   "fat": 7,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "gujarati",
+    "baked"
+   ]
+  },
+  {
+   "id": "muthiya",
+   "name": "Muthiya (steamed)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 147,
+   "protein": 5,
+   "carbs": 20,
+   "fat": 4.5,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "gujarati",
+    "steamed"
+   ]
+  },
+  {
+   "id": "patra",
+   "name": "Patra (steamed)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 134,
+   "protein": 4.5,
+   "carbs": 16,
+   "fat": 5,
+   "fiber": 3.5,
+   "season": null,
+   "tags": [
+    "gujarati",
+    "steamed"
+   ]
+  },
+  {
+   "id": "khaman",
+   "name": "Khaman",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 165,
+   "protein": 6,
+   "carbs": 23,
+   "fat": 5,
+   "fiber": 2,
+   "season": null,
+   "tags": [
+    "gujarati",
+    "steamed"
+   ]
+  },
+  {
+   "id": "sev-usal",
+   "name": "Sev Usal",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 167,
+   "protein": 7,
+   "carbs": 17,
+   "fat": 7,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "gujarati"
+   ]
+  },
+  {
+   "id": "misal",
+   "name": "Misal (light)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 151,
+   "protein": 7,
+   "carbs": 15,
+   "fat": 6,
+   "fiber": 4.5,
+   "season": null,
+   "tags": [
+    "maharashtrian",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "pav-bhaji",
+   "name": "Pav Bhaji (light)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 125,
+   "protein": 3.5,
+   "carbs": 15,
+   "fat": 5,
+   "fiber": 2.8,
+   "season": null,
+   "tags": [
+    "mumbai"
+   ]
+  },
+  {
+   "id": "zunka",
+   "name": "Zunka",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 149,
+   "protein": 7,
+   "carbs": 15,
+   "fat": 6,
+   "fiber": 3.5,
+   "season": null,
+   "tags": [
+    "maharashtrian"
+   ]
+  },
+  {
+   "id": "pithla",
+   "name": "Pithla",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 114,
+   "protein": 6,
+   "carbs": 10,
+   "fat": 5,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "maharashtrian"
+   ]
+  },
+  {
+   "id": "bharli-vangi",
+   "name": "Bharli Vangi",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 124,
+   "protein": 3.5,
+   "carbs": 10,
+   "fat": 7,
+   "fiber": 3.5,
+   "season": null,
+   "tags": [
+    "maharashtrian",
+    "sabzi"
+   ]
+  },
+  {
+   "id": "batata-bhaji",
+   "name": "Batata Bhaji",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 123,
+   "protein": 2.5,
+   "carbs": 16,
+   "fat": 5,
+   "fiber": 2,
+   "season": null,
+   "tags": [
+    "maharashtrian",
+    "sabzi"
+   ]
+  },
+  {
+   "id": "kothimbir-vadi",
+   "name": "Kothimbir Vadi (steamed)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 156,
+   "protein": 6,
+   "carbs": 18,
+   "fat": 6,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "maharashtrian",
+    "steamed"
+   ]
+  },
+  {
+   "id": "puran-poli",
+   "name": "Puran Poli (jaggery)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 267,
+   "protein": 7,
+   "carbs": 42,
+   "fat": 7,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "maharashtrian",
+    "festive"
+   ]
+  },
+  {
+   "id": "matki-usal",
+   "name": "Matki Usal",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 137,
+   "protein": 7,
+   "carbs": 16,
+   "fat": 4,
+   "fiber": 4.5,
+   "season": null,
+   "tags": [
+    "maharashtrian",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "sol-kadhi",
+   "name": "Sol Kadhi",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 40,
+   "protein": 0.8,
+   "carbs": 3.5,
+   "fat": 2.5,
+   "fiber": 0.3,
+   "season": null,
+   "tags": [
+    "konkani",
+    "digestive"
+   ]
+  },
+  {
+   "id": "sabudana-appe",
+   "name": "Sabudana Appe (pan)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 207,
+   "protein": 3,
+   "carbs": 30,
+   "fat": 8,
+   "fiber": 1.5,
+   "season": null,
+   "tags": [
+    "fasting-food"
+   ]
+  },
+  {
+   "id": "thecha",
+   "name": "Thecha (green chilli-peanut)",
+   "category": "Sweeteners & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 108,
+   "protein": 4,
+   "carbs": 8,
+   "fat": 6,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "condiment",
+    "spicy"
+   ]
+  },
+  {
+   "id": "shukto",
+   "name": "Shukto",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 98,
+   "protein": 2.8,
+   "carbs": 9,
+   "fat": 5,
+   "fiber": 2.8,
+   "season": null,
+   "tags": [
+    "bengali"
+   ]
+  },
+  {
+   "id": "aloo-posto",
+   "name": "Aloo Posto",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 155,
+   "protein": 3.5,
+   "carbs": 16,
+   "fat": 8,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "bengali"
+   ]
+  },
+  {
+   "id": "cholar-dal",
+   "name": "Cholar Dal",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 145,
+   "protein": 7,
+   "carbs": 16,
+   "fat": 5,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "bengali",
+    "dal"
+   ]
+  },
+  {
+   "id": "begun-bhaja",
+   "name": "Begun Bhaja (pan-fried)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 106,
+   "protein": 1.5,
+   "carbs": 8,
+   "fat": 7,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "bengali"
+   ]
+  },
+  {
+   "id": "machher-jhol",
+   "name": "Machher Jhol",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 111,
+   "protein": 12,
+   "carbs": 4,
+   "fat": 5,
+   "fiber": 0.8,
+   "season": null,
+   "tags": [
+    "bengali",
+    "fish"
+   ]
+  },
+  {
+   "id": "shorshe-ilish",
+   "name": "Shorshe Ilish",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 203,
+   "protein": 16,
+   "carbs": 3,
+   "fat": 14,
+   "fiber": 0.6,
+   "season": "Jun–Sep",
+   "tags": [
+    "bengali",
+    "fish",
+    "seasonal"
+   ]
+  },
+  {
+   "id": "doi-maach",
+   "name": "Doi Maach",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 132,
+   "protein": 13,
+   "carbs": 4,
+   "fat": 7,
+   "fiber": 0.5,
+   "season": null,
+   "tags": [
+    "bengali",
+    "fish"
+   ]
+  },
+  {
+   "id": "chingri-malai-curry",
+   "name": "Chingri Malai Curry (light)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 137,
+   "protein": 12,
+   "carbs": 4,
+   "fat": 8,
+   "fiber": 0.6,
+   "season": null,
+   "tags": [
+    "bengali",
+    "seafood"
+   ]
+  },
+  {
+   "id": "ghugni",
+   "name": "Ghugni",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 145,
+   "protein": 7,
+   "carbs": 18,
+   "fat": 4,
+   "fiber": 4.5,
+   "season": null,
+   "tags": [
+    "bengali",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "dhokar-dalna",
+   "name": "Dhokar Dalna",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 153,
+   "protein": 7,
+   "carbs": 14,
+   "fat": 7,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "bengali"
+   ]
+  },
+  {
+   "id": "labra",
+   "name": "Labra",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 92,
+   "protein": 2.5,
+   "carbs": 10,
+   "fat": 4,
+   "fiber": 2.8,
+   "season": null,
+   "tags": [
+    "bengali",
+    "sabzi"
+   ]
+  },
+  {
+   "id": "litti-chokha",
+   "name": "Litti Chokha (roasted)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 220,
+   "protein": 7,
+   "carbs": 32,
+   "fat": 6,
+   "fiber": 5,
+   "season": null,
+   "tags": [
+    "bihari",
+    "roasted"
+   ]
+  },
+  {
+   "id": "aloo-chokha",
+   "name": "Aloo Chokha",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 109,
+   "protein": 2.2,
+   "carbs": 15,
+   "fat": 4,
+   "fiber": 2,
+   "season": null,
+   "tags": [
+    "bihari"
+   ]
+  },
+  {
+   "id": "dalma",
+   "name": "Dalma",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 98,
+   "protein": 5,
+   "carbs": 12,
+   "fat": 2.5,
+   "fiber": 3.5,
+   "season": null,
+   "tags": [
+    "odia",
+    "dal"
+   ]
+  },
+  {
+   "id": "santula",
+   "name": "Santula",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 74,
+   "protein": 2.5,
+   "carbs": 8,
+   "fat": 3,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "odia",
+    "sabzi"
+   ]
+  },
+  {
+   "id": "mishti-doi",
+   "name": "Mishti Doi (low sugar)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 120,
+   "protein": 4,
+   "carbs": 17,
+   "fat": 4,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "bengali",
+    "dessert",
+    "probiotic"
+   ]
+  },
+  {
+   "id": "chicken-momos",
+   "name": "Chicken Momos (steamed)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 150,
+   "protein": 8,
+   "carbs": 20,
+   "fat": 4,
+   "fiber": 1.2,
+   "season": null,
+   "tags": [
+    "steamed",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "veg-thukpa",
+   "name": "Veg Thukpa",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 103,
+   "protein": 4,
+   "carbs": 14,
+   "fat": 3,
+   "fiber": 1.8,
+   "season": null,
+   "tags": [
+    "northeast",
+    "soup"
+   ]
+  },
+  {
+   "id": "kadala-curry",
+   "name": "Kadala Curry",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 143,
+   "protein": 7,
+   "carbs": 15,
+   "fat": 5,
+   "fiber": 5,
+   "season": null,
+   "tags": [
+    "kerala",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "veg-ishtu",
+   "name": "Veg Ishtu (Kerala stew)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 104,
+   "protein": 2.5,
+   "carbs": 9,
+   "fat": 6,
+   "fiber": 1.8,
+   "season": null,
+   "tags": [
+    "kerala"
+   ]
+  },
+  {
+   "id": "erissery",
+   "name": "Erissery",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 129,
+   "protein": 4,
+   "carbs": 13,
+   "fat": 6,
+   "fiber": 3.5,
+   "season": null,
+   "tags": [
+    "kerala"
+   ]
+  },
+  {
+   "id": "pulissery",
+   "name": "Pulissery",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 72,
+   "protein": 2.5,
+   "carbs": 6,
+   "fat": 4,
+   "fiber": 0.8,
+   "season": null,
+   "tags": [
+    "kerala",
+    "probiotic"
+   ]
+  },
+  {
+   "id": "theeyal",
+   "name": "Theeyal",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 130,
+   "protein": 3,
+   "carbs": 10,
+   "fat": 8,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "kerala"
+   ]
+  },
+  {
+   "id": "kappa-masala",
+   "name": "Kappa Masala (tapioca)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 146,
+   "protein": 1.5,
+   "carbs": 25,
+   "fat": 4,
+   "fiber": 1.8,
+   "season": null,
+   "tags": [
+    "kerala"
+   ]
+  },
+  {
+   "id": "meen-pollichathu",
+   "name": "Meen Pollichathu",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 146,
+   "protein": 14,
+   "carbs": 4,
+   "fat": 8,
+   "fiber": 0.8,
+   "season": null,
+   "tags": [
+    "kerala",
+    "fish",
+    "grilled"
+   ]
+  },
+  {
+   "id": "wheat-parotta",
+   "name": "Wheat Parotta (low oil)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 276,
+   "protein": 7,
+   "carbs": 42,
+   "fat": 8,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "kerala",
+    "bread"
+   ]
+  },
+  {
+   "id": "neer-dosa",
+   "name": "Neer Dosa",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 118,
+   "protein": 2.5,
+   "carbs": 22,
+   "fat": 2,
+   "fiber": 0.8,
+   "season": null,
+   "tags": [
+    "mangalorean",
+    "breakfast"
+   ]
+  },
+  {
+   "id": "vangi-bath",
+   "name": "Vangi Bath",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 155,
+   "protein": 3.5,
+   "carbs": 23,
+   "fat": 5,
+   "fiber": 2,
+   "season": null,
+   "tags": [
+    "karnataka",
+    "rice"
+   ]
+  },
+  {
+   "id": "paniyaram",
+   "name": "Paniyaram (appe)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 162,
+   "protein": 4.5,
+   "carbs": 24,
+   "fat": 5,
+   "fiber": 1.5,
+   "season": null,
+   "tags": [
+    "tamil",
+    "breakfast"
+   ]
+  },
+  {
+   "id": "keerai-masiyal",
+   "name": "Keerai Masiyal",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 64,
+   "protein": 3.2,
+   "carbs": 6,
+   "fat": 2.5,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "tamil",
+    "iron-rich"
+   ]
+  },
+  {
+   "id": "mulligatawny-soup",
+   "name": "Mulligatawny Soup",
+   "category": "Prepared Indian Meals",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 58,
+   "protein": 2.5,
+   "carbs": 7,
+   "fat": 2,
+   "fiber": 1,
+   "season": null,
+   "tags": [
+    "soup"
+   ]
+  },
+  {
+   "id": "kori-rotti",
+   "name": "Kori Rotti (light)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 156,
+   "protein": 11,
+   "carbs": 14,
+   "fat": 6,
+   "fiber": 1,
+   "season": null,
+   "tags": [
+    "mangalorean",
+    "chicken"
+   ]
+  },
+  {
+   "id": "prawn-ghee-roast",
+   "name": "Prawn Ghee Roast (light)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 163,
+   "protein": 15,
+   "carbs": 5,
+   "fat": 9,
+   "fiber": 0.8,
+   "season": null,
+   "tags": [
+    "mangalorean",
+    "seafood"
+   ]
+  },
+  {
+   "id": "chicken-ghee-roast",
+   "name": "Chicken Ghee Roast (light)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 177,
+   "protein": 15,
+   "carbs": 4,
+   "fat": 11,
+   "fiber": 0.8,
+   "season": null,
+   "tags": [
+    "mangalorean",
+    "chicken"
+   ]
+  },
+  {
+   "id": "mirchi-ka-salan",
+   "name": "Mirchi Ka Salan",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 134,
+   "protein": 3,
+   "carbs": 9,
+   "fat": 9,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "hyderabadi"
+   ]
+  },
+  {
+   "id": "bagara-baingan",
+   "name": "Bagara Baingan",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 139,
+   "protein": 3,
+   "carbs": 10,
+   "fat": 9,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "hyderabadi"
+   ]
+  },
+  {
+   "id": "khatti-dal",
+   "name": "Khatti Dal",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 103,
+   "protein": 5.5,
+   "carbs": 12,
+   "fat": 3,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "hyderabadi",
+    "dal"
+   ]
+  },
+  {
+   "id": "chicken-haleem",
+   "name": "Chicken Haleem (lean)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 167,
+   "protein": 11,
+   "carbs": 14,
+   "fat": 7,
+   "fiber": 2,
+   "season": null,
+   "tags": [
+    "hyderabadi",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "ragi-idli",
+   "name": "Ragi Idli",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 126,
+   "protein": 4,
+   "carbs": 24,
+   "fat": 1,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "steamed",
+    "breakfast",
+    "millet"
+   ]
+  },
+  {
+   "id": "kanchipuram-idli",
+   "name": "Kanchipuram Idli",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 148,
+   "protein": 4.5,
+   "carbs": 25,
+   "fat": 3,
+   "fiber": 1.5,
+   "season": null,
+   "tags": [
+    "steamed",
+    "breakfast"
+   ]
+  },
+  {
+   "id": "sundal",
+   "name": "Sundal (tempered chana)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 158,
+   "protein": 8,
+   "carbs": 20,
+   "fat": 4,
+   "fiber": 5,
+   "season": null,
+   "tags": [
+    "tamil",
+    "snack",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "chicken-65",
+   "name": "Chicken 65 (air-fried)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 187,
+   "protein": 18,
+   "carbs": 8,
+   "fat": 9,
+   "fiber": 0.8,
+   "season": null,
+   "tags": [
+    "chicken",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "chilli-chicken",
+   "name": "Chilli Chicken (light)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 170,
+   "protein": 16,
+   "carbs": 8,
+   "fat": 8,
+   "fiber": 1,
+   "season": null,
+   "tags": [
+    "chicken",
+    "indo-chinese"
+   ]
+  },
+  {
+   "id": "pepper-chicken",
+   "name": "Pepper Chicken",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 163,
+   "protein": 16,
+   "carbs": 4,
+   "fat": 9,
+   "fiber": 1,
+   "season": null,
+   "tags": [
+    "chicken",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "kerala-chicken-roast",
+   "name": "Kerala Chicken Roast",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 172,
+   "protein": 15,
+   "carbs": 5,
+   "fat": 10,
+   "fiber": 1.2,
+   "season": null,
+   "tags": [
+    "kerala",
+    "chicken"
+   ]
+  },
+  {
+   "id": "chicken-shami-kebab",
+   "name": "Chicken Shami Kebab",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 180,
+   "protein": 16,
+   "carbs": 8,
+   "fat": 9,
+   "fiber": 1.5,
+   "season": null,
+   "tags": [
+    "kebab",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "chicken-seekh-kebab",
+   "name": "Chicken Seekh Kebab",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 176,
+   "protein": 17,
+   "carbs": 4,
+   "fat": 10,
+   "fiber": 1,
+   "season": null,
+   "tags": [
+    "kebab",
+    "grilled",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "tangdi-kebab",
+   "name": "Tangdi Kebab",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 166,
+   "protein": 18,
+   "carbs": 3,
+   "fat": 9,
+   "fiber": 0.6,
+   "season": null,
+   "tags": [
+    "kebab",
+    "grilled",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "chicken-malai-tikka",
+   "name": "Chicken Malai Tikka",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 184,
+   "protein": 18,
+   "carbs": 3,
+   "fat": 11,
+   "fiber": 0.4,
+   "season": null,
+   "tags": [
+    "kebab",
+    "grilled"
+   ]
+  },
+  {
+   "id": "fish-tikka",
+   "name": "Fish Tikka",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 152,
+   "protein": 19,
+   "carbs": 3,
+   "fat": 7,
+   "fiber": 0.4,
+   "season": null,
+   "tags": [
+    "kebab",
+    "grilled",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "fish-cutlet",
+   "name": "Fish Cutlet (pan)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 169,
+   "protein": 14,
+   "carbs": 12,
+   "fat": 7,
+   "fiber": 1,
+   "season": null,
+   "tags": [
+    "fish",
+    "snack"
+   ]
+  },
+  {
+   "id": "prawn-pepper-fry",
+   "name": "Prawn Pepper Fry",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 148,
+   "protein": 17,
+   "carbs": 4,
+   "fat": 7,
+   "fiber": 0.6,
+   "season": null,
+   "tags": [
+    "seafood",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "mutton-rogan-josh",
+   "name": "Mutton Rogan Josh (lean)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 181,
+   "protein": 16,
+   "carbs": 4,
+   "fat": 11,
+   "fiber": 0.8,
+   "season": null,
+   "tags": [
+    "kashmiri",
+    "mutton"
+   ]
+  },
+  {
+   "id": "mutton-yakhni",
+   "name": "Mutton Yakhni",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 150,
+   "protein": 14,
+   "carbs": 3,
+   "fat": 9,
+   "fiber": 0.4,
+   "season": null,
+   "tags": [
+    "kashmiri",
+    "mutton"
+   ]
+  },
+  {
+   "id": "mutton-galouti-kebab",
+   "name": "Mutton Galouti Kebab (lean)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 185,
+   "protein": 15,
+   "carbs": 6,
+   "fat": 11,
+   "fiber": 0.8,
+   "season": null,
+   "tags": [
+    "kebab",
+    "awadhi"
+   ]
+  },
+  {
+   "id": "mutton-stew",
+   "name": "Mutton Stew",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 150,
+   "protein": 13,
+   "carbs": 6,
+   "fat": 8,
+   "fiber": 1,
+   "season": null,
+   "tags": [
+    "kerala",
+    "mutton"
+   ]
+  },
+  {
+   "id": "chicken-cafreal",
+   "name": "Chicken Cafreal",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 163,
+   "protein": 16,
+   "carbs": 4,
+   "fat": 9,
+   "fiber": 1.2,
+   "season": null,
+   "tags": [
+    "goan",
+    "chicken"
+   ]
+  },
+  {
+   "id": "fish-recheado",
+   "name": "Fish Recheado",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 154,
+   "protein": 16,
+   "carbs": 4,
+   "fat": 8,
+   "fiber": 0.8,
+   "season": null,
+   "tags": [
+    "goan",
+    "fish"
+   ]
+  },
+  {
+   "id": "chicken-xacuti",
+   "name": "Chicken Xacuti (light)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 160,
+   "protein": 14,
+   "carbs": 5,
+   "fat": 9,
+   "fiber": 1.5,
+   "season": null,
+   "tags": [
+    "goan",
+    "chicken"
+   ]
+  },
+  {
+   "id": "pork-vindaloo",
+   "name": "Pork Vindaloo (lean)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 172,
+   "protein": 15,
+   "carbs": 5,
+   "fat": 10,
+   "fiber": 0.8,
+   "season": null,
+   "tags": [
+    "goan",
+    "pork"
+   ]
+  },
+  {
+   "id": "coorg-pandi-curry",
+   "name": "Coorg Pandi Curry (lean pork)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 177,
+   "protein": 15,
+   "carbs": 4,
+   "fat": 11,
+   "fiber": 0.8,
+   "season": null,
+   "tags": [
+    "coorg",
+    "pork"
+   ]
+  },
+  {
+   "id": "duck-roast",
+   "name": "Duck Roast (lean)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 172,
+   "protein": 16,
+   "carbs": 4,
+   "fat": 10,
+   "fiber": 0.8,
+   "season": null,
+   "tags": [
+    "kerala",
+    "duck"
+   ]
+  },
+  {
+   "id": "anda-ghotala",
+   "name": "Anda Ghotala",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "egg",
+   "kcal": 156,
+   "protein": 10,
+   "carbs": 6,
+   "fat": 10,
+   "fiber": 0.8,
+   "season": null,
+   "tags": [
+    "mumbai",
+    "egg"
+   ]
+  },
+  {
+   "id": "keema-paratha",
+   "name": "Keema Paratha (low oil)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 229,
+   "protein": 10,
+   "carbs": 26,
+   "fat": 9,
+   "fiber": 2.2,
+   "season": null,
+   "tags": [
+    "bread",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "chicken-kathi-roll",
+   "name": "Chicken Kathi Roll (whole wheat)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 199,
+   "protein": 11,
+   "carbs": 22,
+   "fat": 7,
+   "fiber": 2.2,
+   "season": null,
+   "tags": [
+    "roll",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "paneer-kathi-roll",
+   "name": "Paneer Kathi Roll (whole wheat)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 204,
+   "protein": 9,
+   "carbs": 23,
+   "fat": 8,
+   "fiber": 2.2,
+   "season": null,
+   "tags": [
+    "roll",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "egg-kathi-roll",
+   "name": "Egg Kathi Roll (whole wheat)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "egg",
+   "kcal": 191,
+   "protein": 9,
+   "carbs": 22,
+   "fat": 7,
+   "fiber": 2,
+   "season": null,
+   "tags": [
+    "roll",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "dalcha",
+   "name": "Dalcha (mutton-lentil)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 126,
+   "protein": 9,
+   "carbs": 10,
+   "fat": 5,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "hyderabadi"
+   ]
+  },
+  {
+   "id": "paya-soup",
+   "name": "Paya Soup",
+   "category": "Prepared Indian Meals",
+   "unit": "100ml",
+   "diet": "nonveg",
+   "kcal": 85,
+   "protein": 8,
+   "carbs": 2,
+   "fat": 5,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "soup"
+   ]
+  },
+  {
+   "id": "nihari",
+   "name": "Nihari (lean)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 151,
+   "protein": 13,
+   "carbs": 4,
+   "fat": 9,
+   "fiber": 0.8,
+   "season": null,
+   "tags": [
+    "mughlai",
+    "mutton"
+   ]
+  },
+  {
+   "id": "chicken-meatballs",
+   "name": "Chicken Meatballs (steamed)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 171,
+   "protein": 17,
+   "carbs": 5,
+   "fat": 9,
+   "fiber": 0.8,
+   "season": null,
+   "tags": [
+    "steamed",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "veg-kolhapuri",
+   "name": "Veg Kolhapuri",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 127,
+   "protein": 3.5,
+   "carbs": 11,
+   "fat": 7,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "sabzi",
+    "spicy"
+   ]
+  },
+  {
+   "id": "veg-do-pyaza",
+   "name": "Veg Do Pyaza",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 111,
+   "protein": 3,
+   "carbs": 10,
+   "fat": 6,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "sabzi"
+   ]
+  },
+  {
+   "id": "palak-mushroom",
+   "name": "Palak Mushroom",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 87,
+   "protein": 3.5,
+   "carbs": 6,
+   "fat": 5,
+   "fiber": 2.2,
+   "season": "Oct–Mar",
+   "tags": [
+    "sabzi",
+    "iron-rich"
+   ]
+  },
+  {
+   "id": "aloo-bhindi",
+   "name": "Aloo Bhindi",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 114,
+   "protein": 2.5,
+   "carbs": 12,
+   "fat": 5.5,
+   "fiber": 3,
+   "season": "Apr–Sep",
+   "tags": [
+    "sabzi"
+   ]
+  },
+  {
+   "id": "aloo-shimla-mirch",
+   "name": "Aloo Shimla Mirch",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 111,
+   "protein": 2.5,
+   "carbs": 13,
+   "fat": 5,
+   "fiber": 2.2,
+   "season": null,
+   "tags": [
+    "sabzi"
+   ]
+  },
+  {
+   "id": "gobi-65",
+   "name": "Gobi 65 (air-fried)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 141,
+   "protein": 4,
+   "carbs": 14,
+   "fat": 7,
+   "fiber": 3,
+   "season": "Oct–Mar",
+   "tags": [
+    "snack"
+   ]
+  },
+  {
+   "id": "besan-bhindi",
+   "name": "Besan Bhindi",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 134,
+   "protein": 4,
+   "carbs": 12,
+   "fat": 7,
+   "fiber": 3.5,
+   "season": "Apr–Sep",
+   "tags": [
+    "sabzi"
+   ]
+  },
+  {
+   "id": "dahi-aloo",
+   "name": "Dahi Aloo",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 97,
+   "protein": 2.5,
+   "carbs": 12,
+   "fat": 4,
+   "fiber": 1.5,
+   "season": null,
+   "tags": [
+    "sabzi",
+    "fasting-food"
+   ]
+  },
+  {
+   "id": "dahi-bhindi",
+   "name": "Dahi Bhindi",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 99,
+   "protein": 3,
+   "carbs": 8,
+   "fat": 5.5,
+   "fiber": 2.5,
+   "season": "Apr–Sep",
+   "tags": [
+    "sabzi"
+   ]
+  },
+  {
+   "id": "matar-ka-nimona",
+   "name": "Matar Ka Nimona",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 112,
+   "protein": 5,
+   "carbs": 12,
+   "fat": 4,
+   "fiber": 4,
+   "season": "Nov–Feb",
+   "tags": [
+    "sabzi",
+    "seasonal"
+   ]
+  },
+  {
+   "id": "turai-chana-dal",
+   "name": "Turai Chana Dal",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 104,
+   "protein": 4.5,
+   "carbs": 11,
+   "fat": 4,
+   "fiber": 3,
+   "season": "Jun–Oct",
+   "tags": [
+    "sabzi",
+    "dal"
+   ]
+  },
+  {
+   "id": "lauki-chana-dal",
+   "name": "Lauki Chana Dal",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 96,
+   "protein": 4.5,
+   "carbs": 10,
+   "fat": 3.5,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "sabzi",
+    "dal"
+   ]
+  },
+  {
+   "id": "kathal-sabzi",
+   "name": "Kathal Sabzi (raw jackfruit)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 116,
+   "protein": 3,
+   "carbs": 11,
+   "fat": 6,
+   "fiber": 3,
+   "season": "Feb–May",
+   "tags": [
+    "sabzi"
+   ]
+  },
+  {
+   "id": "vazhaipoo-poriyal",
+   "name": "Vazhaipoo Poriyal (banana flower)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 101,
+   "protein": 3,
+   "carbs": 9,
+   "fat": 5,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "tamil",
+    "high-fiber"
+   ]
+  },
+  {
+   "id": "soya-keema",
+   "name": "Soya Keema",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 162,
+   "protein": 15,
+   "carbs": 10,
+   "fat": 6,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "high-protein",
+    "meat-substitute"
+   ]
+  },
+  {
+   "id": "soya-chunk-curry",
+   "name": "Soya Chunk Curry",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 146,
+   "protein": 12,
+   "carbs": 9,
+   "fat": 6,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "high-protein"
+   ]
+  },
+  {
+   "id": "tofu-tikka",
+   "name": "Tofu Tikka",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 142,
+   "protein": 12,
+   "carbs": 5,
+   "fat": 8,
+   "fiber": 1.2,
+   "season": null,
+   "tags": [
+    "vegan",
+    "grilled",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "tofu-bhurji",
+   "name": "Tofu Bhurji",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 108,
+   "protein": 9,
+   "carbs": 4,
+   "fat": 6,
+   "fiber": 1,
+   "season": null,
+   "tags": [
+    "vegan",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "veg-manchurian",
+   "name": "Veg Manchurian (baked, light)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 129,
+   "protein": 4,
+   "carbs": 16,
+   "fat": 5,
+   "fiber": 2,
+   "season": null,
+   "tags": [
+    "indo-chinese",
+    "baked"
+   ]
+  },
+  {
+   "id": "onion-paratha",
+   "name": "Onion Paratha (low oil)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 219,
+   "protein": 5.5,
+   "carbs": 32,
+   "fat": 7,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "bread",
+    "breakfast"
+   ]
+  },
+  {
+   "id": "dal-paratha",
+   "name": "Dal Paratha (low oil)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 240,
+   "protein": 8,
+   "carbs": 34,
+   "fat": 7,
+   "fiber": 4.5,
+   "season": null,
+   "tags": [
+    "bread",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "beetroot-paratha",
+   "name": "Beetroot Paratha (low oil)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 209,
+   "protein": 5,
+   "carbs": 32,
+   "fat": 6,
+   "fiber": 3.5,
+   "season": "Oct–Mar",
+   "tags": [
+    "bread"
+   ]
+  },
+  {
+   "id": "multigrain-roti",
+   "name": "Multigrain Roti",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 262,
+   "protein": 9,
+   "carbs": 44,
+   "fat": 4,
+   "fiber": 7,
+   "season": null,
+   "tags": [
+    "bread",
+    "high-fiber"
+   ]
+  },
+  {
+   "id": "ragi-roti",
+   "name": "Ragi Roti",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 227,
+   "protein": 6,
+   "carbs": 40,
+   "fat": 3,
+   "fiber": 8,
+   "season": null,
+   "tags": [
+    "bread",
+    "millet",
+    "gluten-free"
+   ]
+  },
+  {
+   "id": "palak-khichdi",
+   "name": "Palak Khichdi",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 122,
+   "protein": 4.5,
+   "carbs": 18,
+   "fat": 3,
+   "fiber": 2.5,
+   "season": "Oct–Mar",
+   "tags": [
+    "one-pot",
+    "iron-rich"
+   ]
+  },
+  {
+   "id": "bajra-khichdi",
+   "name": "Bajra Khichdi",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 140,
+   "protein": 5,
+   "carbs": 20,
+   "fat": 3.5,
+   "fiber": 4,
+   "season": "Nov–Feb",
+   "tags": [
+    "one-pot",
+    "millet",
+    "seasonal"
+   ]
+  },
+  {
+   "id": "oats-khichdi",
+   "name": "Oats Khichdi",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 126,
+   "protein": 5,
+   "carbs": 17,
+   "fat": 3.5,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "one-pot",
+    "high-fiber"
+   ]
+  },
+  {
+   "id": "masala-karela-chips",
+   "name": "Masala Karela Chips (baked)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 132,
+   "protein": 3,
+   "carbs": 14,
+   "fat": 6,
+   "fiber": 5,
+   "season": "Apr–Sep",
+   "tags": [
+    "snack",
+    "baked"
+   ]
+  },
+  {
+   "id": "sweet-potato-chaat",
+   "name": "Sweet Potato Chaat",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 117,
+   "protein": 2,
+   "carbs": 20,
+   "fat": 2.5,
+   "fiber": 3,
+   "season": "Nov–Feb",
+   "tags": [
+    "chaat",
+    "seasonal"
+   ]
+  },
+  {
+   "id": "sweet-potato-tikki",
+   "name": "Sweet Potato Tikki (pan)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 140,
+   "protein": 2.5,
+   "carbs": 22,
+   "fat": 4,
+   "fiber": 3,
+   "season": "Nov–Feb",
+   "tags": [
+    "snack"
+   ]
+  },
+  {
+   "id": "raw-banana-tikki",
+   "name": "Raw Banana Tikki (pan)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 152,
+   "protein": 2.5,
+   "carbs": 24,
+   "fat": 4.5,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "snack"
+   ]
+  },
+  {
+   "id": "arbi-fry",
+   "name": "Arbi Fry (shallow)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 157,
+   "protein": 2,
+   "carbs": 22,
+   "fat": 6,
+   "fiber": 3.5,
+   "season": null,
+   "tags": [
+    "sabzi"
+   ]
+  },
+  {
+   "id": "suran-chips",
+   "name": "Suran Chips (baked)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 165,
+   "protein": 2,
+   "carbs": 26,
+   "fat": 5,
+   "fiber": 4,
+   "season": "Aug–Dec",
+   "tags": [
+    "snack",
+    "baked"
+   ]
+  },
+  {
+   "id": "trevti-dal",
+   "name": "Trevti Dal (three-lentil)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 119,
+   "protein": 6,
+   "carbs": 14,
+   "fat": 3.5,
+   "fiber": 3.5,
+   "season": null,
+   "tags": [
+    "dal",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "methi-dal",
+   "name": "Methi Dal",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 104,
+   "protein": 5.5,
+   "carbs": 11,
+   "fat": 3.5,
+   "fiber": 3.2,
+   "season": "Nov–Feb",
+   "tags": [
+    "dal",
+    "iron-rich"
+   ]
+  },
+  {
+   "id": "mango-dal",
+   "name": "Mango Dal (raw mango)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 101,
+   "protein": 5,
+   "carbs": 12,
+   "fat": 3,
+   "fiber": 2.8,
+   "season": "Mar–May",
+   "tags": [
+    "dal",
+    "andhra",
+    "seasonal"
+   ]
+  },
+  {
+   "id": "kulith-usal",
+   "name": "Kulith Usal (horse gram)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 129,
+   "protein": 8,
+   "carbs": 15,
+   "fat": 3,
+   "fiber": 5,
+   "season": null,
+   "tags": [
+    "high-protein",
+    "weight-loss"
+   ]
+  },
+  {
+   "id": "lobia-masala",
+   "name": "Lobia Masala",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 127,
+   "protein": 6.5,
+   "carbs": 15,
+   "fat": 3.5,
+   "fiber": 4.5,
+   "season": null,
+   "tags": [
+    "high-protein"
+   ]
+  },
+  {
+   "id": "sabut-moong-curry",
+   "name": "Sabut Moong Curry",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 125,
+   "protein": 7,
+   "carbs": 15,
+   "fat": 3,
+   "fiber": 5,
+   "season": null,
+   "tags": [
+    "high-protein",
+    "dal"
+   ]
+  },
+  {
+   "id": "dhaba-dal",
+   "name": "Dhaba Dal",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 123,
+   "protein": 6,
+   "carbs": 13,
+   "fat": 4.5,
+   "fiber": 3.2,
+   "season": null,
+   "tags": [
+    "dal"
+   ]
+  },
+  {
+   "id": "masala-brown-rice",
+   "name": "Masala Brown Rice",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 144,
+   "protein": 3,
+   "carbs": 24,
+   "fat": 3.5,
+   "fiber": 2,
+   "season": null,
+   "tags": [
+    "rice",
+    "high-fiber"
+   ]
+  },
+  {
+   "id": "millet-pulao",
+   "name": "Millet Pulao",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 146,
+   "protein": 4,
+   "carbs": 22,
+   "fat": 4,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "rice",
+    "millet"
+   ]
+  },
+  {
+   "id": "quinoa-pulao",
+   "name": "Quinoa Pulao",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 140,
+   "protein": 4.5,
+   "carbs": 20,
+   "fat": 4,
+   "fiber": 2.8,
+   "season": null,
+   "tags": [
+    "rice"
+   ]
+  },
+  {
+   "id": "methi-rice",
+   "name": "Methi Rice",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 150,
+   "protein": 3.5,
+   "carbs": 24,
+   "fat": 4,
+   "fiber": 2,
+   "season": "Nov–Feb",
+   "tags": [
+    "rice"
+   ]
+  },
+  {
+   "id": "coriander-rice",
+   "name": "Coriander Rice",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 147,
+   "protein": 3,
+   "carbs": 24,
+   "fat": 4,
+   "fiber": 1.5,
+   "season": null,
+   "tags": [
+    "rice"
+   ]
+  },
+  {
+   "id": "capsicum-rice",
+   "name": "Capsicum Rice",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 152,
+   "protein": 3,
+   "carbs": 24,
+   "fat": 4.5,
+   "fiber": 1.8,
+   "season": null,
+   "tags": [
+    "rice"
+   ]
+  },
+  {
+   "id": "egg-biryani",
+   "name": "Egg Biryani (portion-controlled)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "egg",
+   "kcal": 176,
+   "protein": 8,
+   "carbs": 22,
+   "fat": 6,
+   "fiber": 1,
+   "season": null,
+   "tags": [
+    "rice",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "fish-biryani",
+   "name": "Fish Biryani (portion-controlled)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 171,
+   "protein": 9,
+   "carbs": 22,
+   "fat": 5,
+   "fiber": 1,
+   "season": null,
+   "tags": [
+    "rice",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "jowar-upma",
+   "name": "Jowar Upma",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 128,
+   "protein": 4,
+   "carbs": 20,
+   "fat": 3,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "breakfast",
+    "millet"
+   ]
+  },
+  {
+   "id": "quinoa-upma",
+   "name": "Quinoa Upma",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 131,
+   "protein": 4.5,
+   "carbs": 18,
+   "fat": 4,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "breakfast"
+   ]
+  },
+  {
+   "id": "oats-pancake",
+   "name": "Oats Pancake",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 145,
+   "protein": 6,
+   "carbs": 20,
+   "fat": 4,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "breakfast"
+   ]
+  },
+  {
+   "id": "banana-pancake",
+   "name": "Banana Pancake (whole wheat)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 164,
+   "protein": 5,
+   "carbs": 26,
+   "fat": 4,
+   "fiber": 2,
+   "season": null,
+   "tags": [
+    "breakfast"
+   ]
+  },
+  {
+   "id": "overnight-oats",
+   "name": "Overnight Oats (milk & chia)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 125,
+   "protein": 5,
+   "carbs": 16,
+   "fat": 4,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "breakfast",
+    "high-fiber"
+   ]
+  },
+  {
+   "id": "smoothie-bowl",
+   "name": "Smoothie Bowl (fruit & granola)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 138,
+   "protein": 4,
+   "carbs": 20,
+   "fat": 4,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "breakfast"
+   ]
+  },
+  {
+   "id": "granola",
+   "name": "Granola (baked, low sugar)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 436,
+   "protein": 10,
+   "carbs": 55,
+   "fat": 18,
+   "fiber": 7,
+   "season": null,
+   "tags": [
+    "breakfast",
+    "energy-dense"
+   ]
+  },
+  {
+   "id": "bread-omelette",
+   "name": "Bread Omelette",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "egg",
+   "kcal": 200,
+   "protein": 9,
+   "carbs": 20,
+   "fat": 9,
+   "fiber": 1.5,
+   "season": null,
+   "tags": [
+    "breakfast",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "chutney-sandwich",
+   "name": "Chutney Sandwich (whole wheat)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 175,
+   "protein": 5,
+   "carbs": 26,
+   "fat": 5,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "snack"
+   ]
+  },
+  {
+   "id": "sprout-sandwich",
+   "name": "Sprout Sandwich (whole wheat)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 172,
+   "protein": 7,
+   "carbs": 25,
+   "fat": 4,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "snack",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "avocado-toast",
+   "name": "Avocado Toast (multigrain)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 197,
+   "protein": 5,
+   "carbs": 22,
+   "fat": 9,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "breakfast",
+    "healthy-fat"
+   ]
+  },
+  {
+   "id": "dahi-chura",
+   "name": "Dahi Chura (poha, curd & jaggery)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 142,
+   "protein": 4,
+   "carbs": 25,
+   "fat": 2.5,
+   "fiber": 1.5,
+   "season": null,
+   "tags": [
+    "bihari",
+    "breakfast"
+   ]
+  },
+  {
+   "id": "sabudana-kheer",
+   "name": "Sabudana Kheer (low sugar)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 133,
+   "protein": 2,
+   "carbs": 22,
+   "fat": 4,
+   "fiber": 0.5,
+   "season": null,
+   "tags": [
+    "dessert",
+    "fasting-food"
+   ]
+  },
+  {
+   "id": "quinoa-salad",
+   "name": "Quinoa Salad",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 141,
+   "protein": 4.5,
+   "carbs": 18,
+   "fat": 5,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "salad"
+   ]
+  },
+  {
+   "id": "millet-salad-bowl",
+   "name": "Millet Salad Bowl",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 144,
+   "protein": 4,
+   "carbs": 20,
+   "fat": 4.5,
+   "fiber": 3.5,
+   "season": null,
+   "tags": [
+    "salad",
+    "millet"
+   ]
+  },
+  {
+   "id": "chickpea-salad",
+   "name": "Chickpea Salad",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 146,
+   "protein": 7,
+   "carbs": 18,
+   "fat": 4,
+   "fiber": 5,
+   "season": null,
+   "tags": [
+    "salad",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "rajma-salad",
+   "name": "Rajma Salad",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 134,
+   "protein": 7,
+   "carbs": 17,
+   "fat": 3,
+   "fiber": 5.5,
+   "season": null,
+   "tags": [
+    "salad",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "grilled-chicken-salad",
+   "name": "Grilled Chicken Salad",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 138,
+   "protein": 15,
+   "carbs": 5,
+   "fat": 6,
+   "fiber": 1.8,
+   "season": null,
+   "tags": [
+    "salad",
+    "high-protein",
+    "weight-loss"
+   ]
+  },
+  {
+   "id": "tuna-salad",
+   "name": "Tuna Salad",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 137,
+   "protein": 14,
+   "carbs": 4,
+   "fat": 7,
+   "fiber": 1,
+   "season": null,
+   "tags": [
+    "salad",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "greek-salad",
+   "name": "Greek Salad",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 116,
+   "protein": 4,
+   "carbs": 6,
+   "fat": 8,
+   "fiber": 1.8,
+   "season": null,
+   "tags": [
+    "salad"
+   ]
+  },
+  {
+   "id": "paneer-salad-bowl",
+   "name": "Paneer Salad Bowl",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 154,
+   "protein": 9,
+   "carbs": 6,
+   "fat": 10,
+   "fiber": 1.8,
+   "season": null,
+   "tags": [
+    "salad",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "corn-bean-salad",
+   "name": "Corn & Bean Salad",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 119,
+   "protein": 5,
+   "carbs": 16,
+   "fat": 3,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "salad"
+   ]
+  },
+  {
+   "id": "watermelon-feta-salad",
+   "name": "Watermelon Feta Salad",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 82,
+   "protein": 3,
+   "carbs": 8,
+   "fat": 4,
+   "fiber": 0.8,
+   "season": "Mar–Jun",
+   "tags": [
+    "salad",
+    "seasonal"
+   ]
+  },
+  {
+   "id": "buddha-bowl",
+   "name": "Buddha Bowl (veg)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 158,
+   "protein": 6,
+   "carbs": 18,
+   "fat": 6,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "salad",
+    "balanced"
+   ]
+  },
+  {
+   "id": "egg-white-salad",
+   "name": "Egg White Salad",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "egg",
+   "kcal": 76,
+   "protein": 10,
+   "carbs": 4,
+   "fat": 2,
+   "fiber": 1,
+   "season": null,
+   "tags": [
+    "salad",
+    "high-protein",
+    "low-fat"
+   ]
+  },
+  {
+   "id": "hummus",
+   "name": "Hummus",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 186,
+   "protein": 8,
+   "carbs": 14,
+   "fat": 10,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "dip",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "falafel",
+   "name": "Falafel (baked)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 218,
+   "protein": 9,
+   "carbs": 25,
+   "fat": 8,
+   "fiber": 5,
+   "season": null,
+   "tags": [
+    "baked",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "whole-wheat-pasta-arrabiata",
+   "name": "Whole Wheat Pasta Arrabiata",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 150,
+   "protein": 5,
+   "carbs": 22,
+   "fat": 4,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "pasta"
+   ]
+  },
+  {
+   "id": "chicken-burrito-bowl",
+   "name": "Chicken Burrito Bowl (desi)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 158,
+   "protein": 11,
+   "carbs": 16,
+   "fat": 5,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "bowl",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "protein-bar",
+   "name": "Protein Bar (homemade oats-dates)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 366,
+   "protein": 12,
+   "carbs": 45,
+   "fat": 14,
+   "fiber": 6,
+   "season": null,
+   "tags": [
+    "snack",
+    "pre-workout"
+   ]
+  },
+  {
+   "id": "zucchini-noodles",
+   "name": "Zucchini Noodles (sautéed)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 67,
+   "protein": 2,
+   "carbs": 5,
+   "fat": 4,
+   "fiber": 1.6,
+   "season": "Oct–Mar",
+   "tags": [
+    "low-carb"
+   ]
+  },
+  {
+   "id": "makhana-bhel",
+   "name": "Makhana Bhel",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 192,
+   "protein": 5,
+   "carbs": 28,
+   "fat": 6,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "chaat",
+    "snack"
+   ]
+  },
+  {
+   "id": "chana-jor-garam",
+   "name": "Chana Jor Garam",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 230,
+   "protein": 10,
+   "carbs": 30,
+   "fat": 6,
+   "fiber": 8,
+   "season": null,
+   "tags": [
+    "snack",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "roasted-bhutta",
+   "name": "Roasted Bhutta (corn on the cob)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 116,
+   "protein": 3.4,
+   "carbs": 21,
+   "fat": 1.5,
+   "fiber": 2.4,
+   "season": "Jun–Sep",
+   "tags": [
+    "snack",
+    "seasonal"
+   ]
+  },
+  {
+   "id": "baked-mathri",
+   "name": "Baked Mathri",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 252,
+   "protein": 7,
+   "carbs": 32,
+   "fat": 10,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "snack",
+    "baked"
+   ]
+  },
+  {
+   "id": "til-ladoo",
+   "name": "Til Ladoo (jaggery)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 410,
+   "protein": 8,
+   "carbs": 52,
+   "fat": 18,
+   "fiber": 4,
+   "season": "Dec–Jan",
+   "tags": [
+    "winter-treat"
+   ]
+  },
+  {
+   "id": "rajgira-ladoo",
+   "name": "Rajgira Ladoo",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 346,
+   "protein": 7,
+   "carbs": 55,
+   "fat": 10,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "fasting-food",
+    "snack"
+   ]
+  },
+  {
+   "id": "rajgira-chikki",
+   "name": "Rajgira Chikki",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 380,
+   "protein": 8,
+   "carbs": 58,
+   "fat": 12,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "snack"
+   ]
+  },
+  {
+   "id": "ragi-chips",
+   "name": "Ragi Chips (baked)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 348,
+   "protein": 6,
+   "carbs": 60,
+   "fat": 8,
+   "fiber": 6,
+   "season": null,
+   "tags": [
+    "snack",
+    "baked",
+    "millet"
+   ]
+  },
+  {
+   "id": "baked-banana-chips",
+   "name": "Baked Banana Chips",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 356,
+   "protein": 2,
+   "carbs": 58,
+   "fat": 12,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "snack",
+    "baked"
+   ]
+  },
+  {
+   "id": "roasted-jowar-puffs",
+   "name": "Roasted Jowar Puffs",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 338,
+   "protein": 7,
+   "carbs": 70,
+   "fat": 2,
+   "fiber": 6,
+   "season": null,
+   "tags": [
+    "snack",
+    "millet",
+    "low-fat"
+   ]
+  },
+  {
+   "id": "baked-soya-sticks",
+   "name": "Baked Soya Sticks",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 366,
+   "protein": 25,
+   "carbs": 40,
+   "fat": 10,
+   "fiber": 8,
+   "season": null,
+   "tags": [
+    "snack",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "sattu-ladoo",
+   "name": "Sattu Ladoo (jaggery)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 378,
+   "protein": 10,
+   "carbs": 50,
+   "fat": 14,
+   "fiber": 6,
+   "season": null,
+   "tags": [
+    "snack",
+    "desi-protein"
+   ]
+  },
+  {
+   "id": "anjeer-barfi",
+   "name": "Anjeer Barfi (no sugar)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 362,
+   "protein": 5,
+   "carbs": 55,
+   "fat": 12,
+   "fiber": 7,
+   "season": null,
+   "tags": [
+    "dessert",
+    "natural-sweetener"
+   ]
+  },
+  {
+   "id": "coconut-ladoo",
+   "name": "Coconut Ladoo (jaggery)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 370,
+   "protein": 4,
+   "carbs": 45,
+   "fat": 18,
+   "fiber": 6,
+   "season": null,
+   "tags": [
+    "dessert"
+   ]
+  },
+  {
+   "id": "chia-pudding",
+   "name": "Chia Pudding (coconut milk)",
+   "category": "Prepared Indian Meals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 124,
+   "protein": 3.5,
+   "carbs": 12,
+   "fat": 6,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "dessert",
+    "high-fiber"
+   ]
+  },
+  {
+   "id": "dark-chocolate",
+   "name": "Dark Chocolate (70%)",
+   "category": "Sweeteners & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 600,
+   "protein": 8,
+   "carbs": 45,
+   "fat": 42,
+   "fiber": 11,
+   "season": null,
+   "tags": [
+    "antioxidant",
+    "treat"
+   ]
+  },
+  {
+   "id": "thandai",
+   "name": "Thandai (low sugar)",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 68,
+   "protein": 2,
+   "carbs": 8,
+   "fat": 3,
+   "fiber": 0.5,
+   "season": "Feb–Apr",
+   "tags": [
+    "festive",
+    "seasonal"
+   ]
+  },
+  {
+   "id": "badam-sharbat",
+   "name": "Badam Sharbat (light)",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 54,
+   "protein": 1,
+   "carbs": 9,
+   "fat": 1.5,
+   "fiber": 0.2,
+   "season": "Apr–Jul",
+   "tags": [
+    "summer-cooler"
+   ]
+  },
+  {
+   "id": "bel-sharbat",
+   "name": "Bel Sharbat",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 45,
+   "protein": 0.5,
+   "carbs": 10,
+   "fat": 0.2,
+   "fiber": 0.5,
+   "season": "Apr–Jun",
+   "tags": [
+    "summer-cooler",
+    "digestive"
+   ]
+  },
+  {
+   "id": "kashaya",
+   "name": "Kashaya (spiced decoction)",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 12,
+   "protein": 0.3,
+   "carbs": 2,
+   "fat": 0.3,
+   "fiber": 0.1,
+   "season": null,
+   "tags": [
+    "immunity"
+   ]
+  },
+  {
+   "id": "chukku-kaapi",
+   "name": "Chukku Kaapi (dry ginger coffee)",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 12,
+   "protein": 0.2,
+   "carbs": 2.5,
+   "fat": 0.1,
+   "fiber": 0.1,
+   "season": null,
+   "tags": [
+    "immunity",
+    "kerala"
+   ]
+  },
+  {
+   "id": "barley-water",
+   "name": "Barley Water",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 25,
+   "protein": 0.5,
+   "carbs": 5,
+   "fat": 0.2,
+   "fiber": 0.5,
+   "season": null,
+   "tags": [
+    "hydrating"
+   ]
+  },
+  {
+   "id": "sabja-lemonade",
+   "name": "Sabja Lemonade (no sugar)",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 19,
+   "protein": 0.4,
+   "carbs": 3,
+   "fat": 0.4,
+   "fiber": 0.8,
+   "season": "Mar–Jul",
+   "tags": [
+    "summer-cooler"
+   ]
+  },
+  {
+   "id": "chia-lemon-water",
+   "name": "Chia Lemon Water",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 21,
+   "protein": 0.5,
+   "carbs": 2.5,
+   "fat": 0.8,
+   "fiber": 1,
+   "season": null,
+   "tags": [
+    "hydrating",
+    "high-fiber"
+   ]
+  },
+  {
+   "id": "protein-iced-coffee",
+   "name": "Protein Iced Coffee (whey)",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 37,
+   "protein": 6,
+   "carbs": 2,
+   "fat": 0.5,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "pre-workout",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "carrot-juice",
+   "name": "Carrot Juice (fresh)",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 43,
+   "protein": 0.9,
+   "carbs": 9,
+   "fat": 0.2,
+   "fiber": 0.8,
+   "season": "Nov–Mar",
+   "tags": [
+    "vitamin-a",
+    "seasonal"
+   ]
+  },
+  {
+   "id": "green-juice",
+   "name": "Green Juice (spinach-apple)",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 34,
+   "protein": 0.8,
+   "carbs": 7,
+   "fat": 0.2,
+   "fiber": 0.6,
+   "season": "Oct–Mar",
+   "tags": [
+    "detox"
+   ]
+  },
+  {
+   "id": "lauki-juice",
+   "name": "Lauki Juice",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 16,
+   "protein": 0.5,
+   "carbs": 3,
+   "fat": 0.1,
+   "fiber": 0.4,
+   "season": null,
+   "tags": [
+    "low-calorie"
+   ]
+  },
+  {
+   "id": "aloe-vera-juice",
+   "name": "Aloe Vera Juice",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 14,
+   "protein": 0.1,
+   "carbs": 3,
+   "fat": 0.1,
+   "fiber": 0.2,
+   "season": null,
+   "tags": [
+    "digestive"
+   ]
+  },
+  {
+   "id": "wheatgrass-juice",
+   "name": "Wheatgrass Juice",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 22,
+   "protein": 1,
+   "carbs": 4,
+   "fat": 0.1,
+   "fiber": 0.4,
+   "season": null,
+   "tags": [
+    "detox",
+    "superfood"
+   ]
+  },
+  {
+   "id": "ash-gourd-juice",
+   "name": "Ash Gourd Juice",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 13,
+   "protein": 0.3,
+   "carbs": 2.5,
+   "fat": 0.1,
+   "fiber": 0.5,
+   "season": null,
+   "tags": [
+    "low-calorie",
+    "detox"
+   ]
+  },
+  {
+   "id": "mosambi-juice",
+   "name": "Mosambi Juice (fresh)",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 41,
+   "protein": 0.6,
+   "carbs": 9,
+   "fat": 0.2,
+   "fiber": 0.3,
+   "season": "Jul–Nov",
+   "tags": [
+    "vitamin-c",
+    "seasonal"
+   ]
+  },
+  {
+   "id": "pineapple-juice",
+   "name": "Pineapple Juice (fresh)",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 51,
+   "protein": 0.4,
+   "carbs": 12,
+   "fat": 0.1,
+   "fiber": 0.3,
+   "season": null,
+   "tags": [
+    "digestive"
+   ]
+  },
+  {
+   "id": "guava-juice",
+   "name": "Guava Juice (fresh)",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 51,
+   "protein": 0.8,
+   "carbs": 11,
+   "fat": 0.2,
+   "fiber": 1,
+   "season": "Oct–Feb",
+   "tags": [
+    "vitamin-c",
+    "seasonal"
+   ]
+  },
+  {
+   "id": "tomato-juice",
+   "name": "Tomato Juice (fresh)",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 21,
+   "protein": 0.8,
+   "carbs": 4,
+   "fat": 0.1,
+   "fiber": 0.4,
+   "season": null,
+   "tags": [
+    "low-calorie"
+   ]
+  },
+  {
+   "id": "neera",
+   "name": "Neera (palm nectar)",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 45,
+   "protein": 0.2,
+   "carbs": 11,
+   "fat": 0,
+   "fiber": 0,
+   "season": "Feb–May",
+   "tags": [
+    "natural-energy",
+    "seasonal"
+   ]
+  },
+  {
+   "id": "kombucha",
+   "name": "Kombucha",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 13,
+   "protein": 0.2,
+   "carbs": 3,
+   "fat": 0,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "probiotic"
+   ]
+  },
+  {
+   "id": "electrolyte-lemon-drink",
+   "name": "Electrolyte Lemon Drink",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 16,
+   "protein": 0,
+   "carbs": 4,
+   "fat": 0,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "post-workout",
+    "hydrating"
+   ]
+  },
+  {
+   "id": "cold-brew-coffee",
+   "name": "Cold Brew Coffee (black)",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 3,
+   "protein": 0.2,
+   "carbs": 0.5,
+   "fat": 0,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "pre-workout",
+    "zero-calorie"
+   ]
+  },
+  {
+   "id": "rose-milk",
+   "name": "Rose Milk (low sugar, toned)",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 52,
+   "protein": 2.5,
+   "carbs": 7,
+   "fat": 1.5,
+   "fiber": 0,
+   "season": null,
+   "tags": []
+  },
+  {
+   "id": "ragi-ambli",
+   "name": "Ragi Ambli (fermented ragi drink)",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 44,
+   "protein": 1.5,
+   "carbs": 8,
+   "fat": 0.5,
+   "fiber": 0.8,
+   "season": "Mar–Jul",
+   "tags": [
+    "probiotic",
+    "summer-cooler"
+   ]
+  },
+  {
+   "id": "panakam",
+   "name": "Panakam (jaggery-ginger)",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 37,
+   "protein": 0.2,
+   "carbs": 9,
+   "fat": 0,
+   "fiber": 0.1,
+   "season": "Apr–May",
+   "tags": [
+    "festive",
+    "seasonal"
+   ]
+  },
+  {
+   "id": "khus-sharbat",
+   "name": "Khus Sharbat (light)",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 32,
+   "protein": 0.1,
+   "carbs": 8,
+   "fat": 0,
+   "fiber": 0,
+   "season": "Apr–Jul",
+   "tags": [
+    "summer-cooler"
+   ]
+  },
+  {
+   "id": "ginger-lemon-honey-water",
+   "name": "Ginger Lemon Honey Water",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 25,
+   "protein": 0.2,
+   "carbs": 6,
+   "fat": 0,
+   "fiber": 0.1,
+   "season": null,
+   "tags": [
+    "immunity",
+    "morning-ritual"
+   ]
+  },
+  {
+   "id": "ajwain-water",
+   "name": "Ajwain Water",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 6,
+   "protein": 0.1,
+   "carbs": 1,
+   "fat": 0.1,
+   "fiber": 0.2,
+   "season": null,
+   "tags": [
+    "digestive"
+   ]
+  },
+  {
+   "id": "jeera-water",
+   "name": "Jeera Water",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 6,
+   "protein": 0.1,
+   "carbs": 1,
+   "fat": 0.1,
+   "fiber": 0.2,
+   "season": null,
+   "tags": [
+    "digestive",
+    "morning-ritual"
+   ]
+  },
+  {
+   "id": "methi-water",
+   "name": "Methi Water",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 9,
+   "protein": 0.3,
+   "carbs": 1.5,
+   "fat": 0.1,
+   "fiber": 0.5,
+   "season": null,
+   "tags": [
+    "diabetic-friendly",
+    "morning-ritual"
+   ]
+  },
+  {
+   "id": "drinking-water",
+   "name": "Drinking Water",
+   "category": "Shakes & Drinks",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 0,
+   "protein": 0,
+   "carbs": 0,
+   "fat": 0,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "zero-calorie"
+   ]
+  },
+  {
+   "id": "cocoa-powder",
+   "name": "Cocoa Powder (unsweetened)",
+   "category": "Sweeteners & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 228,
+   "protein": 19.6,
+   "carbs": 13,
+   "fat": 13.7,
+   "fiber": 33,
+   "season": null,
+   "tags": [
+    "antioxidant"
+   ]
+  },
+  {
+   "id": "dried-dates-powder",
+   "name": "Dried Dates Powder",
+   "category": "Sweeteners & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 342,
+   "protein": 2.5,
+   "carbs": 78,
+   "fat": 0.4,
+   "fiber": 8,
+   "season": null,
+   "tags": [
+    "natural-sweetener"
+   ]
+  },
+  {
+   "id": "almond-butter",
+   "name": "Almond Butter",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 684,
+   "protein": 21,
+   "carbs": 19,
+   "fat": 56,
+   "fiber": 10,
+   "season": null,
+   "tags": [
+    "healthy-fat",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "cashew-butter",
+   "name": "Cashew Butter",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 604,
+   "protein": 18,
+   "carbs": 28,
+   "fat": 46,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "healthy-fat"
+   ]
+  },
+  {
+   "id": "coconut-cream",
+   "name": "Coconut Cream",
+   "category": "Dairy & Alternatives",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 256,
+   "protein": 3,
+   "carbs": 6,
+   "fat": 24,
+   "fiber": 2,
+   "season": null,
+   "tags": [
+    "healthy-fat"
+   ]
+  },
+  {
+   "id": "coconut-milk",
+   "name": "Coconut Milk (thin)",
+   "category": "Dairy & Alternatives",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 91,
+   "protein": 1.5,
+   "carbs": 3,
+   "fat": 8,
+   "fiber": 0.5,
+   "season": null,
+   "tags": [
+    "vegan"
+   ]
+  },
+  {
+   "id": "frozen-berries-mix",
+   "name": "Frozen Berries Mix",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 60,
+   "protein": 0.7,
+   "carbs": 12,
+   "fat": 0.3,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "antioxidant"
+   ]
+  },
+  {
+   "id": "ice-apple-tadgola",
+   "name": "Ice Apple / Tadgola",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 36,
+   "protein": 0.4,
+   "carbs": 8,
+   "fat": 0.1,
+   "fiber": 0.5,
+   "season": "Apr–Jun",
+   "tags": [
+    "hydrating",
+    "seasonal"
+   ]
+  },
+  {
+   "id": "basil-seeds-sabja",
+   "name": "Basil Seeds / Sabja",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 315,
+   "protein": 14,
+   "carbs": 24,
+   "fat": 13,
+   "fiber": 23,
+   "season": null,
+   "tags": [
+    "high-fiber",
+    "summer-cooler"
+   ]
+  },
+  {
+   "id": "jackfruit-seeds",
+   "name": "Jackfruit Seeds (boiled)",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 183,
+   "protein": 6,
+   "carbs": 38,
+   "fat": 0.4,
+   "fiber": 1.5,
+   "season": "Mar–Jun",
+   "tags": [
+    "seasonal"
+   ]
+  },
+  {
+   "id": "psyllium-husk-isabgol",
+   "name": "Psyllium Husk / Isabgol",
+   "category": "Miscellaneous",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 189,
+   "protein": 2,
+   "carbs": 4,
+   "fat": 0.5,
+   "fiber": 80,
+   "season": null,
+   "tags": [
+    "high-fiber",
+    "digestive"
+   ]
+  },
+  {
+   "id": "wheat-bran",
+   "name": "Wheat Bran",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 293,
+   "protein": 16,
+   "carbs": 26,
+   "fat": 4.3,
+   "fiber": 43,
+   "season": null,
+   "tags": [
+    "high-fiber"
+   ]
+  },
+  {
+   "id": "oat-bran",
+   "name": "Oat Bran",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 361,
+   "protein": 17,
+   "carbs": 50,
+   "fat": 7,
+   "fiber": 15,
+   "season": null,
+   "tags": [
+    "high-fiber"
+   ]
+  },
+  {
+   "id": "rice-bran",
+   "name": "Rice Bran",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 395,
+   "protein": 13,
+   "carbs": 28,
+   "fat": 21,
+   "fiber": 21,
+   "season": null,
+   "tags": [
+    "high-fiber"
+   ]
+  },
+  {
+   "id": "wheat-germ",
+   "name": "Wheat Germ",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 368,
+   "protein": 23,
+   "carbs": 40,
+   "fat": 10,
+   "fiber": 13,
+   "season": null,
+   "tags": [
+    "high-protein"
+   ]
+  },
+  {
+   "id": "nutritional-yeast",
+   "name": "Nutritional Yeast",
+   "category": "Miscellaneous",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 365,
+   "protein": 45,
+   "carbs": 25,
+   "fat": 5,
+   "fiber": 20,
+   "season": null,
+   "tags": [
+    "vegan",
+    "high-protein",
+    "b12"
+   ]
+  },
+  {
+   "id": "pea-protein-powder",
+   "name": "Pea Protein Powder",
+   "category": "Miscellaneous",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 398,
+   "protein": 76,
+   "carbs": 8,
+   "fat": 6,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "vegan",
+    "high-protein",
+    "muscle-gain"
+   ]
+  },
+  {
+   "id": "casein-protein-powder",
+   "name": "Casein Protein Powder",
+   "category": "Miscellaneous",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 365,
+   "protein": 72,
+   "carbs": 12,
+   "fat": 3,
+   "fiber": 1,
+   "season": null,
+   "tags": [
+    "high-protein",
+    "bedtime"
+   ]
+  },
+  {
+   "id": "soy-protein-isolate",
+   "name": "Soy Protein Isolate",
+   "category": "Miscellaneous",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 369,
+   "protein": 85,
+   "carbs": 4,
+   "fat": 1,
+   "fiber": 2,
+   "season": null,
+   "tags": [
+    "vegan",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "fresh-cream",
+   "name": "Fresh Cream (25% fat)",
+   "category": "Dairy & Alternatives",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 249,
+   "protein": 2,
+   "carbs": 4,
+   "fat": 25,
+   "fiber": 0,
+   "season": null,
+   "tags": []
+  },
+  {
+   "id": "khoya",
+   "name": "Khoya (skimmed milk)",
+   "category": "Dairy & Alternatives",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 258,
+   "protein": 17,
+   "carbs": 25,
+   "fat": 10,
+   "fiber": 0,
+   "season": null,
+   "tags": []
+  },
+  {
+   "id": "chhena",
+   "name": "Chhena (fresh)",
+   "category": "Dairy & Alternatives",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 176,
+   "protein": 14,
+   "carbs": 3,
+   "fat": 12,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "high-protein"
+   ]
+  },
+  {
+   "id": "quail-meat",
+   "name": "Quail Meat (cooked)",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 172,
+   "protein": 25,
+   "carbs": 0,
+   "fat": 8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "high-protein"
+   ]
+  },
+  {
+   "id": "turkey-breast",
+   "name": "Turkey Breast (cooked)",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 134,
+   "protein": 29,
+   "carbs": 0,
+   "fat": 2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "high-protein",
+    "low-fat"
+   ]
+  },
+  {
+   "id": "duck-meat-skinless",
+   "name": "Duck Meat, Skinless (cooked)",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 191,
+   "protein": 23,
+   "carbs": 0,
+   "fat": 11,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "high-protein"
+   ]
+  },
+  {
+   "id": "pork-loin-lean",
+   "name": "Pork Loin, Lean (cooked)",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 185,
+   "protein": 26,
+   "carbs": 0,
+   "fat": 9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "high-protein"
+   ]
+  },
+  {
+   "id": "mutton-liver",
+   "name": "Mutton Liver (cooked)",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 158,
+   "protein": 24,
+   "carbs": 2,
+   "fat": 6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "iron-rich",
+    "high-protein"
+   ]
+  },
+  {
+   "id": "fish-roe",
+   "name": "Fish Roe (cooked)",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 150,
+   "protein": 22,
+   "carbs": 2,
+   "fat": 6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "omega-3"
+   ]
+  },
+  {
+   "id": "octopus",
+   "name": "Octopus (cooked)",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 130,
+   "protein": 25,
+   "carbs": 3,
+   "fat": 2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "high-protein",
+    "low-fat"
+   ]
+  },
+  {
+   "id": "avocado-oil",
+   "name": "Avocado Oil",
+   "category": "Oils & Fats",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 900,
+   "protein": 0,
+   "carbs": 0,
+   "fat": 100,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "cooking-oil",
+    "healthy-fat"
+   ]
+  },
+  {
+   "id": "canola-oil",
+   "name": "Canola Oil",
+   "category": "Oils & Fats",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 900,
+   "protein": 0,
+   "carbs": 0,
+   "fat": 100,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "cooking-oil"
+   ]
+  },
+  {
+   "id": "asparagus",
+   "name": "Asparagus",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 29,
+   "protein": 2.2,
+   "carbs": 3.9,
+   "fat": 0.1,
+   "fiber": 2.1,
+   "season": "Oct–Mar",
+   "tags": [
+    "low-calorie"
+   ]
+  },
+  {
+   "id": "bok-choy",
+   "name": "Bok Choy",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 19,
+   "protein": 1.5,
+   "carbs": 2.2,
+   "fat": 0.2,
+   "fiber": 1,
+   "season": "Oct–Mar",
+   "tags": [
+    "low-calorie"
+   ]
+  },
+  {
+   "id": "red-cabbage",
+   "name": "Red Cabbage",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 41,
+   "protein": 1.4,
+   "carbs": 7.4,
+   "fat": 0.2,
+   "fiber": 2.1,
+   "season": "Oct–Mar",
+   "tags": [
+    "antioxidant"
+   ]
+  },
+  {
+   "id": "arugula-rocket-leaves",
+   "name": "Arugula / Rocket Leaves",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 35,
+   "protein": 2.6,
+   "carbs": 3.7,
+   "fat": 0.7,
+   "fiber": 1.6,
+   "season": "Oct–Mar",
+   "tags": [
+    "salad-green"
+   ]
+  },
+  {
+   "id": "basil-fresh",
+   "name": "Basil, Fresh",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 32,
+   "protein": 3.2,
+   "carbs": 2.7,
+   "fat": 0.6,
+   "fiber": 1.6,
+   "season": null,
+   "tags": [
+    "herb"
+   ]
+  },
+  {
+   "id": "persimmon-japani-phal",
+   "name": "Persimmon / Japani Phal",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 86,
+   "protein": 0.6,
+   "carbs": 18.6,
+   "fat": 0.2,
+   "fiber": 3.6,
+   "season": "Oct–Dec",
+   "tags": [
+    "seasonal"
+   ]
+  },
+  {
+   "id": "fresh-turmeric-root",
+   "name": "Fresh Turmeric Root",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 61,
+   "protein": 2,
+   "carbs": 10,
+   "fat": 1,
+   "fiber": 2,
+   "season": "Nov–Feb",
+   "tags": [
+    "immunity",
+    "seasonal"
+   ]
+  },
+  {
+   "id": "lemongrass",
+   "name": "Lemongrass",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 112,
+   "protein": 1.8,
+   "carbs": 25,
+   "fat": 0.5,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "herb"
+   ]
+  },
+  {
+   "id": "water-spinach",
+   "name": "Water Spinach (kalmi saag)",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 29,
+   "protein": 2.6,
+   "carbs": 3.1,
+   "fat": 0.2,
+   "fiber": 2.1,
+   "season": "Jun–Oct",
+   "tags": [
+    "iron-rich"
+   ]
+  },
+  {
+   "id": "malabar-spinach",
+   "name": "Malabar Spinach (poi saag)",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 28,
+   "protein": 1.8,
+   "carbs": 3.4,
+   "fat": 0.3,
+   "fiber": 2.1,
+   "season": "Jun–Oct",
+   "tags": [
+    "iron-rich"
+   ]
+  },
+  {
+   "id": "chayote",
+   "name": "Chayote (chow chow)",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 25,
+   "protein": 0.8,
+   "carbs": 4.5,
+   "fat": 0.1,
+   "fiber": 1.7,
+   "season": null,
+   "tags": [
+    "low-calorie"
+   ]
+  },
+  {
+   "id": "leek",
+   "name": "Leek",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 68,
+   "protein": 1.5,
+   "carbs": 14,
+   "fat": 0.3,
+   "fiber": 1.8,
+   "season": "Oct–Mar",
+   "tags": [
+    "low-calorie"
+   ]
+  }
+ ]
+}

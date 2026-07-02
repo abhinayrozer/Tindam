@@ -12,7 +12,7 @@ const { generatePlan, dietAllows } = require('../lib/planner');
 const { server, isEditable } = require('../server');
 
 const MEALS = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'meals.json'), 'utf8')).meals;
-const FOODS = ['foods.json', 'foods-extra.json', 'foods-extra2.json', 'foods-ifct.json'].flatMap(
+const FOODS = ['foods.json', 'foods-extra.json', 'foods-extra2.json', 'foods-ifct.json', 'foods-dishes.json'].flatMap(
   (f) => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', f), 'utf8')).foods
 );
 
@@ -25,6 +25,13 @@ function test(name, fn) {
 
 console.log('\nData integrity');
 test('foods database has 1000+ entries', () => assert.ok(FOODS.length >= 1000, `got ${FOODS.length}`));
+test('foods database has 1000+ UNIQUE base foods (variants collapsed)', () => {
+  // "Mango, ripe, kesar" and "Mango / Aam" both collapse to base "mango" —
+  // varieties of the same food must not inflate the unique count.
+  const norm = (n) => n.toLowerCase().replace(/\(.*?\)/g, '').split('/')[0].split(',')[0].trim().replace(/\s+/g, ' ');
+  const bases = new Set(FOODS.map((f) => norm(f.name)));
+  assert.ok(bases.size >= 1000, `got ${bases.size} unique base foods`);
+});
 test('food ids are unique', () => {
   assert.strictEqual(new Set(FOODS.map((f) => f.id)).size, FOODS.length);
 });
@@ -291,6 +298,54 @@ async function apiTests() {
       targets: { kcal: 2000, protein: 100 }, days: [{ date: future, mealIds: ['not-a-meal'] }]
     });
     assert.strictEqual(bad2.status, 400);
+  });
+  await atest('shake kind gets the shake tag and works like a meal', async () => {
+    const r = await req('POST', '/api/custom-meals', {
+      name: 'Test Power Shake', kind: 'shake', slots: ['breakfast', 'snack'],
+      items: [
+        { foodId: 'milk-toned', grams: 250 },
+        { foodId: 'banana', grams: 100 },
+        { foodId: 'whey-protein', grams: 30 }
+      ]
+    });
+    assert.strictEqual(r.status, 200, JSON.stringify(r.body));
+    assert.ok(r.body.meal.tags.includes('shake'));
+    // 250ml toned milk (145) + 100g banana (89) + 30g whey (120) = 354 kcal
+    assert.ok(Math.abs(r.body.meal.kcal - 354) <= 3, `kcal ${r.body.meal.kcal}`);
+    assert.ok(Math.abs(r.body.meal.protein - 31.4) <= 1.5, `protein ${r.body.meal.protein}`);
+  });
+  await atest('GET /api/dashboard aggregates delivered days in range', async () => {
+    const phone = '9111222333';
+    const day = (offset) => new Date(Date.now() + offset * 86400000).toISOString().slice(0, 10);
+    const sub = await req('POST', '/api/subscribe', {
+      name: 'Dash User', phone, address: '5 Test Marg, Delhi 110001',
+      slot: 'morning', weeks: 1, diet: 'veg', targets: { kcal: 2000, protein: 100 },
+      days: [
+        { date: day(-3), mealIds: ['m-masala-oats', 'm-veg-thali'] },   // delivered
+        { date: day(-2), mealIds: ['m-masala-oats'] },                  // delivered
+        { date: day(-1), mealIds: ['m-veg-thali'] },                    // will be skipped
+        { date: day(2), mealIds: ['m-veg-thali'] }                      // future — not counted
+      ]
+    });
+    assert.strictEqual(sub.status, 200, JSON.stringify(sub.body));
+    const id = sub.body.subscription.id;
+    // note: day(-1) skip bypasses cutoff via direct store write in real ops;
+    // here we test the aggregation contract with what the API allows: only
+    // delivered, non-skipped days inside [from,to] count.
+    const d = await req('GET', `/api/dashboard?phone=${phone}&from=${day(-6)}&to=${day(0)}`);
+    assert.strictEqual(d.status, 200);
+    assert.strictEqual(d.body.daysTracked, 3);
+    const first = d.body.daily.find((x) => x.date === day(-3));
+    // masala oats 340 + veg thali 600 = 940 kcal, 13 + 24 = 37 g protein
+    assert.strictEqual(first.kcal, 940);
+    assert.strictEqual(first.protein, 37);
+    assert.ok(d.body.topMeals[0].name === 'Masala Oats Porridge Bowl' || d.body.topMeals[0].name === 'Balanced Veg Thali');
+    assert.strictEqual(d.body.targets.kcal, 2000);
+    assert.ok(d.body.orders.some((o) => o.id === id));
+    // future-only range → nothing tracked
+    const empty = await req('GET', `/api/dashboard?phone=${phone}&from=${day(1)}&to=${day(3)}`);
+    assert.strictEqual(empty.body.daysTracked, 0);
+    await req('POST', '/api/subscription/status', { id, status: 'cancelled' });
   });
   await atest('skip past cutoff is rejected', async () => {
     const r = await req('POST', '/api/subscription/skip', { id: 'TDM-NOPE', date: '2020-01-01', skip: true });

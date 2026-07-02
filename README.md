@@ -10,7 +10,9 @@ Gym-goers know *how much* they should eat, but planning, cooking and portioning 
 2. **Indian food only** — dal khichdi, paneer bhurji, chole brown rice, boiled chicken with 300 g rice, banana oat-milk shakes, sattu coolers, seasonal fruit bowls. Healthy desi food, not international diet food.
 3. **Subscription, not ordering** — pick a 1 / 2 / 4-week plan (up to 10% off), choose morning or evening delivery, and meals arrive daily. Choose tomorrow's or next week's meals in advance; change any day's meals until **8 PM the previous evening**; skip a day or pause anytime — the Country Delight model, applied to fitness food.
 4. **Build your own meals** — beyond the chef's menu, users compose their own meals ingredient-by-ingredient from the full database ("200 g boiled chicken + 300 g rice + 100 g broccoli"), with macros computed live and transparent pricing (₹40 kitchen base + ₹6 per 100 kcal). Custom meals go straight into the daily box and subscription.
-5. **Transparent nutrition** — an exhaustive local database of **1,034 Indian foods** with values **per 100 g / 100 ml** (calories, protein, carbs, fat, fiber, veg/egg/non-veg, seasonality). It includes the complete **IFCT 2017** (Indian Food Composition Tables, ICMR-National Institute of Nutrition — 542 lab-analyzed foods with regional names) plus ~490 curated raw foods, drinks and prepared Indian dishes.
+5. **Transparent nutrition** — an exhaustive local database of **1,320 entries / 1,027 unique foods** (variants like mango cultivars collapsed) with values **per 100 g / 100 ml** (calories, protein, carbs, fat, fiber, veg/egg/non-veg, seasonality). It includes the complete **IFCT 2017** (Indian Food Composition Tables, ICMR-National Institute of Nutrition — 542 lab-analyzed foods with regional names) plus ~780 curated raw foods, regional dishes and drinks.
+6. **Shake Mixer** — pick a liquid base, fruits, protein and boosters; nutrition and price update live; the shake saves as a custom meal and drops into the daily box.
+7. **Personal dashboard** — order history, most-eaten meals, and daily calories/protein/macro-split charts over any date range (calendar pickers + 7/30/90-day quick ranges).
 
 ## What's in this repo
 
@@ -21,8 +23,10 @@ data/foods.json        Core curated foods (165 items, per-100g/100ml nutrition)
 data/foods-extra.json  Curated extension (174 items: regional veg, fruits, millets…)
 data/foods-extra2.json Curated prepared dishes (153 items: sabzis, dals, chaats…)
 data/foods-ifct.json   Complete IFCT 2017 dataset (542 lab-analyzed foods, ICMR-NIN)
-                       — 1,034 foods total
+data/foods-dishes.json 286 distinct regional dishes, drinks & extra whole foods
+                       — 1,320 entries / 1,027 unique base foods total
 data/meals.json        41 deliverable, portioned & priced meals across 4 slots
+scripts/seed-demo.js   Seed 5 weeks of demo history (phone 9000000001) for the dashboard
 lib/nutrition.js       BMR / TDEE / calorie & macro target engine
 lib/planner.js         7-day meal plan generator (hits kcal + protein within tolerance)
 lib/store.js           JSON-file store: subscriptions + custom meals (data/store/, gitignored)
@@ -57,8 +61,9 @@ npm test              # run the test suite
 | `GET /api/meals?slot=&diet=` | browse the deliverable menu |
 | `POST /api/targets` | compute calorie/macro targets (stats or direct mode) |
 | `POST /api/plan` | generate a multi-day meal plan for a target |
-| `POST /api/custom-meals` | create a meal from raw ingredients (macros computed server-side) |
+| `POST /api/custom-meals` | create a meal or shake from raw ingredients (macros computed server-side) |
 | `GET /api/custom-meals?ids=&phone=` | resolve saved custom meals |
+| `GET /api/dashboard?phone=&from=&to=` | order history + daily nutrients consumed in a date range |
 | `POST /api/subscribe` | create a subscription |
 | `GET /api/subscription?phone=` | fetch subscriptions |
 | `POST /api/subscription/skip` · `/change-meals` · `/status` | manage deliveries (cutoff-checked) |

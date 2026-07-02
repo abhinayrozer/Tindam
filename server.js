@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3000;
 const PUBLIC_DIR = path.join(__dirname, 'public');
 const CUTOFF_HOUR = 20; // meal changes for tomorrow close at 8 PM today
 
-const FOOD_FILES = ['foods.json', 'foods-extra.json', 'foods-extra2.json', 'foods-ifct.json'];
+const FOOD_FILES = ['foods.json', 'foods-extra.json', 'foods-extra2.json', 'foods-ifct.json', 'foods-dishes.json'];
 const FOODS = FOOD_FILES.flatMap(
   (f) => JSON.parse(fs.readFileSync(path.join(__dirname, 'data', f), 'utf8')).foods
 );
@@ -160,7 +160,7 @@ const routes = {
       fat: Math.round(fat * 10) / 10,
       fiber: Math.round(fiber * 10) / 10,
       price: priceCustomMeal(kcal),
-      tags: ['custom']
+      tags: b.kind === 'shake' ? ['custom', 'shake'] : ['custom']
     });
     return { ok: true, meal };
   },
@@ -255,6 +255,70 @@ const routes = {
     });
     if (!sub) throw Object.assign(new Error('Subscription not found'), { code: 404 });
     return { ok: true, subscription: sub };
+  },
+
+  // Personal dashboard: order history + daily nutrients consumed in [from, to].
+  // A day counts as consumed if it was delivered (date <= today) and not skipped.
+  'GET /api/dashboard': async (req, q) => {
+    if (!q.phone) throw new Error('Provide ?phone=');
+    const today = new Date().toISOString().slice(0, 10);
+    const to = q.to && /^\d{4}-\d{2}-\d{2}$/.test(q.to) ? q.to : today;
+    const from = q.from && /^\d{4}-\d{2}-\d{2}$/.test(q.from)
+      ? q.from
+      : new Date(Date.now() - 29 * 86400000).toISOString().slice(0, 10);
+
+    const subs = store.findAllByPhone(q.phone);
+    const dailyMap = {};
+    const mealCounts = {};
+    for (const sub of subs) {
+      for (const d of sub.days) {
+        if (d.date < from || d.date > to || d.date > today || d.skipped) continue;
+        const day = dailyMap[d.date] || (dailyMap[d.date] = { date: d.date, kcal: 0, protein: 0, carbs: 0, fat: 0, fiber: 0, price: 0 });
+        for (const id of d.mealIds) {
+          const m = mealById(id);
+          if (!m) continue;
+          day.kcal += m.kcal; day.protein += m.protein; day.carbs += m.carbs;
+          day.fat += m.fat; day.fiber += m.fiber || 0; day.price += m.price;
+          const key = m.name;
+          mealCounts[key] = (mealCounts[key] || 0) + 1;
+        }
+      }
+    }
+    const daily = Object.values(dailyMap).sort((a, b) => a.date < b.date ? -1 : 1)
+      .map((d) => ({
+        date: d.date,
+        kcal: Math.round(d.kcal), protein: Math.round(d.protein),
+        carbs: Math.round(d.carbs), fat: Math.round(d.fat),
+        fiber: Math.round(d.fiber), price: d.price
+      }));
+    const n = daily.length || 1;
+    const sum = daily.reduce((t, d) => ({
+      kcal: t.kcal + d.kcal, protein: t.protein + d.protein, carbs: t.carbs + d.carbs,
+      fat: t.fat + d.fat, fiber: t.fiber + d.fiber, price: t.price + d.price
+    }), { kcal: 0, protein: 0, carbs: 0, fat: 0, fiber: 0, price: 0 });
+
+    const topMeals = Object.entries(mealCounts)
+      .sort((a, b) => b[1] - a[1]).slice(0, 8)
+      .map(([name, count]) => ({ name, count }));
+
+    const latest = subs[subs.length - 1];
+    return {
+      from, to,
+      orders: subs.map((s) => ({
+        id: s.id, createdAt: s.createdAt, status: s.status, weeks: s.weeks,
+        slot: s.slot, diet: s.diet, total: s.pricing.total,
+        start: s.days[0] && s.days[0].date, end: s.days[s.days.length - 1] && s.days[s.days.length - 1].date
+      })).reverse(),
+      daysTracked: daily.length,
+      daily,
+      totals: sum,
+      averages: {
+        kcal: Math.round(sum.kcal / n), protein: Math.round(sum.protein / n),
+        carbs: Math.round(sum.carbs / n), fat: Math.round(sum.fat / n), fiber: Math.round(sum.fiber / n)
+      },
+      topMeals,
+      targets: latest ? latest.targets : null
+    };
   },
 
   'POST /api/subscription/status': async (req) => {
