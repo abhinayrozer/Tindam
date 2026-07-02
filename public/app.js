@@ -12,8 +12,34 @@ const state = {
   myMealIds: load('tindam.myMeals') || [],  // custom meal ids created on this device
   menu: null,        // catalog meals
   customMeals: [],   // resolved custom meals for this device
-  foods: null
+  foods: null,
+  icons: null        // /icons/map.json — food & meal id -> bundled SVG icon
 };
+
+/* ---------------- Icon helpers (bundled Twemoji SVGs) ---------------- */
+
+function uiIcon(key, cls) {
+  const file = state.icons && state.icons.ui[key];
+  return file ? `<img class="${cls || 'fico'}" src="/icons/${file}" alt="" loading="lazy">` : '';
+}
+
+function foodIcon(f, cls) {
+  const file = state.icons && (state.icons.foods[f.id] || state.icons.ui.custom);
+  if (!file) return `<span class="${cls || 'fico'}">${foodEmoji(f)}</span>`;
+  return `<img class="${cls || 'fico'}" src="/icons/${file}" alt="" loading="lazy">`;
+}
+
+function mealIcon(m, cls) {
+  let file = state.icons && state.icons.meals[m.id];
+  if (!file && state.icons) {
+    const t = m.tags || [];
+    file = t.includes('shake') ? state.icons.ui.shake
+      : t.includes('bowl') ? state.icons.ui.bowl
+      : state.icons.ui.custom;
+  }
+  if (!file) return `<span class="${cls || 'fico'}">${mealEmoji(m)}</span>`;
+  return `<img class="${cls || 'fico'}" src="/icons/${file}" alt="" loading="lazy">`;
+}
 
 function load(key) {
   try { return JSON.parse(localStorage.getItem(key)); } catch { return null; }
@@ -173,16 +199,16 @@ document.getElementById('global-search').addEventListener('keydown', (e) => {
 /* ---------------- Home ---------------- */
 
 const CATEGORY_RAIL = [
-  { emoji: '💪', label: 'High Protein', q: 'high-protein' },
-  { emoji: '🍗', label: 'Chicken', q: 'chicken' },
-  { emoji: '🧀', label: 'Paneer', q: 'paneer' },
-  { emoji: '🥣', label: 'Breakfast', slot: 'breakfast' },
-  { emoji: '🍛', label: 'Lunch Bowls', slot: 'lunch' },
-  { emoji: '🥗', label: 'Weight Loss', q: 'weight-loss' },
-  { emoji: '🍉', label: 'Fruit Bowls', q: 'fruit' },
-  { emoji: '🥤', label: 'Shakes', q: 'shake' },
-  { emoji: '🌾', label: 'Millets', q: 'millet' },
-  { emoji: '🌙', label: 'Light Dinner', slot: 'dinner' }
+  { icon: 'muscle', label: 'High Protein', q: 'high-protein' },
+  { icon: 'chicken', label: 'Chicken', q: 'chicken' },
+  { icon: 'paneer', label: 'Paneer', q: 'paneer' },
+  { icon: 'breakfast', label: 'Breakfast', slot: 'breakfast' },
+  { icon: 'lunch', label: 'Lunch Bowls', slot: 'lunch' },
+  { icon: 'salad', label: 'Weight Loss', q: 'weight-loss' },
+  { icon: 'fruit', label: 'Fruit Bowls', q: 'fruit' },
+  { icon: 'shake', label: 'Shakes', q: 'shake' },
+  { icon: 'millet', label: 'Millets', q: 'millet' },
+  { icon: 'dinner', label: 'Light Dinner', slot: 'dinner' }
 ];
 
 function catRailHtml(activeQ) {
@@ -190,7 +216,7 @@ function catRailHtml(activeQ) {
     ${CATEGORY_RAIL.map((c) => `
       <button class="cat-item ${activeQ && (c.q === activeQ || c.slot === activeQ) ? 'active' : ''}"
         onclick="railJump('${c.q || ''}','${c.slot || ''}')">
-        <span class="cat-ico">${c.emoji}</span><small>${c.label}</small>
+        <span class="cat-ico">${uiIcon(c.icon, 'fico-rail')}</span><small>${c.label}</small>
       </button>`).join('')}
   </div>`;
 }
@@ -206,7 +232,7 @@ function mealCardHtml(m) {
   return `
   <div class="card meal-card">
     <div class="meal-hero" style="${mealHeroStyle(m.id)}">
-      ${mealEmoji(m)}
+      ${mealIcon(m, 'fico-hero')}
       <span class="veg-mark">${dietDot(m.diet)}</span>
       <span class="rating">★ ${rating(m.id)}</span>
     </div>
@@ -226,8 +252,11 @@ function mealCardHtml(m) {
 function renderHome() {
   const popular = (state.menu || []).filter((m) =>
     (m.tags || []).includes('signature') || (m.tags || []).includes('high-protein')).slice(0, 6);
+  const floats = ['mango', 'broccoli', 'berry', 'banana', 'fish', 'avocado', 'roti', 'grape']
+    .map((k) => uiIcon(k, 'hero-float')).join('');
   app.innerHTML = `
   <section class="hero">
+    <div class="hero-floats" aria-hidden="true">${floats}</div>
     <h1>Eat for your goal.<br>We cook & deliver. Every day.</h1>
     <p>Tindam is a fitness food subscription for India. Tell us your calorie & protein target —
        or just your height, weight and goal — and get macro-counted Indian meals
@@ -365,7 +394,7 @@ function renderBuilderResults() {
   list = list.slice(0, 40);
   document.getElementById('b-results').innerHTML = list.map((f) => `
     <div class="ing-row">
-      ${dietDot(f.diet)}<span class="nm">${esc(f.name)}</span>
+      ${foodIcon(f, 'fico-xs')}${dietDot(f.diet)}<span class="nm">${esc(f.name)}</span>
       <span class="kc">${f.kcal} kcal · ${f.protein}g P /${f.unit === '100ml' ? '100ml' : '100g'}</span>
       <button class="add-btn" style="padding:.25rem .8rem" onclick="builderAdd('${f.id}')">Add</button>
     </div>`).join('') || '<div class="ing-row muted">No ingredients found.</div>';
@@ -400,7 +429,7 @@ function renderBuilderPicked() {
     : builder.items.map((it) => {
       const f = state.foods.find((x) => x.id === it.foodId);
       return `<div class="picked-row">
-        ${dietDot(f.diet)}<span style="flex:1">${esc(f.name)}</span>
+        ${foodIcon(f, 'fico-xs')}${dietDot(f.diet)}<span style="flex:1">${esc(f.name)}</span>
         <input type="number" min="5" max="1000" step="5" value="${it.grams}"
           oninput="builderGrams('${f.id}', this.value)"> <span class="muted">${f.unit === '100ml' ? 'ml' : 'g'}</span>
         <button class="x" onclick="builderRemove('${f.id}')">✕</button>
@@ -519,7 +548,7 @@ async function renderMixer() {
             const qty = qtys[id] || 0;
             return `<div class="shake-item ${qty ? 'on' : ''}">
               <button class="shake-pick" onclick="mixToggle('${id}','${g.key}')">
-                <span class="shake-emoji">${foodEmoji(f)}</span>
+                <span class="shake-emoji">${foodIcon(f, 'fico-md')}</span>
                 <small>${esc(f.name.split('/')[0].split('(')[0].trim())}</small>
                 <span class="kc">${f.kcal} kcal/${f.unit === '100ml' ? '100ml' : '100g'}</span>
                 ${f.season ? `<span class="kc" style="color:var(--primary-dark);font-weight:700">${esc(f.season)}</span>` : ''}
@@ -630,7 +659,7 @@ function renderMixSummary() {
     ? `<p class="muted" style="padding:.5rem 0">Empty ${mixerKind === 'shake' ? 'glass — pick a base' : 'bowl — pick some fruits'} to start.</p>`
     : entries.map(([id, grams]) => {
       const f = state.foods.find((x) => x.id === id);
-      return `<div class="picked-row"><span style="flex:1">${foodEmoji(f)} ${esc(f.name.split('/')[0].split('(')[0].trim())}</span>
+      return `<div class="picked-row"><span style="flex:1;display:flex;align-items:center;gap:.4rem">${foodIcon(f, 'fico-xs')} ${esc(f.name.split('/')[0].split('(')[0].trim())}</span>
         <span class="muted">${grams}${f.unit === '100ml' ? ' ml' : ' g'}</span></div>`;
     }).join('');
   const t = mixTotals();
@@ -889,7 +918,7 @@ function renderCart() {
     <div class="card">
       ${entries.map(({ meal, qty }) => `
         <div class="cart-line">
-          <span style="font-size:1.6rem">${mealEmoji(meal)}</span>
+          ${mealIcon(meal, 'fico-md')}
           <span class="info">${dietDot(meal.diet)} <b>${esc(meal.name)}</b><br>
             <span class="muted" style="font-size:.8rem">${meal.kcal} kcal · ${meal.protein} g protein</span></span>
           ${addControl(meal.id)}
@@ -1270,7 +1299,7 @@ async function renderFoods() {
       <tbody>
         ${list.map((f) => `
         <tr>
-          <td>${dietDot(f.diet)} ${esc(f.name)}</td>
+          <td><span class="food-cell">${foodIcon(f, 'fico-xs')} ${dietDot(f.diet)} ${esc(f.name)}</span></td>
           <td class="muted">${esc(f.category)}</td>
           <td class="muted">${esc(f.unit)}</td>
           <td class="num"><b>${f.kcal}</b></td>
@@ -1388,6 +1417,7 @@ window.cancelSub = async (id) => {
 /* ---------------- Boot ---------------- */
 
 (async function boot() {
+  try { state.icons = await api('/icons/map.json'); } catch { /* emoji fallback */ }
   try {
     state.menu = (await api('/api/meals')).meals;
     if (state.myMealIds.length) {

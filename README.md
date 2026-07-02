@@ -27,6 +27,8 @@ data/foods-dishes.json 286 distinct regional dishes, drinks & extra whole foods
                        — 1,320 entries / 1,027 unique base foods total
 data/meals.json        41 deliverable, portioned & priced meals across 4 slots
 scripts/seed-demo.js   Seed 5 weeks of demo history (phone 9000000001) for the dashboard
+scripts/build-icons.js Map every food/meal to a bundled Twemoji SVG icon (public/icons/)
+lib/food-glyphs.js     The keyword → icon rule engine used by the icon build
 lib/nutrition.js       BMR / TDEE / calorie & macro target engine
 lib/planner.js         7-day meal plan generator (hits kcal + protein within tolerance)
 lib/store.js           JSON-file store: subscriptions + custom meals (data/store/, gitignored)
