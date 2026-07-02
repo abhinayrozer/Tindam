@@ -388,6 +388,43 @@ table.nutri {
 .pill-status.paused { background: var(--primary-tint); color: var(--primary-dark); }
 .pill-status.cancelled { background: #fdeaea; color: var(--danger); }
 
+/* ---------- Auth ---------- */
+.auth-wrap { display: flex; justify-content: center; padding: 2.5rem 0; }
+.auth-card { width: min(430px, 100%); animation: popIn .35s ease both; }
+.auth-divider {
+  display: flex; align-items: center; gap: .8rem; margin: 1.1rem 0;
+  color: var(--muted); font-size: .82rem;
+}
+.auth-divider::before, .auth-divider::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+.user-chip {
+  position: relative; display: inline-flex; align-items: center; gap: .45rem;
+  cursor: pointer; padding: .25rem .6rem .25rem .3rem; border-radius: 999px;
+  border: 1.5px solid var(--line); background: #fff; user-select: none;
+}
+.user-chip .avatar {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--primary-grad); color: #fff; font-weight: 800;
+  display: flex; align-items: center; justify-content: center; font-size: .9rem;
+}
+.user-menu {
+  display: none; position: absolute; right: 0; top: calc(100% + 8px);
+  background: #fff; border-radius: 12px; box-shadow: var(--shadow-lift);
+  padding: .6rem .9rem; min-width: 200px; z-index: 70; text-align: left;
+}
+.user-chip.open .user-menu { display: flex; flex-direction: column; gap: .45rem; animation: popIn .18s ease both; }
+.user-menu a { text-decoration: none; color: var(--ink); font-weight: 600; font-size: .92rem; }
+.user-menu a:hover { color: var(--primary); }
+
+/* ---------- Staff order board ---------- */
+.order-card { border-left: 5px solid var(--primary); }
+.order-status { font-weight: 800; font-size: .88rem; padding: .25rem .8rem; border-radius: 999px; }
+.st-accepted { background: #eef2fd; color: #2a52b8; }
+.st-preparing { background: var(--primary-tint); color: var(--primary-dark); }
+.st-scheduled { background: #fdf6e0; color: #91660a; }
+.st-delivered { background: #e7f8ee; color: var(--green-dark); }
+.st-rejected, .st-not_delivered { background: #fdeaea; color: var(--danger); }
+
 /* ---------- Footer ---------- */
 .footer {
   border-top: 1px solid var(--line); background: #fff;

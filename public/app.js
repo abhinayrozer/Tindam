@@ -13,7 +13,9 @@ const state = {
   menu: null,        // catalog meals
   customMeals: [],   // resolved custom meals for this device
   foods: null,
-  icons: null        // /icons/map.json — food & meal id -> bundled SVG icon
+  icons: null,       // /icons/map.json — food & meal id -> bundled SVG icon
+  user: null,        // logged-in account (user | staff | admin)
+  googleClientId: null
 };
 
 /* ---------------- Icon helpers (bundled Twemoji SVGs) ---------------- */
@@ -172,7 +174,13 @@ const routes = {
   '/foods': renderFoods,
   '/cart': renderCart,
   '/dashboard': renderDashboard,
-  '/account': renderAccount
+  '/account': renderAccount,
+  '/login': renderLogin,
+  '/signup': renderSignup,
+  '/forgot': renderForgot,
+  '/reset': renderReset,
+  '/admin': renderAdmin,
+  '/staff': renderStaff
 };
 
 function navigate() {
@@ -1414,10 +1422,380 @@ window.cancelSub = async (id) => {
   window.setStatus(id, 'cancelled');
 };
 
+/* ---------------- Auth: login, signup, reset ---------------- */
+
+function renderAuthArea() {
+  const box = document.getElementById('auth-area');
+  // Staff and admin get a focused header: hide the consumer nav.
+  const consumerNav = document.getElementById('nav');
+  consumerNav.style.display = state.user && state.user.role !== 'user' ? 'none' : '';
+  if (!state.user) {
+    box.innerHTML = `<a class="btn btn-primary btn-small" href="#/login">Login</a>`;
+    return;
+  }
+  const u = state.user;
+  const roleLink = u.role === 'admin' ? '<a href="#/admin">⚙️ Admin Console</a>'
+    : u.role === 'staff' ? '<a href="#/staff">📦 Staff Orders</a>' : '';
+  box.innerHTML = `
+    <span class="user-chip" onclick="this.classList.toggle('open')">
+      <span class="avatar">${esc((u.name || u.username)[0].toUpperCase())}</span>
+      <b>${esc(u.name.split(' ')[0])}</b> <small>▾</small>
+      <span class="user-menu">
+        <small class="muted">${esc(u.username)} · ${esc(u.role)}</small>
+        ${roleLink}
+        ${u.role === 'user' ? '<a href="#/dashboard">📊 My Dashboard</a><a href="#/account">🗓 My Subscription</a>' : ''}
+        <a href="#/" onclick="logout(event)">↪ Log out</a>
+      </span>
+    </span>`;
+}
+
+window.logout = async (e) => {
+  if (e) e.preventDefault();
+  try { await api('/api/auth/logout', {}); } catch { /* session already gone */ }
+  state.user = null;
+  renderAuthArea();
+  location.hash = '#/';
+  navigate();
+};
+
+function authShell(title, inner) {
+  return `
+  <div class="auth-wrap">
+    <div class="card auth-card">
+      <h2 style="margin-bottom:.2rem">${title}</h2>
+      ${inner}
+    </div>
+  </div>`;
+}
+
+function renderLogin() {
+  app.innerHTML = authShell('Welcome back 👋', `
+    <p class="muted">Sign in to manage your meals and deliveries.</p>
+    <div class="field" style="margin-top:1rem"><label>Username or email</label><input id="l-id" autocomplete="username"></div>
+    <div class="field"><label>Password</label><input id="l-pass" type="password" autocomplete="current-password"></div>
+    <button class="btn btn-primary" style="width:100%" onclick="doLogin()">Sign in</button>
+    <div id="l-error"></div>
+    <p class="muted" style="margin-top:.7rem;text-align:center"><a href="#/forgot">Forgot password?</a></p>
+    <div class="auth-divider"><span>or</span></div>
+    <div id="google-slot"></div>
+    <p class="muted" style="margin-top:1rem;text-align:center">New to Tindam? <a href="#/signup"><b>Create an account</b></a></p>`);
+  mountGoogleButton();
+  document.getElementById('l-pass').addEventListener('keydown', (e) => { if (e.key === 'Enter') window.doLogin(); });
+}
+
+window.doLogin = async () => {
+  const errBox = document.getElementById('l-error');
+  errBox.innerHTML = '';
+  try {
+    const res = await api('/api/auth/login', {
+      id: document.getElementById('l-id').value.trim(),
+      password: document.getElementById('l-pass').value
+    });
+    afterLogin(res.user);
+  } catch (e) {
+    errBox.innerHTML = `<div class="error-box">${esc(e.message)}</div>`;
+  }
+};
+
+function afterLogin(user) {
+  state.user = user;
+  if (user.phone) persist('tindam.phone', user.phone);
+  renderAuthArea();
+  location.hash = user.role === 'admin' ? '#/admin' : user.role === 'staff' ? '#/staff' : '#/';
+  navigate();
+}
+
+function mountGoogleButton() {
+  const slot = document.getElementById('google-slot');
+  if (!slot) return;
+  if (!state.googleClientId) {
+    slot.innerHTML = `<button class="btn btn-ghost" style="width:100%" disabled>Continue with Google — available once GOOGLE_CLIENT_ID is configured</button>`;
+    return;
+  }
+  slot.innerHTML = '<div id="g-btn" style="display:flex;justify-content:center"></div>';
+  const init = () => {
+    window.google.accounts.id.initialize({
+      client_id: state.googleClientId,
+      callback: async (resp) => {
+        try {
+          const res = await api('/api/auth/google', { credential: resp.credential });
+          afterLogin(res.user);
+        } catch (e) { alert(e.message); }
+      }
+    });
+    window.google.accounts.id.renderButton(document.getElementById('g-btn'), { theme: 'outline', size: 'large', width: 320 });
+  };
+  if (window.google && window.google.accounts) return init();
+  const s = document.createElement('script');
+  s.src = 'https://accounts.google.com/gsi/client';
+  s.onload = init;
+  s.onerror = () => { slot.innerHTML = '<p class="muted" style="text-align:center">Could not load Google sign-in.</p>'; };
+  document.head.appendChild(s);
+}
+
+function renderSignup() {
+  app.innerHTML = authShell('Create your account', `
+    <p class="muted">Track your macros, manage deliveries, save your creations.</p>
+    <div class="field" style="margin-top:1rem"><label>Full name</label><input id="s-name2" autocomplete="name"></div>
+    <div class="field"><label>Username</label><input id="s-user" autocomplete="username" placeholder="letters, numbers, . _ -"></div>
+    <div class="field"><label>Email</label><input id="s-email" type="email" autocomplete="email"></div>
+    <div class="field"><label>Phone (10 digits, for deliveries — optional)</label><input id="s-phone2" maxlength="10"></div>
+    <div class="field"><label>Password (8+ characters)</label><input id="s-pass" type="password" autocomplete="new-password"></div>
+    <button class="btn btn-primary" style="width:100%" onclick="doSignup()">Create account</button>
+    <div id="s-error2"></div>
+    <div class="auth-divider"><span>or</span></div>
+    <div id="google-slot"></div>
+    <p class="muted" style="margin-top:1rem;text-align:center">Already have an account? <a href="#/login"><b>Sign in</b></a></p>`);
+  mountGoogleButton();
+}
+
+window.doSignup = async () => {
+  const errBox = document.getElementById('s-error2');
+  errBox.innerHTML = '';
+  try {
+    const res = await api('/api/auth/signup', {
+      name: document.getElementById('s-name2').value.trim(),
+      username: document.getElementById('s-user').value.trim(),
+      email: document.getElementById('s-email').value.trim(),
+      phone: document.getElementById('s-phone2').value.trim() || null,
+      password: document.getElementById('s-pass').value
+    });
+    afterLogin(res.user);
+  } catch (e) {
+    errBox.innerHTML = `<div class="error-box">${esc(e.message)}</div>`;
+  }
+};
+
+function renderForgot() {
+  app.innerHTML = authShell('Reset your password', `
+    <p class="muted">Enter your username or email and we'll generate a reset link (valid 30 minutes).</p>
+    <div class="field" style="margin-top:1rem"><label>Username or email</label><input id="f-id"></div>
+    <button class="btn btn-primary" style="width:100%" onclick="doForgot()">Send reset link</button>
+    <div id="f-out"></div>
+    <p class="muted" style="margin-top:1rem;text-align:center"><a href="#/login">← Back to sign in</a></p>`);
+}
+
+window.doForgot = async () => {
+  const out = document.getElementById('f-out');
+  try {
+    const res = await api('/api/auth/forgot', { id: document.getElementById('f-id').value.trim() });
+    out.innerHTML = `<div class="success-box">${esc(res.message)}${res.devResetLink
+      ? `<br><a href="${esc(res.devResetLink)}"><b>Open reset link →</b></a> <small class="muted">(shown here because no email service is configured)</small>` : ''}</div>`;
+  } catch (e) {
+    out.innerHTML = `<div class="error-box">${esc(e.message)}</div>`;
+  }
+};
+
+function renderReset() {
+  const token = new URLSearchParams(location.hash.split('?')[1] || '').get('token') || '';
+  app.innerHTML = authShell('Choose a new password', `
+    <div class="field" style="margin-top:1rem"><label>New password (8+ characters)</label><input id="r-pass" type="password" autocomplete="new-password"></div>
+    <button class="btn btn-primary" style="width:100%" onclick="doReset('${esc(token)}')">Update password</button>
+    <div id="r-out"></div>`);
+}
+
+window.doReset = async (token) => {
+  const out = document.getElementById('r-out');
+  try {
+    const res = await api('/api/auth/reset', { token, password: document.getElementById('r-pass').value });
+    out.innerHTML = `<div class="success-box">${esc(res.message)} <a href="#/login"><b>Sign in →</b></a></div>`;
+  } catch (e) {
+    out.innerHTML = `<div class="error-box">${esc(e.message)}</div>`;
+  }
+};
+
+/* ---------------- Admin console ---------------- */
+
+function guard(role) {
+  if (!state.user) { location.hash = '#/login'; return false; }
+  if (state.user.role !== role && state.user.role !== 'admin') {
+    app.innerHTML = '<div class="card" style="margin-top:2rem;text-align:center;padding:3rem"><p>🔒 This area needs a ' + esc(role) + ' account.</p></div>';
+    return false;
+  }
+  return true;
+}
+
+async function renderAdmin() {
+  if (!guard('admin')) return;
+  let ov, users, subs;
+  try {
+    [ov, users, subs] = await Promise.all([
+      api('/api/admin/overview'), api('/api/admin/users'), api('/api/admin/subscriptions')
+    ]);
+  } catch (e) {
+    app.innerHTML = `<div class="error-box" style="margin-top:2rem">${esc(e.message)}</div>`;
+    return;
+  }
+  app.innerHTML = `
+  <h2 class="section-title" style="margin-top:.4rem">⚙️ Admin console</h2>
+  <div class="result-strip">
+    <div class="stat"><b>${ov.users}</b><small>Users</small></div>
+    <div class="stat"><b>${ov.staff}</b><small>Staff</small></div>
+    <div class="stat"><b>${ov.subscriptions}</b><small>Subscriptions</small></div>
+    <div class="stat"><b>${ov.activeSubscriptions}</b><small>Active</small></div>
+    <div class="stat"><b>${ov.customMeals}</b><small>Custom meals</small></div>
+  </div>
+
+  <div class="grid grid-2" style="align-items:start">
+    <div class="card">
+      <h3>👥 Accounts</h3>
+      <div class="table-wrap"><table class="nutri"><thead><tr><th>Name</th><th>Username</th><th>Role</th><th>Via</th><th></th></tr></thead><tbody>
+        ${users.users.map((u) => `<tr>
+          <td>${esc(u.name)}</td><td class="muted">${esc(u.username)}${u.email ? `<br><small>${esc(u.email)}</small>` : ''}</td>
+          <td><span class="chip ${u.role === 'admin' ? '' : 'green'}">${esc(u.role)}</span></td>
+          <td class="muted">${esc(u.via || '-')}</td>
+          <td>${u.role !== 'admin' ? `<button class="btn btn-danger btn-small" onclick="adminRemoveUser('${u.id}','${esc(u.username)}')">Remove</button>` : ''}</td>
+        </tr>`).join('')}
+      </tbody></table></div>
+      <div id="adm-user-msg"></div>
+      <h3 style="margin-top:1.2rem">➕ Create staff account</h3>
+      <div class="grid grid-2" style="margin-top:.5rem">
+        <div class="field"><label>Name</label><input id="st-name"></div>
+        <div class="field"><label>Username</label><input id="st-user"></div>
+      </div>
+      <div class="field"><label>Password (8+ chars)</label><input id="st-pass" type="password"></div>
+      <button class="btn btn-primary btn-small" onclick="adminCreateStaff()">Create staff</button>
+      <div id="adm-staff-msg"></div>
+    </div>
+
+    <div class="card">
+      <h3>📦 Subscriptions</h3>
+      <div class="table-wrap"><table class="nutri"><thead><tr><th>ID</th><th>Customer</th><th>Window</th><th>Status</th><th></th></tr></thead><tbody>
+        ${subs.subscriptions.map((s) => `<tr>
+          <td class="muted">${esc(s.id)}<br><small>${inr(s.total)}</small></td>
+          <td>${esc(s.name)}<br><small class="muted">${esc(s.phone)}</small></td>
+          <td class="muted"><small>${esc(s.start || '')} →<br>${esc(s.end || '')}</small></td>
+          <td><span class="pill-status ${esc(s.status)}">${esc(s.status)}</span></td>
+          <td>
+            ${s.status === 'active' ? `<button class="btn btn-ghost btn-small" onclick="adminSubStatus('${s.id}','paused')">Pause</button>` : ''}
+            ${s.status === 'paused' ? `<button class="btn btn-outline btn-small" onclick="adminSubStatus('${s.id}','active')">Resume</button>` : ''}
+            ${s.status !== 'cancelled' ? `<button class="btn btn-danger btn-small" onclick="adminSubStatus('${s.id}','cancelled')">Cancel</button>` : ''}
+          </td>
+        </tr>`).join('')}
+      </tbody></table></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:1.2rem">
+    <h3>🧾 Audit log <button class="btn btn-ghost btn-small" onclick="adminAudit()">Show full log</button></h3>
+    <div id="audit-list">${auditRows(ov.audit)}</div>
+  </div>`;
+}
+
+function auditRows(list) {
+  return list.map((a) => `
+    <div class="slot-line">
+      <span class="slot-tag" style="min-width:150px">${esc(a.ts.replace('T', ' ').slice(0, 19))}</span>
+      <span class="chip">${esc(a.event)}</span>
+      <span style="flex:1">${esc(a.detail)}</span>
+      <span class="muted"><small>${esc(a.actor)}</small></span>
+    </div>`).join('') || '<p class="muted">No events yet.</p>';
+}
+
+window.adminAudit = async () => {
+  const res = await api('/api/admin/audit');
+  document.getElementById('audit-list').innerHTML = auditRows(res.audit);
+};
+
+window.adminRemoveUser = async (id, username) => {
+  if (!confirm(`Remove account "${username}"? This cannot be undone.`)) return;
+  try { await api('/api/admin/users/remove', { userId: id }); renderAdmin(); }
+  catch (e) { document.getElementById('adm-user-msg').innerHTML = `<div class="error-box">${esc(e.message)}</div>`; }
+};
+
+window.adminCreateStaff = async () => {
+  const msg = document.getElementById('adm-staff-msg');
+  try {
+    const res = await api('/api/admin/staff', {
+      name: document.getElementById('st-name').value.trim(),
+      username: document.getElementById('st-user').value.trim(),
+      password: document.getElementById('st-pass').value
+    });
+    msg.innerHTML = `<div class="success-box">Staff account <b>${esc(res.staff.username)}</b> created — share the username & password with them.</div>`;
+    setTimeout(renderAdmin, 1200);
+  } catch (e) {
+    msg.innerHTML = `<div class="error-box">${esc(e.message)}</div>`;
+  }
+};
+
+window.adminSubStatus = async (id, status) => {
+  if (status === 'cancelled' && !confirm(`Cancel subscription ${id}?`)) return;
+  try { await api('/api/admin/subscriptions/status', { id, status }); renderAdmin(); }
+  catch (e) { alert(e.message); }
+};
+
+/* ---------------- Staff order board ---------------- */
+
+const STATUS_LABELS = {
+  accepted: '✅ Accepted', preparing: '👨‍🍳 Preparing', scheduled: '🛵 Scheduled',
+  delivered: '📦 Delivered', rejected: '🚫 Rejected', not_delivered: '⚠️ Not delivered'
+};
+
+let staffDate = null;
+
+async function renderStaff() {
+  if (!guard('staff')) return;
+  staffDate = staffDate || new Date().toISOString().slice(0, 10);
+  let data;
+  try { data = await api(`/api/staff/orders?date=${staffDate}`); }
+  catch (e) { app.innerHTML = `<div class="error-box" style="margin-top:2rem">${esc(e.message)}</div>`; return; }
+
+  const counts = {};
+  for (const o of data.orders) counts[o.status] = (counts[o.status] || 0) + 1;
+
+  app.innerHTML = `
+  <h2 class="section-title" style="margin-top:.4rem">📦 Kitchen & delivery board</h2>
+  <div class="card">
+    <div class="dash-controls">
+      <div class="field" style="margin:0"><label>Delivery date</label><input id="stf-date" type="date" value="${staffDate}"></div>
+      <button class="btn btn-ghost" style="align-self:end" onclick="staffShift(-1)">← Prev day</button>
+      <button class="btn btn-ghost" style="align-self:end" onclick="staffShift(1)">Next day →</button>
+      <span class="muted" style="align-self:end">${data.orders.length} order${data.orders.length === 1 ? '' : 's'} ·
+        ${Object.entries(counts).map(([s, n]) => `${STATUS_LABELS[s] || s}: ${n}`).join(' · ') || 'none'}</span>
+    </div>
+  </div>
+  ${data.orders.length === 0 ? `<div class="card" style="margin-top:1rem;text-align:center;padding:3rem"><p class="muted">No deliveries scheduled for ${esc(staffDate)}.</p></div>` : ''}
+  ${data.orders.map((o) => `
+    <div class="card order-card" style="margin-top:1rem">
+      <div class="day-head">
+        <h3 style="font-size:1.02rem">${esc(o.customer)} <span class="chip">${esc(o.slot)} slot</span> ${dietDot(o.diet)}</h3>
+        <span class="order-status st-${esc(o.status)}">${STATUS_LABELS[o.status] || esc(o.status)}</span>
+      </div>
+      <p class="muted">📍 ${esc(o.address)} · 📞 ${esc(o.phone)} · <small>${esc(o.subId)}</small></p>
+      <p style="margin:.4rem 0"><b>Prepare:</b> ${o.meals.map((m) => `<span class="chip green">${esc(m)}</span>`).join(' ')}</p>
+      <div class="chip-row">
+        ${data.statuses.map((s) => `
+          <button class="chip-btn ${o.status === s ? 'active' : ''}"
+            onclick="staffSetStatus('${o.subId}','${o.date}','${s}')">${STATUS_LABELS[s]}</button>`).join('')}
+      </div>
+    </div>`).join('')}`;
+
+  document.getElementById('stf-date').addEventListener('change', (e) => { staffDate = e.target.value; renderStaff(); });
+}
+
+window.staffShift = (delta) => {
+  const d = new Date(staffDate + 'T00:00:00');
+  d.setDate(d.getDate() + delta);
+  staffDate = d.toISOString().slice(0, 10);
+  renderStaff();
+};
+
+window.staffSetStatus = async (subId, date, status) => {
+  try { await api('/api/staff/orders/status', { subId, date, status }); renderStaff(); }
+  catch (e) { alert(e.message); }
+};
+
 /* ---------------- Boot ---------------- */
 
 (async function boot() {
   try { state.icons = await api('/icons/map.json'); } catch { /* emoji fallback */ }
+  try {
+    const [me, cfg] = await Promise.all([api('/api/auth/me'), api('/api/auth/config')]);
+    state.user = me.user;
+    state.googleClientId = cfg.googleClientId;
+    if (state.user && state.user.phone) persist('tindam.phone', state.user.phone);
+  } catch { /* logged out */ }
+  renderAuthArea();
   try {
     state.menu = (await api('/api/meals')).meals;
     if (state.myMealIds.length) {

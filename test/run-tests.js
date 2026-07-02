@@ -163,16 +163,23 @@ test('a date is editable before 8 PM the previous day, locked after', () => {
 });
 
 console.log('\nHTTP API');
-function req(method, urlPath, body) {
+function req(method, urlPath, body, jar) {
   return new Promise((resolve, reject) => {
     const data = body ? JSON.stringify(body) : null;
+    const headers = data ? { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(data) } : {};
+    if (jar && jar.cookie) headers.Cookie = jar.cookie;
     const r = http.request({
-      host: '127.0.0.1', port: server.address().port, path: urlPath, method,
-      headers: data ? { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(data) } : {}
+      host: '127.0.0.1', port: server.address().port, path: urlPath, method, headers
     }, (res) => {
       let raw = '';
       res.on('data', (c) => raw += c);
-      res.on('end', () => resolve({ status: res.statusCode, body: JSON.parse(raw || '{}') }));
+      res.on('end', () => {
+        if (jar && res.headers['set-cookie']) {
+          const c = res.headers['set-cookie'][0].split(';')[0];
+          jar.cookie = /Max-Age=0/.test(res.headers['set-cookie'][0]) ? null : c;
+        }
+        resolve({ status: res.statusCode, body: JSON.parse(raw || '{}') });
+      });
     });
     r.on('error', reject);
     if (data) r.write(data);
@@ -367,6 +374,105 @@ async function apiTests() {
     const r = await req('POST', '/api/subscription/skip', { id: 'TDM-NOPE', date: '2020-01-01', skip: true });
     assert.strictEqual(r.status, 400);
     assert.ok(/cutoff/i.test(r.body.error));
+  });
+  await atest('signup → session cookie → me → logout round-trip', async () => {
+    const jar = {};
+    const su = await req('POST', '/api/auth/signup', {
+      name: 'Test Person', username: 'testperson', email: 'test@person.in',
+      phone: '9876501234', password: 'S3curePass!'
+    }, jar);
+    assert.strictEqual(su.status, 200, JSON.stringify(su.body));
+    assert.strictEqual(su.body.user.role, 'user');
+    assert.ok(jar.cookie, 'session cookie set');
+    const me = await req('GET', '/api/auth/me', null, jar);
+    assert.strictEqual(me.body.user.username, 'testperson');
+    await req('POST', '/api/auth/logout', {}, jar);
+    const me2 = await req('GET', '/api/auth/me', null, jar);
+    assert.strictEqual(me2.body.user, null);
+  });
+  await atest('login rejects wrong password and unknown user', async () => {
+    const bad = await req('POST', '/api/auth/login', { id: 'testperson', password: 'wrongwrong' });
+    assert.strictEqual(bad.status, 401);
+    const none = await req('POST', '/api/auth/login', { id: 'ghost', password: 'whatever123' });
+    assert.strictEqual(none.status, 401);
+    const dup = await req('POST', '/api/auth/signup', {
+      name: 'Dup', username: 'testperson', email: 'x@y.dev', password: 'S3curePass!'
+    });
+    assert.strictEqual(dup.status, 400);
+  });
+  await atest('forgot → reset link → new password works, old fails', async () => {
+    const fg = await req('POST', '/api/auth/forgot', { id: 'testperson' });
+    assert.ok(fg.body.devResetLink, 'dev reset link returned');
+    const token = fg.body.devResetLink.split('token=')[1];
+    const rs = await req('POST', '/api/auth/reset', { token, password: 'NewPass123!' });
+    assert.strictEqual(rs.status, 200);
+    const old = await req('POST', '/api/auth/login', { id: 'testperson', password: 'S3curePass!' });
+    assert.strictEqual(old.status, 401);
+    const jar = {};
+    const fresh = await req('POST', '/api/auth/login', { id: 'testperson', password: 'NewPass123!' }, jar);
+    assert.strictEqual(fresh.status, 200);
+    const reuse = await req('POST', '/api/auth/reset', { token, password: 'Another123!' });
+    assert.strictEqual(reuse.status, 400); // token single-use
+  });
+  await atest('admin: seeded login, create staff, list & remove users, audit', async () => {
+    const anon = await req('GET', '/api/admin/users');
+    assert.strictEqual(anon.status, 401);
+    const userJar = {};
+    await req('POST', '/api/auth/login', { id: 'testperson', password: 'NewPass123!' }, userJar);
+    const forbidden = await req('GET', '/api/admin/users', null, userJar);
+    assert.strictEqual(forbidden.status, 403);
+
+    const adminJar = {};
+    const al = await req('POST', '/api/auth/login', { id: 'admin', password: 'Admin@123' }, adminJar);
+    assert.strictEqual(al.status, 200, JSON.stringify(al.body));
+    assert.strictEqual(al.body.user.role, 'admin');
+
+    const st = await req('POST', '/api/admin/staff', { name: 'Kitchen One', username: 'kitchen1', password: 'Kitchen@123' }, adminJar);
+    assert.strictEqual(st.status, 200, JSON.stringify(st.body));
+    assert.strictEqual(st.body.staff.role, 'staff');
+
+    const users = await req('GET', '/api/admin/users', null, adminJar);
+    assert.ok(users.body.users.some((u) => u.username === 'kitchen1'));
+    const victim = users.body.users.find((u) => u.username === 'testperson');
+    const rm = await req('POST', '/api/admin/users/remove', { userId: victim.id }, adminJar);
+    assert.strictEqual(rm.status, 200);
+    const after = await req('GET', '/api/admin/users', null, adminJar);
+    assert.ok(!after.body.users.some((u) => u.username === 'testperson'));
+
+    const audit = await req('GET', '/api/admin/audit', null, adminJar);
+    assert.ok(audit.body.audit.some((a) => a.event === 'admin.staff_created'));
+    assert.ok(audit.body.audit.some((a) => a.event === 'admin.user_removed'));
+  });
+  await atest('staff: sees orders for a date and updates delivery status', async () => {
+    const day = (offset) => new Date(Date.now() + offset * 86400000).toISOString().slice(0, 10);
+    const sub = await req('POST', '/api/subscribe', {
+      name: 'Order Cust', phone: '9555666777', address: '9 Kitchen Rd, Chennai 600001',
+      slot: 'morning', weeks: 1, diet: 'veg', targets: { kcal: 2000, protein: 100 },
+      days: [{ date: day(1), mealIds: ['m-masala-oats', 'm-veg-thali'] }]
+    });
+    const subId = sub.body.subscription.id;
+    assert.strictEqual(sub.body.subscription.days[0].status, 'accepted');
+
+    const staffJar = {};
+    const sl = await req('POST', '/api/auth/login', { id: 'kitchen1', password: 'Kitchen@123' }, staffJar);
+    assert.strictEqual(sl.status, 200);
+
+    const board = await req('GET', `/api/staff/orders?date=${day(1)}`, null, staffJar);
+    assert.strictEqual(board.status, 200);
+    const order = board.body.orders.find((o) => o.subId === subId);
+    assert.ok(order, 'order visible on staff board');
+    assert.ok(order.meals.includes('Balanced Veg Thali'));
+
+    const up = await req('POST', '/api/staff/orders/status', { subId, date: day(1), status: 'preparing' }, staffJar);
+    assert.strictEqual(up.status, 200);
+    const board2 = await req('GET', `/api/staff/orders?date=${day(1)}`, null, staffJar);
+    assert.strictEqual(board2.body.orders.find((o) => o.subId === subId).status, 'preparing');
+
+    const badStatus = await req('POST', '/api/staff/orders/status', { subId, date: day(1), status: 'eaten' }, staffJar);
+    assert.strictEqual(badStatus.status, 400);
+    const anon = await req('GET', '/api/staff/orders');
+    assert.strictEqual(anon.status, 401);
+    await req('POST', '/api/subscription/status', { id: subId, status: 'cancelled' });
   });
   await atest('static site is served at /', async () => {
     const r = await new Promise((resolve, reject) => {

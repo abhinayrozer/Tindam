@@ -55,6 +55,14 @@ npm test              # run the test suite
 - **Subscription management** — look up by phone; skip/unskip any upcoming day, pause/resume, cancel. The **8 PM previous-day cutoff** is enforced server-side.
 - **Nutrition database explorer** — searchable, category-filterable table of all 1,034 foods with seasonal availability (mango Apr–Jul, guava Oct–Feb, bathua Nov–Feb, …). IFCT entries carry the `ifct-2017` tag and Hindi names.
 
+## Accounts & roles
+
+Three profiles, backed by scrypt-hashed passwords and HttpOnly session cookies:
+
+- **User** — full self-serve flow: sign up (name, username, email, phone, password), sign in with username/email **or Google** (set `GOOGLE_CLIENT_ID` in the environment to enable the button; the server verifies the ID token against Google's JWKS), and password reset (`/#/forgot` → tokenized 30-minute reset link; without an email provider the link is shown in dev mode — wire your mailer into `POST /api/auth/forgot`).
+- **Admin** — seeded in the backend database on first boot (`admin` / `Admin@123`, override with `ADMIN_USERNAME` / `ADMIN_PASSWORD`). The Admin console monitors counts, lists/removes users, creates **staff accounts**, manages every subscription (pause/resume/cancel), and shows the **audit log** (logins, signups, resets, order-status changes, admin actions).
+- **Staff** — created by the admin with a username & password. The Kitchen & delivery board lists each day's orders (customer, address, slot, meals to prepare) and staff mark per-order status: **accepted → preparing → scheduled → delivered**, or **rejected / not delivered**. Every change is audited.
+
 ## API
 
 | Route | What it does |

@@ -12,6 +12,24 @@ const url = require('url');
 const { targetsFromStats, targetsDirect, ACTIVITY_LEVELS } = require('./lib/nutrition');
 const { generatePlan } = require('./lib/planner');
 const store = require('./lib/store');
+const auth = require('./lib/auth');
+
+const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || null;
+const ORDER_STATUSES = ['accepted', 'preparing', 'scheduled', 'delivered', 'rejected', 'not_delivered'];
+
+// Seed the admin account on first boot (change the password after login,
+// or set ADMIN_USERNAME / ADMIN_PASSWORD in the environment).
+(function seedAdmin() {
+  if (store.findUser((u) => u.role === 'admin')) return;
+  const username = (process.env.ADMIN_USERNAME || 'admin').toLowerCase();
+  const password = process.env.ADMIN_PASSWORD || 'Admin@123';
+  store.createUser({
+    name: 'Administrator', username, email: null, phone: null,
+    role: 'admin', passwordHash: auth.hashPassword(password), via: 'seed'
+  });
+  store.audit('admin.seeded', `admin account "${username}" created`);
+  console.log(`Seeded admin account → username: ${username}  password: ${password} (change it!)`);
+})();
 
 const PORT = process.env.PORT || 3000;
 const PUBLIC_DIR = path.join(__dirname, 'public');
@@ -59,6 +77,48 @@ function readBody(req) {
   });
 }
 
+// ---------- Auth plumbing ----------
+
+function parseCookies(req) {
+  const out = {};
+  for (const part of (req.headers.cookie || '').split(';')) {
+    const i = part.indexOf('=');
+    if (i > 0) out[part.slice(0, i).trim()] = decodeURIComponent(part.slice(i + 1).trim());
+  }
+  return out;
+}
+
+function sessionUser(req) {
+  const token = parseCookies(req).tindam_session;
+  if (!token) return { user: null, token: null };
+  const sess = store.findSession(token);
+  if (!sess) return { user: null, token: null };
+  const user = store.findUser((u) => u.id === sess.userId);
+  return { user, token };
+}
+
+function safeUser(u) {
+  if (!u) return null;
+  return { id: u.id, name: u.name, username: u.username, email: u.email, phone: u.phone, role: u.role, via: u.via, createdAt: u.createdAt };
+}
+
+function sessionCookie(token) {
+  return `tindam_session=${token}; HttpOnly; Path=/; SameSite=Lax; Max-Age=${auth.SESSION_TTL_MS / 1000}`;
+}
+const CLEAR_COOKIE = 'tindam_session=; HttpOnly; Path=/; SameSite=Lax; Max-Age=0';
+
+function requireRole(ctx, ...roles) {
+  if (!ctx.user) throw Object.assign(new Error('Login required'), { code: 401 });
+  if (!roles.includes(ctx.user.role)) throw Object.assign(new Error('Not allowed for your role'), { code: 403 });
+}
+
+function loginAs(user, ctx) {
+  const token = auth.newToken();
+  store.createSession(user.id, token, auth.SESSION_TTL_MS);
+  ctx.setCookie(sessionCookie(token));
+  return { ok: true, user: safeUser(user) };
+}
+
 // A date (YYYY-MM-DD) is editable while "now" is before 8 PM on the previous day.
 function isEditable(dateStr, now = new Date()) {
   const cutoff = new Date(dateStr + 'T00:00:00');
@@ -82,6 +142,207 @@ function priceCustomMeal(kcal) {
 
 const routes = {
   'GET /api/health': async () => ({ ok: true, foods: FOODS.length, meals: MEALS.length }),
+
+  // ---------- Auth ----------
+
+  'GET /api/auth/config': async () => ({ googleClientId: GOOGLE_CLIENT_ID }),
+
+  'GET /api/auth/me': async (req, q, ctx) => ({ user: safeUser(ctx.user) }),
+
+  'POST /api/auth/signup': async (req, q, ctx) => {
+    const b = await readBody(req);
+    const username = String(b.username || '').toLowerCase().trim();
+    if (!auth.validUsername(username)) throw new Error('Username: 3–30 letters, numbers, dot, dash or underscore');
+    if (!auth.validEmail(b.email)) throw new Error('Enter a valid email address');
+    if (!auth.validPassword(b.password)) throw new Error('Password must be at least 8 characters');
+    if (!b.name || String(b.name).trim().length < 2) throw new Error('Enter your name');
+    if (b.phone && !/^\d{10}$/.test(String(b.phone))) throw new Error('Phone must be 10 digits');
+    const email = String(b.email).toLowerCase().trim();
+    if (store.findUser((u) => u.username === username)) throw new Error('That username is taken');
+    if (store.findUser((u) => u.email === email)) throw new Error('An account with this email already exists — sign in instead');
+    const user = store.createUser({
+      name: String(b.name).trim().slice(0, 80), username, email,
+      phone: b.phone ? String(b.phone) : null, role: 'user',
+      passwordHash: auth.hashPassword(b.password), via: 'password'
+    });
+    store.audit('user.signup', `${username} <${email}>`, username);
+    return loginAs(user, ctx);
+  },
+
+  'POST /api/auth/login': async (req, q, ctx) => {
+    const b = await readBody(req);
+    const id = String(b.id || '').toLowerCase().trim();
+    const user = store.findUser((u) => u.username === id || u.email === id);
+    if (!user || !user.passwordHash || !auth.verifyPassword(b.password, user.passwordHash)) {
+      store.audit('auth.login_failed', id);
+      throw Object.assign(new Error('Wrong username/email or password'), { code: 401 });
+    }
+    store.audit('auth.login', user.username, user.username);
+    return loginAs(user, ctx);
+  },
+
+  'POST /api/auth/logout': async (req, q, ctx) => {
+    if (ctx.token) store.deleteSession(ctx.token);
+    ctx.setCookie(CLEAR_COOKIE);
+    return { ok: true };
+  },
+
+  // Password reset. Without an email provider the reset link is returned in
+  // the response (dev mode); plug an email service into this handler for prod.
+  'POST /api/auth/forgot': async (req) => {
+    const b = await readBody(req);
+    const id = String(b.id || '').toLowerCase().trim();
+    const user = store.findUser((u) => (u.username === id || u.email === id) && u.role === 'user');
+    if (user) {
+      const token = auth.newToken(24);
+      store.createReset(user.id, token, auth.RESET_TTL_MS);
+      store.audit('auth.reset_requested', user.username, user.username);
+      // TODO(prod): email this link instead of returning it.
+      return { ok: true, message: 'Reset link generated (valid 30 min).', devResetLink: `/#/reset?token=${token}` };
+    }
+    return { ok: true, message: 'If that account exists, a reset link has been generated.' };
+  },
+
+  'POST /api/auth/reset': async (req) => {
+    const b = await readBody(req);
+    if (!auth.validPassword(b.password)) throw new Error('Password must be at least 8 characters');
+    const reset = store.consumeReset(String(b.token || ''));
+    if (!reset) throw new Error('Reset link is invalid or expired — request a new one');
+    const user = store.updateUser(reset.userId, (u) => { u.passwordHash = auth.hashPassword(b.password); });
+    if (!user) throw new Error('Account no longer exists');
+    store.audit('auth.password_reset', user.username, user.username);
+    return { ok: true, message: 'Password updated — sign in with your new password.' };
+  },
+
+  'POST /api/auth/google': async (req, q, ctx) => {
+    if (!GOOGLE_CLIENT_ID) throw Object.assign(new Error('Google sign-in is not configured (set GOOGLE_CLIENT_ID)'), { code: 503 });
+    const b = await readBody(req);
+    const g = await auth.verifyGoogleIdToken(b.credential, GOOGLE_CLIENT_ID);
+    let user = store.findUser((u) => u.googleSub === g.sub || u.email === g.email.toLowerCase());
+    if (!user) {
+      let username = g.email.split('@')[0].toLowerCase().replace(/[^a-z0-9._-]/g, '').slice(0, 24) || 'user';
+      while (store.findUser((u) => u.username === username)) username += Math.floor(Math.random() * 10);
+      user = store.createUser({
+        name: g.name, username, email: g.email.toLowerCase(), phone: null,
+        role: 'user', passwordHash: null, googleSub: g.sub, via: 'google'
+      });
+      store.audit('user.signup', `${username} via Google`, username);
+    } else if (!user.googleSub) {
+      store.updateUser(user.id, (u) => { u.googleSub = g.sub; });
+    }
+    store.audit('auth.login', `${user.username} via Google`, user.username);
+    return loginAs(user, ctx);
+  },
+
+  // ---------- Admin ----------
+
+  'GET /api/admin/overview': async (req, q, ctx) => {
+    requireRole(ctx, 'admin');
+    const db = store._loadAll();
+    return {
+      users: db.users.filter((u) => u.role === 'user').length,
+      staff: db.users.filter((u) => u.role === 'staff').length,
+      subscriptions: db.subscriptions.length,
+      activeSubscriptions: db.subscriptions.filter((s) => s.status === 'active').length,
+      customMeals: db.customMeals.length,
+      audit: store.listAudit(15)
+    };
+  },
+
+  'GET /api/admin/users': async (req, q, ctx) => {
+    requireRole(ctx, 'admin');
+    return { users: store.listUsers().map(safeUser) };
+  },
+
+  'POST /api/admin/users/remove': async (req, q, ctx) => {
+    requireRole(ctx, 'admin');
+    const b = await readBody(req);
+    const target = store.findUser((u) => u.id === b.userId);
+    if (!target) throw Object.assign(new Error('User not found'), { code: 404 });
+    if (target.id === ctx.user.id) throw new Error('You cannot remove your own account');
+    if (target.role === 'admin') throw new Error('Admin accounts cannot be removed here');
+    store.removeUser(target.id);
+    store.audit('admin.user_removed', `${target.role} ${target.username}`, ctx.user.username);
+    return { ok: true };
+  },
+
+  'POST /api/admin/staff': async (req, q, ctx) => {
+    requireRole(ctx, 'admin');
+    const b = await readBody(req);
+    const username = String(b.username || '').toLowerCase().trim();
+    if (!auth.validUsername(username)) throw new Error('Username: 3–30 letters, numbers, dot, dash or underscore');
+    if (!auth.validPassword(b.password)) throw new Error('Password must be at least 8 characters');
+    if (!b.name || String(b.name).trim().length < 2) throw new Error('Enter the staff member\'s name');
+    if (store.findUser((u) => u.username === username)) throw new Error('That username is taken');
+    const staff = store.createUser({
+      name: String(b.name).trim().slice(0, 80), username, email: null, phone: null,
+      role: 'staff', passwordHash: auth.hashPassword(b.password), via: 'admin'
+    });
+    store.audit('admin.staff_created', username, ctx.user.username);
+    return { ok: true, staff: safeUser(staff) };
+  },
+
+  'GET /api/admin/subscriptions': async (req, q, ctx) => {
+    requireRole(ctx, 'admin');
+    const subs = store._loadAll().subscriptions;
+    return {
+      subscriptions: subs.map((s) => ({
+        id: s.id, name: s.name, phone: s.phone, status: s.status, weeks: s.weeks,
+        slot: s.slot, diet: s.diet, total: s.pricing.total, createdAt: s.createdAt,
+        start: s.days[0] && s.days[0].date, end: s.days[s.days.length - 1] && s.days[s.days.length - 1].date
+      })).reverse()
+    };
+  },
+
+  'POST /api/admin/subscriptions/status': async (req, q, ctx) => {
+    requireRole(ctx, 'admin');
+    const b = await readBody(req);
+    if (!['active', 'paused', 'cancelled'].includes(b.status)) throw new Error('Invalid status');
+    const sub = store.update(b.id, (s) => { s.status = b.status; });
+    if (!sub) throw Object.assign(new Error('Subscription not found'), { code: 404 });
+    store.audit('admin.subscription_status', `${b.id} → ${b.status}`, ctx.user.username);
+    return { ok: true, subscription: sub };
+  },
+
+  'GET /api/admin/audit': async (req, q, ctx) => {
+    requireRole(ctx, 'admin');
+    return { audit: store.listAudit(200) };
+  },
+
+  // ---------- Staff (kitchen & delivery) ----------
+
+  'GET /api/staff/orders': async (req, q, ctx) => {
+    requireRole(ctx, 'staff', 'admin');
+    const date = q.date && /^\d{4}-\d{2}-\d{2}$/.test(q.date)
+      ? q.date : new Date().toISOString().slice(0, 10);
+    const orders = [];
+    for (const s of store._loadAll().subscriptions) {
+      if (s.status !== 'active') continue;
+      const day = s.days.find((d) => d.date === date);
+      if (!day || day.skipped) continue;
+      orders.push({
+        subId: s.id, date, customer: s.name, phone: s.phone, address: s.address,
+        slot: s.slot, diet: s.diet, status: day.status || 'accepted',
+        meals: day.mealIds.map((id) => { const m = mealById(id); return m ? m.name : id; })
+      });
+    }
+    orders.sort((a, b) => a.slot.localeCompare(b.slot));
+    return { date, statuses: ORDER_STATUSES, orders };
+  },
+
+  'POST /api/staff/orders/status': async (req, q, ctx) => {
+    requireRole(ctx, 'staff', 'admin');
+    const b = await readBody(req);
+    if (!ORDER_STATUSES.includes(b.status)) throw new Error(`Status must be one of: ${ORDER_STATUSES.join(', ')}`);
+    const sub = store.update(b.subId, (s) => {
+      const day = s.days.find((d) => d.date === b.date);
+      if (!day) throw Object.assign(new Error('No delivery on that date'), { code: 404 });
+      day.status = b.status;
+    });
+    if (!sub) throw Object.assign(new Error('Subscription not found'), { code: 404 });
+    store.audit('staff.order_status', `${b.subId} ${b.date} → ${b.status}`, ctx.user.username);
+    return { ok: true };
+  },
 
   'GET /api/activity-levels': async () => ACTIVITY_LEVELS,
 
@@ -174,7 +435,7 @@ const routes = {
     throw new Error('Provide ?ids= or ?phone=');
   },
 
-  'POST /api/subscribe': async (req) => {
+  'POST /api/subscribe': async (req, q, ctx) => {
     const b = await readBody(req);
     const required = ['name', 'phone', 'address', 'weeks', 'targets', 'diet', 'days'];
     for (const k of required) {
@@ -203,10 +464,12 @@ const routes = {
       slot: b.slot === 'evening' ? 'evening' : 'morning',
       weeks,
       diet: b.diet,
+      userId: ctx && ctx.user ? ctx.user.id : null,
       targets: { kcal: Number(b.targets.kcal) || 0, protein: Number(b.targets.protein) || 0 },
-      days: b.days.map((d) => ({ date: d.date, mealIds: d.mealIds, skipped: false })),
+      days: b.days.map((d) => ({ date: d.date, mealIds: d.mealIds, skipped: false, status: 'accepted' })),
       pricing: { gross, discountPct: discount * 100, total }
     });
+    store.audit('subscription.created', `${sub.id} ${sub.phone} ₹${total}`, ctx && ctx.user ? ctx.user.username : sub.phone);
     return { ok: true, subscription: sub };
   },
 
@@ -359,10 +622,14 @@ const server = http.createServer(async (req, res) => {
   const key = `${req.method} ${parsed.pathname}`;
 
   if (routes[key]) {
+    const cookies = [];
+    const ctx = { ...sessionUser(req), setCookie: (c) => cookies.push(c) };
     try {
-      const data = await routes[key](req, parsed.query);
+      const data = await routes[key](req, parsed.query, ctx);
+      if (cookies.length) res.setHeader('Set-Cookie', cookies);
       sendJson(res, 200, data);
     } catch (err) {
+      if (cookies.length) res.setHeader('Set-Cookie', cookies);
       sendJson(res, err.code || 400, { error: err.message });
     }
     return;
