@@ -23,7 +23,7 @@ const rotation = [
   ['m-yogurt-parfait', 'm-chicken-curry-phulka', 'm-sprouts-chaat', 'm-fish-curry-rice'],
   ['m-idli-sambar', 'm-veg-thali', 'm-dry-fruit-bowl', 'm-grilled-chicken-veggies'],
   ['m-banana-oat-shake', 'm-grilled-fish-quinoa', 'm-boiled-eggs', 'm-paneer-bhurji-phulka'],
-  ['m-sprouts-poha', 'm-chicken-biryani-brown', 'm-sattu-drink', 'm-curd-rice-pom']
+  ['m-sprouts-poha', 'm-chicken-keema-bowl', 'm-sattu-drink', 'm-curd-rice-pom']
 ];
 
 const start = new Date(Date.now() - 38 * 86400000); // ~5.5 weeks ago

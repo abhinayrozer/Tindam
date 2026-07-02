@@ -50,6 +50,8 @@ function ratingCount(id) {
 /* Emoji "photo" for a meal, keyword-based. */
 function mealEmoji(m) {
   const n = m.name.toLowerCase();
+  if ((m.tags || []).includes('shake')) return '🥤';
+  if ((m.tags || []).includes('bowl')) return '🍉';
   if (/(shake|smoothie|drink|chaas|lassi)/.test(n)) return '🥤';
   if (/(chicken|tandoori|biryani)/.test(n)) return '🍗';
   if (/(fish|prawn)/.test(n)) return '🐟';
@@ -140,6 +142,7 @@ const routes = {
   '/menu': renderMenu,
   '/create': renderCreate,
   '/shake': renderShake,
+  '/bowl': renderBowl,
   '/foods': renderFoods,
   '/cart': renderCart,
   '/dashboard': renderDashboard,
@@ -451,51 +454,80 @@ window.saveCustomMeal = async () => {
   }
 };
 
-/* ---------------- Shake mixer ---------------- */
+/* ---------------- Mixers: Shake Mixer & Fruit Bowl Builder ---------------- */
 
-const SHAKE_GROUPS = [
-  { key: 'base', label: '1 · Pick your liquid base', single: true, step: 50, defaultQty: 250, unit: 'ml',
-    ids: ['drinking-water', 'milk-toned', 'milk-full-cream', 'milk-skim', 'milk-buffalo', 'oat-milk', 'almond-milk', 'soy-milk', 'coconut-water'] },
-  { key: 'fruit', label: '2 · Fruits', step: 25, defaultQty: 100, unit: 'g',
-    ids: ['banana', 'mango', 'papaya', 'strawberry', 'chikoo', 'apple', 'pineapple', 'blueberries', 'frozen-berries-mix', 'dates-dried'] },
-  { key: 'protein', label: '3 · Protein', step: 10, defaultQty: 30, unit: 'g',
-    ids: ['whey-protein', 'pea-protein-powder', 'casein-protein-powder', 'greek-yogurt', 'curd-low-fat', 'sattu-flour', 'peanut-butter', 'almond-butter'] },
-  { key: 'boost', label: '4 · Boosters', step: 5, defaultQty: 10, unit: 'g',
-    ids: ['chia-seeds', 'flax-seeds', 'basil-seeds-sabja', 'oats-raw', 'cocoa-powder', 'spirulina', 'wheat-germ', 'almonds', 'walnuts', 'coconut-cream', 'dried-dates-powder', 'honey', 'jaggery', 'spinach', 'beetroot'] }
-];
+const MIXERS = {
+  shake: {
+    icon: '🥤', title: 'Shake Mixer',
+    intro: 'Mix your own shake — pick a base, throw in fruits, protein and boosters. Nutrition updates live as you pour. We blend it fresh and deliver it chilled.',
+    namePh: 'e.g. Morning Power Shake', suffixWord: 'Shake', suffixRe: /shake|smoothie/i,
+    slots: ['breakfast', 'snack'], verb: 'Blend',
+    groups: [
+      { key: 'base', label: '1 · Pick your liquid base', single: true, step: 50, defaultQty: 250, unit: 'ml',
+        ids: ['drinking-water', 'milk-toned', 'milk-full-cream', 'milk-skim', 'milk-buffalo', 'oat-milk', 'almond-milk', 'soy-milk', 'coconut-water'] },
+      { key: 'fruit', label: '2 · Fruits', step: 25, defaultQty: 100, unit: 'g',
+        ids: ['banana', 'mango', 'papaya', 'strawberry', 'chikoo', 'apple', 'pineapple', 'blueberries', 'frozen-berries-mix', 'dates-dried'] },
+      { key: 'protein', label: '3 · Protein', step: 10, defaultQty: 30, unit: 'g',
+        ids: ['whey-protein', 'pea-protein-powder', 'casein-protein-powder', 'greek-yogurt', 'curd-low-fat', 'sattu-flour', 'peanut-butter', 'almond-butter'] },
+      { key: 'boost', label: '4 · Boosters', step: 5, defaultQty: 10, unit: 'g',
+        ids: ['chia-seeds', 'flax-seeds', 'basil-seeds-sabja', 'oats-raw', 'cocoa-powder', 'spirulina', 'wheat-germ', 'almonds', 'walnuts', 'coconut-cream', 'dried-dates-powder', 'honey', 'jaggery', 'spinach', 'beetroot'] }
+    ]
+  },
+  bowl: {
+    icon: '🍉', title: 'Fruit Bowl Builder',
+    intro: 'Build your own fruit bowl — pick seasonal fruits by the gram, add crunch and creamy extras. Full nutrition (calories, protein, carbs, fat, fiber) updates live. Cut fresh every morning.',
+    namePh: 'e.g. Rainbow Recovery Bowl', suffixWord: 'Bowl', suffixRe: /bowl/i,
+    slots: ['breakfast', 'snack'], verb: 'Build',
+    groups: [
+      { key: 'fruit', label: '1 · Pick your fruits (grams)', step: 25, defaultQty: 100, unit: 'g',
+        ids: ['banana', 'apple', 'papaya', 'mango', 'guava', 'orange', 'pomegranate', 'watermelon', 'muskmelon', 'grapes', 'chikoo', 'pineapple', 'kiwi', 'strawberry', 'pear', 'custard-apple', 'litchi', 'jamun', 'dragon-fruit', 'blueberries', 'persimmon-japani-phal', 'avocado'] },
+      { key: 'top', label: '2 · Toppings & crunch', step: 5, defaultQty: 10, unit: 'g',
+        ids: ['almonds', 'walnuts', 'pistachios', 'pumpkin-seeds', 'sunflower-seeds', 'chia-seeds', 'raisins', 'dried-figs', 'dates-dried', 'makhana', 'magaz-seeds', 'honey', 'peanut-butter'] },
+      { key: 'extra', label: '3 · Creamy extras (optional)', step: 50, defaultQty: 100, unit: 'g',
+        ids: ['greek-yogurt', 'hung-curd', 'curd-low-fat'] }
+    ]
+  }
+};
 
-const shake = { qty: {} }; // foodId -> grams/ml
+let mixerKind = 'shake';
+const mixQtyState = { shake: {}, bowl: {} }; // kind -> foodId -> grams/ml
 
-async function renderShake() {
+function renderShake() { mixerKind = 'shake'; return renderMixer(); }
+function renderBowl() { mixerKind = 'bowl'; return renderMixer(); }
+
+async function renderMixer() {
   if (!state.foods) {
     const res = await api('/api/foods');
     state.foods = res.foods;
     state.foodCategories = res.categories;
   }
-  const myShakes = state.customMeals.filter((m) => (m.tags || []).includes('shake'));
+  const cfg = MIXERS[mixerKind];
+  const qtys = mixQtyState[mixerKind];
+  const mine = state.customMeals.filter((m) => (m.tags || []).includes(mixerKind));
   app.innerHTML = `
-  <h2 class="section-title" style="margin-top:.4rem">🥤 Shake Mixer</h2>
-  <p class="muted">Mix your own shake — pick a base, throw in fruits, protein and boosters. Nutrition updates live as you pour. We blend it fresh and deliver it chilled.</p>
+  <h2 class="section-title" style="margin-top:.4rem">${cfg.icon} ${esc(cfg.title)}</h2>
+  <p class="muted">${esc(cfg.intro)}</p>
   <div class="builder-grid" style="margin-top:1rem">
     <div>
-      ${SHAKE_GROUPS.map((g) => `
+      ${cfg.groups.map((g) => `
       <div class="card" style="margin-bottom:1rem">
         <h3 style="font-size:1.02rem">${esc(g.label)}</h3>
         <div class="shake-grid">
           ${g.ids.map((id) => {
             const f = state.foods.find((x) => x.id === id);
             if (!f) return '';
-            const qty = shake.qty[id] || 0;
+            const qty = qtys[id] || 0;
             return `<div class="shake-item ${qty ? 'on' : ''}">
-              <button class="shake-pick" onclick="shakeToggle('${id}','${g.key}')">
+              <button class="shake-pick" onclick="mixToggle('${id}','${g.key}')">
                 <span class="shake-emoji">${foodEmoji(f)}</span>
                 <small>${esc(f.name.split('/')[0].split('(')[0].trim())}</small>
                 <span class="kc">${f.kcal} kcal/${f.unit === '100ml' ? '100ml' : '100g'}</span>
+                ${f.season ? `<span class="kc" style="color:var(--primary-dark);font-weight:700">${esc(f.season)}</span>` : ''}
               </button>
               ${qty ? `<span class="qty-ctrl">
-                <button onclick="shakeQty('${id}',${-g.step})">−</button>
+                <button onclick="mixQty('${id}',${-g.step})">−</button>
                 <span>${qty}${g.unit}</span>
-                <button onclick="shakeQty('${id}',${g.step})">+</button>
+                <button onclick="mixQty('${id}',${g.step})">+</button>
               </span>` : ''}
             </div>`;
           }).join('')}
@@ -503,32 +535,45 @@ async function renderShake() {
       </div>`).join('')}
     </div>
     <div class="card" style="position:sticky;top:70px">
-      <h3>Your shake</h3>
-      <div class="field" style="margin-top:.6rem"><label>Shake name</label>
-        <input id="sh-name" placeholder="e.g. Morning Power Shake" maxlength="60"></div>
+      <h3>Your ${esc(cfg.suffixWord.toLowerCase())}</h3>
+      <div class="field" style="margin-top:.6rem"><label>${esc(cfg.suffixWord)} name</label>
+        <input id="sh-name" placeholder="${esc(cfg.namePh)}" maxlength="60"></div>
       <div id="sh-recipe"></div>
       <div id="sh-totals"></div>
-      <button class="btn btn-primary" style="margin-top:.8rem" onclick="saveShake()">🥤 Blend, save & add to box</button>
+      <button class="btn btn-primary" style="margin-top:.8rem" onclick="saveMix()">${cfg.icon} ${esc(cfg.verb)}, save & add to box</button>
       <div id="sh-error"></div>
     </div>
   </div>
-  ${myShakes.length ? `
-    <h2 class="section-title">My shakes</h2>
-    <div class="grid grid-3">${myShakes.map(mealCardHtml).join('')}</div>` : ''}`;
-  renderShakeSummary();
+  ${mine.length ? `
+    <h2 class="section-title">My ${esc(cfg.suffixWord.toLowerCase())}s</h2>
+    <div class="grid grid-3">${mine.map(mealCardHtml).join('')}</div>` : ''}`;
+  renderMixSummary();
 }
 
 function foodEmoji(f) {
   const n = f.name.toLowerCase();
-  if (/water|coconut/.test(n)) return '💧';
+  if (/drinking water|coconut water/.test(n)) return '💧';
   if (/milk/.test(n)) return '🥛';
   if (/banana/.test(n)) return '🍌';
   if (/mango/.test(n)) return '🥭';
-  if (/apple/.test(n)) return '🍎';
+  if (/pomegranate/.test(n)) return '🔴';
+  if (/watermelon/.test(n)) return '🍉';
+  if (/muskmelon|guava|papaya|chikoo|custard/.test(n)) return '🍈';
+  if (/apple(?! )/.test(n) || /^apple/.test(n)) return '🍎';
+  if (/persimmon/.test(n)) return '🟠';
+  if (/orange/.test(n)) return '🍊';
+  if (/grape/.test(n)) return '🍇';
+  if (/kiwi/.test(n)) return '🥝';
+  if (/pear/.test(n)) return '🍐';
+  if (/avocado/.test(n)) return '🥑';
+  if (/litchi|jamun/.test(n)) return '🫐';
+  if (/dragon/.test(n)) return '🩷';
   if (/strawberr|berr/.test(n)) return '🍓';
   if (/pineapple/.test(n)) return '🍍';
-  if (/papaya|chikoo/.test(n)) return '🍈';
   if (/date/.test(n)) return '🌴';
+  if (/raisin|fig/.test(n)) return '🟤';
+  if (/pista|pumpkin seed|sunflower|magaz/.test(n)) return '🌻';
+  if (/makhana/.test(n)) return '⚪';
   if (/whey|protein|casein|sattu/.test(n)) return '💪';
   if (/yogurt|curd/.test(n)) return '🥣';
   if (/peanut|almond butter/.test(n)) return '🥜';
@@ -542,27 +587,30 @@ function foodEmoji(f) {
   return '✨';
 }
 
-window.shakeToggle = (id, groupKey) => {
-  const g = SHAKE_GROUPS.find((x) => x.key === groupKey);
-  if (shake.qty[id]) {
-    delete shake.qty[id];
+window.mixToggle = (id, groupKey) => {
+  const cfg = MIXERS[mixerKind];
+  const qtys = mixQtyState[mixerKind];
+  const g = cfg.groups.find((x) => x.key === groupKey);
+  if (qtys[id]) {
+    delete qtys[id];
   } else {
-    if (g.single) for (const other of g.ids) delete shake.qty[other];
-    shake.qty[id] = g.defaultQty;
+    if (g.single) for (const other of g.ids) delete qtys[other];
+    qtys[id] = g.defaultQty;
   }
-  renderShake();
+  renderMixer();
 };
 
-window.shakeQty = (id, delta) => {
-  const next = (shake.qty[id] || 0) + delta;
-  if (next <= 0) delete shake.qty[id];
-  else shake.qty[id] = Math.min(next, 500);
-  renderShake();
+window.mixQty = (id, delta) => {
+  const qtys = mixQtyState[mixerKind];
+  const next = (qtys[id] || 0) + delta;
+  if (next <= 0) delete qtys[id];
+  else qtys[id] = Math.min(next, 500);
+  renderMixer();
 };
 
-function shakeTotals() {
+function mixTotals() {
   let kcal = 0, protein = 0, carbs = 0, fat = 0, fiber = 0;
-  for (const [id, grams] of Object.entries(shake.qty)) {
+  for (const [id, grams] of Object.entries(mixQtyState[mixerKind])) {
     const f = state.foods.find((x) => x.id === id);
     if (!f) continue;
     const k = grams / 100;
@@ -572,19 +620,20 @@ function shakeTotals() {
   return { kcal, protein, carbs, fat, fiber };
 }
 
-function renderShakeSummary() {
-  const entries = Object.entries(shake.qty);
+function renderMixSummary() {
+  const cfg = MIXERS[mixerKind];
+  const entries = Object.entries(mixQtyState[mixerKind]);
   const recipeBox = document.getElementById('sh-recipe');
   const totalsBox = document.getElementById('sh-totals');
   if (!recipeBox) return;
   recipeBox.innerHTML = entries.length === 0
-    ? '<p class="muted" style="padding:.5rem 0">Empty glass — pick a base to start.</p>'
+    ? `<p class="muted" style="padding:.5rem 0">Empty ${mixerKind === 'shake' ? 'glass — pick a base' : 'bowl — pick some fruits'} to start.</p>`
     : entries.map(([id, grams]) => {
       const f = state.foods.find((x) => x.id === id);
       return `<div class="picked-row"><span style="flex:1">${foodEmoji(f)} ${esc(f.name.split('/')[0].split('(')[0].trim())}</span>
         <span class="muted">${grams}${f.unit === '100ml' ? ' ml' : ' g'}</span></div>`;
     }).join('');
-  const t = shakeTotals();
+  const t = mixTotals();
   const price = Math.max(49, Math.round((40 + (t.kcal / 100) * 6) / 5) * 5);
   totalsBox.innerHTML = entries.length === 0 ? '' : `
     <div class="result-strip" style="margin:.8rem 0 0">
@@ -597,27 +646,28 @@ function renderShakeSummary() {
     </div>`;
 }
 
-window.saveShake = async () => {
+window.saveMix = async () => {
+  const cfg = MIXERS[mixerKind];
   const errBox = document.getElementById('sh-error');
   errBox.innerHTML = '';
   try {
-    const entries = Object.entries(shake.qty);
-    if (entries.length === 0) throw new Error('Pick at least a base and one ingredient');
+    const entries = Object.entries(mixQtyState[mixerKind]);
+    if (entries.length === 0) throw new Error(mixerKind === 'shake' ? 'Pick at least a base and one ingredient' : 'Pick at least one fruit');
     let name = document.getElementById('sh-name').value.trim();
-    if (name && !/shake|smoothie/i.test(name)) name += ' Shake';
+    if (name && !cfg.suffixRe.test(name)) name += ' ' + cfg.suffixWord;
     const res = await api('/api/custom-meals', {
       name,
-      kind: 'shake',
+      kind: mixerKind,
       phone: load('tindam.phone') || null,
-      slots: ['breakfast', 'snack'],
+      slots: cfg.slots,
       items: entries.map(([foodId, grams]) => ({ foodId, grams }))
     });
     state.customMeals.push(res.meal);
     state.myMealIds.push(res.meal.id);
     persist('tindam.myMeals', state.myMealIds);
-    shake.qty = {};
+    mixQtyState[mixerKind] = {};
     window.cartAdd(res.meal.id, 1);
-    renderShake();
+    renderMixer();
   } catch (e) {
     errBox.innerHTML = `<div class="error-box">${esc(e.message)}</div>`;
   }

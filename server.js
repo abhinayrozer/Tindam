@@ -160,7 +160,7 @@ const routes = {
       fat: Math.round(fat * 10) / 10,
       fiber: Math.round(fiber * 10) / 10,
       price: priceCustomMeal(kcal),
-      tags: b.kind === 'shake' ? ['custom', 'shake'] : ['custom']
+      tags: ['shake', 'bowl'].includes(b.kind) ? ['custom', b.kind] : ['custom']
     });
     return { ok: true, meal };
   },

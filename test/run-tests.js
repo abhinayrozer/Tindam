@@ -314,6 +314,22 @@ async function apiTests() {
     assert.ok(Math.abs(r.body.meal.kcal - 354) <= 3, `kcal ${r.body.meal.kcal}`);
     assert.ok(Math.abs(r.body.meal.protein - 31.4) <= 1.5, `protein ${r.body.meal.protein}`);
   });
+  await atest('fruit bowl kind gets the bowl tag with computed nutrition', async () => {
+    const r = await req('POST', '/api/custom-meals', {
+      name: 'Rainbow Bowl', kind: 'bowl', slots: ['snack'],
+      items: [
+        { foodId: 'papaya', grams: 150 },
+        { foodId: 'banana', grams: 100 },
+        { foodId: 'pomegranate', grams: 100 },
+        { foodId: 'almonds', grams: 10 }
+      ]
+    });
+    assert.strictEqual(r.status, 200, JSON.stringify(r.body));
+    assert.ok(r.body.meal.tags.includes('bowl'));
+    // 150g papaya (64.5) + 100g banana (89) + 100g anaar (83) + 10g almonds (57.9) = 294 kcal
+    assert.ok(Math.abs(r.body.meal.kcal - 294) <= 3, `kcal ${r.body.meal.kcal}`);
+    assert.ok(r.body.meal.fiber >= 8, `fiber ${r.body.meal.fiber}`);
+  });
   await atest('GET /api/dashboard aggregates delivered days in range', async () => {
     const phone = '9111222333';
     const day = (offset) => new Date(Date.now() + offset * 86400000).toISOString().slice(0, 10);
