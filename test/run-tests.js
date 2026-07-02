@@ -12,7 +12,10 @@ const { generatePlan, dietAllows } = require('../lib/planner');
 const { server, isEditable } = require('../server');
 
 const MEALS = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'meals.json'), 'utf8')).meals;
-const FOODS = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'foods.json'), 'utf8')).foods;
+const FOODS = [
+  ...JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'foods.json'), 'utf8')).foods,
+  ...JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'foods-extra.json'), 'utf8')).foods
+];
 
 let passed = 0;
 const failures = [];
@@ -22,7 +25,7 @@ function test(name, fn) {
 }
 
 console.log('\nData integrity');
-test('foods database has 140+ entries', () => assert.ok(FOODS.length >= 140, `got ${FOODS.length}`));
+test('foods database has 300+ entries', () => assert.ok(FOODS.length >= 300, `got ${FOODS.length}`));
 test('food ids are unique', () => {
   assert.strictEqual(new Set(FOODS.map((f) => f.id)).size, FOODS.length);
 });
@@ -181,7 +184,7 @@ async function apiTests() {
   await atest('GET /api/health reports data sizes', async () => {
     const r = await req('GET', '/api/health');
     assert.strictEqual(r.status, 200);
-    assert.ok(r.body.foods >= 140 && r.body.meals >= 35);
+    assert.ok(r.body.foods >= 300 && r.body.meals >= 35);
   });
   await atest('GET /api/foods?q=paneer filters by name', async () => {
     const r = await req('GET', '/api/foods?q=paneer');
@@ -226,6 +229,54 @@ async function apiTests() {
     assert.strictEqual(pause.body.subscription.status, 'paused');
     // cleanup so reruns don't accumulate
     await req('POST', '/api/subscription/status', { id, status: 'cancelled' });
+  });
+  await atest('POST /api/custom-meals builds a meal from ingredients', async () => {
+    const r = await req('POST', '/api/custom-meals', {
+      name: 'My Bulk Bowl',
+      slots: ['lunch', 'dinner'],
+      items: [
+        { foodId: 'chicken-breast-boiled', grams: 200 },
+        { foodId: 'rice-white-cooked', grams: 300 },
+        { foodId: 'broccoli', grams: 100 }
+      ]
+    });
+    assert.strictEqual(r.status, 200, JSON.stringify(r.body));
+    const m = r.body.meal;
+    assert.ok(m.id.startsWith('cm-'));
+    // 200g chicken (330) + 300g rice (390) + 100g broccoli (34) = 754 kcal
+    assert.ok(Math.abs(m.kcal - 754) <= 2, `kcal ${m.kcal}`);
+    assert.ok(Math.abs(m.protein - 73) <= 2, `protein ${m.protein}`);
+    assert.strictEqual(m.diet, 'nonveg');
+    assert.ok(m.price >= 49);
+
+    // custom meal is usable in a subscription
+    const future = new Date(Date.now() + 4 * 86400000).toISOString().slice(0, 10);
+    const sub = await req('POST', '/api/subscribe', {
+      name: 'Custom User', phone: '9123456780', address: '7 FC Road, Pune 411004',
+      slot: 'evening', weeks: 1, diet: 'nonveg', targets: { kcal: 2500, protein: 150 },
+      days: [{ date: future, mealIds: [m.id, 'm-fruit-bowl'] }]
+    });
+    assert.strictEqual(sub.status, 200, JSON.stringify(sub.body));
+    assert.strictEqual(sub.body.subscription.pricing.gross, m.price + 89);
+
+    // lookup resolves the custom meal's name
+    const found = await req('GET', `/api/subscription?id=${sub.body.subscription.id}`);
+    assert.strictEqual(found.body.mealNames[m.id], 'My Bulk Bowl');
+    await req('POST', '/api/subscription/status', { id: sub.body.subscription.id, status: 'cancelled' });
+  });
+  await atest('POST /api/custom-meals validates ingredients and quantities', async () => {
+    const bad1 = await req('POST', '/api/custom-meals', {
+      name: 'Bad', items: [{ foodId: 'no-such-food', grams: 100 }]
+    });
+    assert.strictEqual(bad1.status, 400);
+    const bad2 = await req('POST', '/api/custom-meals', {
+      name: 'Tiny', items: [{ foodId: 'cucumber', grams: 2 }]
+    });
+    assert.strictEqual(bad2.status, 400);
+    const bad3 = await req('POST', '/api/custom-meals', {
+      name: 'Water only', items: [{ foodId: 'green-tea', grams: 100 }]
+    });
+    assert.strictEqual(bad3.status, 400); // under 50 kcal
   });
   await atest('POST /api/subscribe rejects bad phone and unknown meals', async () => {
     const future = new Date(Date.now() + 3 * 86400000).toISOString().slice(0, 10);

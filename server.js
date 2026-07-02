@@ -17,8 +17,16 @@ const PORT = process.env.PORT || 3000;
 const PUBLIC_DIR = path.join(__dirname, 'public');
 const CUTOFF_HOUR = 20; // meal changes for tomorrow close at 8 PM today
 
-const FOODS = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'foods.json'), 'utf8')).foods;
+const FOODS = [
+  ...JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'foods.json'), 'utf8')).foods,
+  ...JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'foods-extra.json'), 'utf8')).foods
+];
 const MEALS = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'meals.json'), 'utf8')).meals;
+
+{
+  const ids = new Set(FOODS.map((f) => f.id));
+  if (ids.size !== FOODS.length) throw new Error('Duplicate food ids across database files');
+}
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -59,8 +67,17 @@ function isEditable(dateStr, now = new Date()) {
   return now < cutoff;
 }
 
+function mealById(id) {
+  return MEALS.find((m) => m.id === id) || store.findCustomMeal(id) || null;
+}
+
 function validMealIds(ids) {
-  return Array.isArray(ids) && ids.length > 0 && ids.every((id) => MEALS.some((m) => m.id === id));
+  return Array.isArray(ids) && ids.length > 0 && ids.every((id) => mealById(id));
+}
+
+// Custom meals are priced by a transparent rule: ₹40 kitchen base + ₹6 per 100 kcal.
+function priceCustomMeal(kcal) {
+  return Math.max(49, Math.round((40 + (kcal / 100) * 6) / 5) * 5);
 }
 
 const routes = {
@@ -101,6 +118,62 @@ const routes = {
     return generatePlan(MEALS, body);
   },
 
+  // Create a custom meal from raw ingredients. Body:
+  // { name, phone?, slots?, items: [{ foodId, grams }] } — grams also means ml for liquids.
+  'POST /api/custom-meals': async (req) => {
+    const b = await readBody(req);
+    if (!b.name || String(b.name).trim().length < 3) throw new Error('Give your meal a name (3+ characters)');
+    if (!Array.isArray(b.items) || b.items.length === 0) throw new Error('Add at least one ingredient');
+    if (b.items.length > 15) throw new Error('Maximum 15 ingredients per meal');
+
+    let kcal = 0, protein = 0, carbs = 0, fat = 0, fiber = 0;
+    let diet = 'veg';
+    const items = b.items.map((it) => {
+      const food = FOODS.find((f) => f.id === it.foodId);
+      if (!food) throw new Error(`Unknown ingredient: ${it.foodId}`);
+      const grams = Number(it.grams);
+      if (!grams || grams < 5 || grams > 1000) throw new Error(`${food.name}: quantity must be 5–1000 g/ml`);
+      const k = grams / 100;
+      kcal += food.kcal * k; protein += food.protein * k; carbs += food.carbs * k;
+      fat += food.fat * k; fiber += (food.fiber || 0) * k;
+      if (food.diet === 'nonveg') diet = 'nonveg';
+      else if (food.diet === 'egg' && diet === 'veg') diet = 'egg';
+      return { foodId: food.id, name: food.name, grams, unit: food.unit };
+    });
+    if (kcal < 50) throw new Error('This meal is under 50 kcal — add more food');
+    if (kcal > 2500) throw new Error('This meal is over 2500 kcal — split it into two meals');
+
+    const slots = Array.isArray(b.slots) && b.slots.length
+      ? b.slots.filter((s) => ['breakfast', 'lunch', 'snack', 'dinner'].includes(s))
+      : ['breakfast', 'lunch', 'snack', 'dinner'];
+
+    const meal = store.createCustomMeal({
+      name: String(b.name).trim().slice(0, 60),
+      desc: items.map((i) => `${i.grams}${i.unit === '100ml' ? ' ml' : ' g'} ${i.name}`).join(', '),
+      phone: b.phone ? String(b.phone) : null,
+      slots,
+      diet,
+      items,
+      kcal: Math.round(kcal),
+      protein: Math.round(protein * 10) / 10,
+      carbs: Math.round(carbs * 10) / 10,
+      fat: Math.round(fat * 10) / 10,
+      fiber: Math.round(fiber * 10) / 10,
+      price: priceCustomMeal(kcal),
+      tags: ['custom']
+    });
+    return { ok: true, meal };
+  },
+
+  'GET /api/custom-meals': async (req, q) => {
+    if (q.ids) {
+      const ids = q.ids.split(',');
+      return { meals: ids.map((id) => store.findCustomMeal(id)).filter(Boolean) };
+    }
+    if (q.phone) return { meals: store.findCustomMealsByPhone(q.phone) };
+    throw new Error('Provide ?ids= or ?phone=');
+  },
+
   'POST /api/subscribe': async (req) => {
     const b = await readBody(req);
     const required = ['name', 'phone', 'address', 'weeks', 'targets', 'diet', 'days'];
@@ -117,7 +190,7 @@ const routes = {
     }
 
     const pricePerDay = b.days.map((d) =>
-      d.mealIds.reduce((s, id) => s + MEALS.find((m) => m.id === id).price, 0)
+      d.mealIds.reduce((s, id) => s + mealById(id).price, 0)
     );
     const gross = pricePerDay.reduce((a, x) => a + x, 0);
     const discount = weeks === 4 ? 0.1 : weeks === 2 ? 0.05 : 0;
@@ -138,13 +211,25 @@ const routes = {
   },
 
   'GET /api/subscription': async (req, q) => {
+    let subs;
     if (q.id) {
       const sub = store.findById(q.id);
       if (!sub) throw Object.assign(new Error('Subscription not found'), { code: 404 });
-      return { subscriptions: [sub] };
+      subs = [sub];
+    } else if (q.phone) {
+      subs = store.findByPhone(q.phone);
+    } else {
+      throw new Error('Provide ?phone= or ?id=');
     }
-    if (q.phone) return { subscriptions: store.findByPhone(q.phone) };
-    throw new Error('Provide ?phone= or ?id=');
+    // Resolve meal names (including custom meals) so the client needn't join.
+    const mealNames = {};
+    for (const s of subs) for (const d of s.days) for (const id of d.mealIds) {
+      if (!mealNames[id]) {
+        const m = mealById(id);
+        mealNames[id] = m ? m.name : id;
+      }
+    }
+    return { subscriptions: subs, mealNames };
   },
 
   'POST /api/subscription/skip': async (req) => {

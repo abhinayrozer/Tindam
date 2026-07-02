@@ -10,18 +10,24 @@
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="#/">🥗 <span>Tindam</span></a>
+    <a class="brand" href="#/">🥗 Tindam</a>
+    <div class="top-search">
+      <input id="global-search" placeholder="Search for meals, paneer, millets, high-protein…" autocomplete="off" />
+    </div>
     <nav id="nav">
       <a href="#/" data-route="/">Home</a>
       <a href="#/plan" data-route="/plan">Build My Plan</a>
       <a href="#/menu" data-route="/menu">Menu</a>
+      <a href="#/create" data-route="/create">Create Your Meal</a>
       <a href="#/foods" data-route="/foods">Nutrition DB</a>
       <a href="#/account" data-route="/account">My Subscription</a>
     </nav>
-    <a class="btn btn-primary btn-small" href="#/plan">Start Free Plan</a>
+    <button class="cart-btn" onclick="location.hash='#/cart'" title="Your daily box">🛒<span class="cart-badge" id="cart-badge" hidden>0</span></button>
   </header>
 
   <main id="app"><!-- rendered by app.js --></main>
+
+  <div id="cart-bar-mount"></div>
 
   <footer class="footer">
     <div>
@@ -30,11 +36,11 @@
     </div>
     <div>
       <strong>How it works</strong>
-      <p>Tell us your goal → we compute your calories & macros → pick your meals for the week → fresh delivery every morning. Change tomorrow's meal any time before 8 PM today.</p>
+      <p>Tell us your goal → we compute your calories & macros → pick meals or build your own from 300+ ingredients → fresh delivery every day. Change tomorrow's meal any time before 8 PM.</p>
     </div>
     <div>
       <strong>Nutrition data</strong>
-      <p>Per 100 g / 100 ml values compiled from IFCT 2017 (ICMR-NIN) and USDA references. Guidance is informational, not medical advice.</p>
+      <p>Per 100 g / 100 ml values compiled from IFCT 2017 (ICMR-NIN) and USDA FoodData Central. Guidance is informational, not medical advice.</p>
     </div>
   </footer>
 
