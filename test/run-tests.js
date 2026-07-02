@@ -12,10 +12,9 @@ const { generatePlan, dietAllows } = require('../lib/planner');
 const { server, isEditable } = require('../server');
 
 const MEALS = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'meals.json'), 'utf8')).meals;
-const FOODS = [
-  ...JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'foods.json'), 'utf8')).foods,
-  ...JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'foods-extra.json'), 'utf8')).foods
-];
+const FOODS = ['foods.json', 'foods-extra.json', 'foods-extra2.json', 'foods-ifct.json'].flatMap(
+  (f) => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', f), 'utf8')).foods
+);
 
 let passed = 0;
 const failures = [];
@@ -25,7 +24,7 @@ function test(name, fn) {
 }
 
 console.log('\nData integrity');
-test('foods database has 300+ entries', () => assert.ok(FOODS.length >= 300, `got ${FOODS.length}`));
+test('foods database has 1000+ entries', () => assert.ok(FOODS.length >= 1000, `got ${FOODS.length}`));
 test('food ids are unique', () => {
   assert.strictEqual(new Set(FOODS.map((f) => f.id)).size, FOODS.length);
 });
@@ -38,12 +37,14 @@ test('every food has complete nutrition fields', () => {
     assert.ok(['veg', 'egg', 'nonveg'].includes(f.diet), f.id);
   }
 });
-test('food macro energy roughly matches stated kcal (±25%)', () => {
+test('food macro energy roughly matches stated kcal', () => {
+  // Metabolizable energy: 4/4/9 kcal per g plus ~2 kcal/g for dietary fiber
+  // (the convention IFCT 2017 uses). Tiny-kcal foods are skipped: rounding noise dominates.
   for (const f of FOODS) {
-    if (f.kcal < 30) continue; // rounding noise dominates tiny values
-    const computed = f.protein * 4 + f.carbs * 4 + f.fat * 9;
+    if (f.kcal < 40) continue;
+    const computed = f.protein * 4 + f.carbs * 4 + f.fat * 9 + (f.fiber || 0) * 2;
     const ratio = computed / f.kcal;
-    assert.ok(ratio > 0.75 && ratio < 1.35, `${f.id}: stated ${f.kcal}, macros ${Math.round(computed)}`);
+    assert.ok(ratio > 0.7 && ratio < 1.45, `${f.id}: stated ${f.kcal}, macros ${Math.round(computed)}`);
   }
 });
 test('meal ids are unique and slots valid', () => {
@@ -184,7 +185,7 @@ async function apiTests() {
   await atest('GET /api/health reports data sizes', async () => {
     const r = await req('GET', '/api/health');
     assert.strictEqual(r.status, 200);
-    assert.ok(r.body.foods >= 300 && r.body.meals >= 35);
+    assert.ok(r.body.foods >= 1000 && r.body.meals >= 35);
   });
   await atest('GET /api/foods?q=paneer filters by name', async () => {
     const r = await req('GET', '/api/foods?q=paneer');

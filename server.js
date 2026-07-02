@@ -17,10 +17,10 @@ const PORT = process.env.PORT || 3000;
 const PUBLIC_DIR = path.join(__dirname, 'public');
 const CUTOFF_HOUR = 20; // meal changes for tomorrow close at 8 PM today
 
-const FOODS = [
-  ...JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'foods.json'), 'utf8')).foods,
-  ...JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'foods-extra.json'), 'utf8')).foods
-];
+const FOOD_FILES = ['foods.json', 'foods-extra.json', 'foods-extra2.json', 'foods-ifct.json'];
+const FOODS = FOOD_FILES.flatMap(
+  (f) => JSON.parse(fs.readFileSync(path.join(__dirname, 'data', f), 'utf8')).foods
+);
 const MEALS = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'meals.json'), 'utf8')).meals;
 
 {

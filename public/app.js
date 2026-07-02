@@ -232,7 +232,7 @@ function renderHome() {
     <div class="hero-badges">
       <span>🇮🇳 100% Indian meals</span>
       <span>📊 Macro-counted portions</span>
-      <span>🧑‍🍳 Build meals from 300+ ingredients</span>
+      <span>🧑‍🍳 Build meals from 1,000+ ingredients</span>
       <span>🔁 Change tomorrow's meal till 8 PM</span>
     </div>
   </section>
@@ -246,7 +246,7 @@ function renderHome() {
   <h2 class="section-title">How it works</h2>
   <div class="grid grid-4 steps">
     <div class="card"><h3>Set your target</h3><p class="muted">Enter calories & protein, or your height, weight and goal — we calculate your needs (Mifflin-St Jeor).</p></div>
-    <div class="card"><h3>Pick or build meals</h3><p class="muted">Take our 7-day plan, or build your own meals ingredient by ingredient from 300+ Indian foods.</p></div>
+    <div class="card"><h3>Pick or build meals</h3><p class="muted">Take our 7-day plan, or build your own meals ingredient by ingredient from 1,000+ Indian foods.</p></div>
     <div class="card"><h3>Subscribe</h3><p class="muted">1, 2 or 4 weeks. Morning or evening delivery. Up to 10% off on longer plans.</p></div>
     <div class="card"><h3>Eat & repeat</h3><p class="muted">Fresh meals daily, like your milk delivery. Skip, pause, or change tomorrow's box before 8 PM.</p></div>
   </div>

@@ -1,0 +1,8677 @@
+{
+ "note": "IFCT 2017 (Indian Food Composition Tables, ICMR-National Institute of Nutrition) — 100 g edible portion (100 ml for oils). Energy converted from kJ to kcal. Generated from the open @ifct2017/compositions dataset.",
+ "foods": [
+  {
+   "id": "ifct-a001",
+   "name": "Amaranth seed, black / Ramdana",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 356,
+   "protein": 14.6,
+   "carbs": 60,
+   "fat": 5.7,
+   "fiber": 7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a002",
+   "name": "Amaranth seed, pale brown / Ramdana",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 356,
+   "protein": 13.3,
+   "carbs": 61.5,
+   "fat": 5.6,
+   "fiber": 7.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a003",
+   "name": "Bajra / Bajra",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 348,
+   "protein": 11,
+   "carbs": 61.8,
+   "fat": 5.4,
+   "fiber": 11.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a004",
+   "name": "Barley / Jau",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 316,
+   "protein": 10.9,
+   "carbs": 61.3,
+   "fat": 1.3,
+   "fiber": 15.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a005",
+   "name": "Jowar / Jowar",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 334,
+   "protein": 10,
+   "carbs": 67.7,
+   "fat": 1.7,
+   "fiber": 10.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a006",
+   "name": "Maize, dry / Makka",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 334,
+   "protein": 8.8,
+   "carbs": 64.8,
+   "fat": 3.8,
+   "fiber": 12.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a007",
+   "name": "Maize, tender, local / Makka",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 120,
+   "protein": 3.6,
+   "carbs": 22.7,
+   "fat": 1.4,
+   "fiber": 3.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a008",
+   "name": "Maize, tender, sweet / Makka",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 97,
+   "protein": 4.2,
+   "carbs": 16.4,
+   "fat": 1.4,
+   "fiber": 3.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a009",
+   "name": "Quinoa",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 328,
+   "protein": 13.1,
+   "carbs": 53.7,
+   "fat": 5.5,
+   "fiber": 14.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a010",
+   "name": "Ragi / Ragi",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 321,
+   "protein": 7.2,
+   "carbs": 66.8,
+   "fat": 1.9,
+   "fiber": 11.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a011",
+   "name": "Rice flakes / Poha",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 354,
+   "protein": 7.4,
+   "carbs": 76.8,
+   "fat": 1.1,
+   "fiber": 3.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a012",
+   "name": "Rice puffed / Muramure",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 362,
+   "protein": 7.5,
+   "carbs": 77.7,
+   "fat": 1.6,
+   "fiber": 2.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a013",
+   "name": "Rice, raw, brown / Chawal",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 354,
+   "protein": 9.2,
+   "carbs": 74.8,
+   "fat": 1.2,
+   "fiber": 4.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a014",
+   "name": "Rice, parboiled, milled / Usna chawal",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 352,
+   "protein": 7.8,
+   "carbs": 77.2,
+   "fat": 0.6,
+   "fiber": 3.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a015",
+   "name": "Rice, raw, milled / Chawal",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 356,
+   "protein": 7.9,
+   "carbs": 78.2,
+   "fat": 0.5,
+   "fiber": 2.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a016",
+   "name": "Samai / Shavan",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 346,
+   "protein": 10.1,
+   "carbs": 65.6,
+   "fat": 3.9,
+   "fiber": 7.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a017",
+   "name": "Varagu",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 332,
+   "protein": 8.9,
+   "carbs": 66.2,
+   "fat": 2.6,
+   "fiber": 6.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a018",
+   "name": "Wheat flour, refined / Maida",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 352,
+   "protein": 10.4,
+   "carbs": 74.3,
+   "fat": 0.8,
+   "fiber": 2.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a019",
+   "name": "Wheat flour, atta / Atta",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 320,
+   "protein": 10.6,
+   "carbs": 64.2,
+   "fat": 1.5,
+   "fiber": 11.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a020",
+   "name": "Wheat, whole / Gehun",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 322,
+   "protein": 10.6,
+   "carbs": 64.7,
+   "fat": 1.5,
+   "fiber": 11.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a021",
+   "name": "Wheat, bulgur / Dalia",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 342,
+   "protein": 10.8,
+   "carbs": 69.1,
+   "fat": 1.5,
+   "fiber": 8.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a022",
+   "name": "Wheat, semolina / Gehun suji",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 334,
+   "protein": 11.4,
+   "carbs": 68.4,
+   "fat": 0.7,
+   "fiber": 9.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a023",
+   "name": "Wheat, vermicelli / Siwain",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 333,
+   "protein": 9.7,
+   "carbs": 70.4,
+   "fat": 0.5,
+   "fiber": 9.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-a024",
+   "name": "Wheat, vermicelli, roasted / Siwain",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 340,
+   "protein": 10.4,
+   "carbs": 71.4,
+   "fat": 0.5,
+   "fiber": 9.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b001",
+   "name": "Bengal gram, dal / Chan-ki-dal",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 329,
+   "protein": 21.6,
+   "carbs": 46.7,
+   "fat": 5.3,
+   "fiber": 15.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b002",
+   "name": "Bengal gram, whole / Chana",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 287,
+   "protein": 18.8,
+   "carbs": 39.6,
+   "fat": 5.1,
+   "fiber": 25.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b003",
+   "name": "Black gram, dal / Urad dal",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 324,
+   "protein": 23.1,
+   "carbs": 51,
+   "fat": 1.7,
+   "fiber": 11.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b004",
+   "name": "Black gram, whole / Chhilke wali urad dal",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 291,
+   "protein": 22,
+   "carbs": 44,
+   "fat": 1.6,
+   "fiber": 20.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b005",
+   "name": "Cowpea, brown / Lobia",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 320,
+   "protein": 20.4,
+   "carbs": 54.6,
+   "fat": 1.2,
+   "fiber": 11.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b006",
+   "name": "Cowpea, white / Lobia",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 320,
+   "protein": 21.3,
+   "carbs": 53.8,
+   "fat": 1.1,
+   "fiber": 11.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b007",
+   "name": "Field bean, black / Sem",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 276,
+   "protein": 19.9,
+   "carbs": 43.5,
+   "fat": 0.9,
+   "fiber": 23.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b008",
+   "name": "Field bean, brown / Sem",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 283,
+   "protein": 19.9,
+   "carbs": 45.2,
+   "fat": 1,
+   "fiber": 22.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b009",
+   "name": "Field bean, white / Sem",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 280,
+   "protein": 19.8,
+   "carbs": 44.5,
+   "fat": 0.9,
+   "fiber": 23,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b010",
+   "name": "Green gram, dal / Mug dal",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 326,
+   "protein": 23.9,
+   "carbs": 52.6,
+   "fat": 1.4,
+   "fiber": 9.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b011",
+   "name": "Green gram, whole / Mung",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 294,
+   "protein": 22.5,
+   "carbs": 46.1,
+   "fat": 1.1,
+   "fiber": 17,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b012",
+   "name": "Horse gram, whole / Kulthi",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 330,
+   "protein": 21.7,
+   "carbs": 57.2,
+   "fat": 0.6,
+   "fiber": 7.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b013",
+   "name": "Lentil dal / Masoor dal",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 322,
+   "protein": 24.4,
+   "carbs": 52.5,
+   "fat": 0.8,
+   "fiber": 10.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b014",
+   "name": "Lentil whole, brown / Masur dal",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 299,
+   "protein": 22.5,
+   "carbs": 48.5,
+   "fat": 0.6,
+   "fiber": 16.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b015",
+   "name": "Lentil whole, yellowish / Masur dal",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 298,
+   "protein": 22.9,
+   "carbs": 47.9,
+   "fat": 0.6,
+   "fiber": 16.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b016",
+   "name": "Moth bean / Motha",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 309,
+   "protein": 19.8,
+   "carbs": 52.1,
+   "fat": 1.8,
+   "fiber": 15.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b017",
+   "name": "Peas, dry / Sukhi Matar",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 303,
+   "protein": 20.4,
+   "carbs": 48.9,
+   "fat": 1.9,
+   "fiber": 17,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b018",
+   "name": "Rajmah, black / Rajmah",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 298,
+   "protein": 19,
+   "carbs": 49.6,
+   "fat": 1.6,
+   "fiber": 17.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b019",
+   "name": "Rajmah, brown / Rajmah",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 298,
+   "protein": 19.5,
+   "carbs": 48.8,
+   "fat": 1.7,
+   "fiber": 17,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b020",
+   "name": "Rajmah, red / Rajmah",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 299,
+   "protein": 19.9,
+   "carbs": 48.6,
+   "fat": 1.8,
+   "fiber": 16.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b021",
+   "name": "Red gram, dal",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 331,
+   "protein": 21.7,
+   "carbs": 55.2,
+   "fat": 1.6,
+   "fiber": 9.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b022",
+   "name": "Red gram, whole / Arhar sabud",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 274,
+   "protein": 20.5,
+   "carbs": 42.5,
+   "fat": 1.4,
+   "fiber": 22.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b023",
+   "name": "Ricebean / Meth",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 302,
+   "protein": 20,
+   "carbs": 51.3,
+   "fat": 0.7,
+   "fiber": 13.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b024",
+   "name": "Soya bean, brown / Bhatmas",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 381,
+   "protein": 35.6,
+   "carbs": 12.8,
+   "fat": 19.8,
+   "fiber": 21.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-b025",
+   "name": "Soya bean, white / Bhatmas",
+   "category": "Pulses, Dals & Legumes",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 377,
+   "protein": 37.8,
+   "carbs": 10.2,
+   "fat": 19.4,
+   "fiber": 22.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c001",
+   "name": "Agathi leaves / Agasthi",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 71,
+   "protein": 8,
+   "carbs": 5.2,
+   "fat": 1.4,
+   "fiber": 8.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c002",
+   "name": "Amaranth leaves, green / Chaulai",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 31,
+   "protein": 3.3,
+   "carbs": 2.3,
+   "fat": 0.7,
+   "fiber": 4.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c003",
+   "name": "Amaranth leaves, red mix / Chaulai",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 33,
+   "protein": 3.9,
+   "carbs": 2.4,
+   "fat": 0.6,
+   "fiber": 4.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c004",
+   "name": "Amaranth leaves, red and green mix / Chaulai",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 32,
+   "protein": 3.1,
+   "carbs": 2.9,
+   "fat": 0.5,
+   "fiber": 4.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c005",
+   "name": "Amaranth spinosus, leaves, green mix / Kantewali-notya",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 26,
+   "protein": 3.5,
+   "carbs": 1.6,
+   "fat": 0.4,
+   "fiber": 5.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c006",
+   "name": "Amaranth spinosus, leaves, red and green mix / Kantewali-notya",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 24,
+   "protein": 2.8,
+   "carbs": 1.5,
+   "fat": 0.3,
+   "fiber": 5.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c007",
+   "name": "Basella leaves / Palak",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 20,
+   "protein": 1.6,
+   "carbs": 2,
+   "fat": 0.5,
+   "fiber": 2.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c008",
+   "name": "Bathua leaves / Bathua sagu",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 28,
+   "protein": 2.5,
+   "carbs": 2.6,
+   "fat": 0.4,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c009",
+   "name": "Beet greens / Chukandhar sag",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 35,
+   "protein": 2.4,
+   "carbs": 3.9,
+   "fat": 0.8,
+   "fiber": 3.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c010",
+   "name": "Betel leaves, big (kolkata) / Pan ka patha",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 48,
+   "protein": 2.5,
+   "carbs": 7.4,
+   "fat": 0.8,
+   "fiber": 2.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c011",
+   "name": "Betel leaves, small / Pan ka patha",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 44,
+   "protein": 2.6,
+   "carbs": 6.2,
+   "fat": 0.8,
+   "fiber": 2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c012",
+   "name": "Brussels sprouts / Choote gobi",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 44,
+   "protein": 4.3,
+   "carbs": 5.1,
+   "fat": 0.5,
+   "fiber": 4.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c013",
+   "name": "Cabbage, Chinese",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 18,
+   "protein": 1.6,
+   "carbs": 2.4,
+   "fat": 0.1,
+   "fiber": 2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c014",
+   "name": "Cabbage, collard greens",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 30,
+   "protein": 3.6,
+   "carbs": 2.8,
+   "fat": 0.3,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c015",
+   "name": "Cabbage, green / Bandh gobi",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 22,
+   "protein": 1.4,
+   "carbs": 3.3,
+   "fat": 0.1,
+   "fiber": 2.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c016",
+   "name": "Cabbage, violet / Bandh gobi",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 23,
+   "protein": 1.4,
+   "carbs": 3.5,
+   "fat": 0.2,
+   "fiber": 2.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c017",
+   "name": "Cauliflower leaves / Phul gobi patta",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 35,
+   "protein": 3.9,
+   "carbs": 3.4,
+   "fat": 0.4,
+   "fiber": 3.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c018",
+   "name": "Colocasia leaves, green / Arvi ka sag",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 43,
+   "protein": 3.4,
+   "carbs": 3.7,
+   "fat": 1.4,
+   "fiber": 5.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c019",
+   "name": "Drumstick leaves / Saijan patta",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 67,
+   "protein": 6.4,
+   "carbs": 5.6,
+   "fat": 1.6,
+   "fiber": 8.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c020",
+   "name": "Fenugreek leaves / Methi sag",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 34,
+   "protein": 3.7,
+   "carbs": 2.2,
+   "fat": 0.8,
+   "fiber": 4.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c021",
+   "name": "Garden cress / Halim ka patta",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 50,
+   "protein": 5.6,
+   "carbs": 4.5,
+   "fat": 0.8,
+   "fiber": 2.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c022",
+   "name": "Gogu leaves, green / Pitwa",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 36,
+   "protein": 1.9,
+   "carbs": 4.1,
+   "fat": 1.1,
+   "fiber": 4.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c023",
+   "name": "Gogu leaves, red / Pitwa",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 37,
+   "protein": 1.9,
+   "carbs": 4.2,
+   "fat": 1.1,
+   "fiber": 3.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c024",
+   "name": "Knol-Khol, leaves / Ganth gobi ka sag",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 43,
+   "protein": 3.1,
+   "carbs": 6.2,
+   "fat": 0.4,
+   "fiber": 2.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c025",
+   "name": "Lettuce / Salad ka patta",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 22,
+   "protein": 1.5,
+   "carbs": 3,
+   "fat": 0.3,
+   "fiber": 1.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c026",
+   "name": "Mustard leaves / Sarson ka sag",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 30,
+   "protein": 3.5,
+   "carbs": 2.4,
+   "fat": 0.5,
+   "fiber": 3.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c027",
+   "name": "Pak Choi leaves",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 16,
+   "protein": 1.4,
+   "carbs": 1.8,
+   "fat": 0.3,
+   "fiber": 1.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c028",
+   "name": "Parsley",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 73,
+   "protein": 5.6,
+   "carbs": 9.4,
+   "fat": 1.1,
+   "fiber": 3.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c029",
+   "name": "Ponnaganni / Saranthi sag",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 51,
+   "protein": 5.3,
+   "carbs": 5.2,
+   "fat": 0.7,
+   "fiber": 6.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c030",
+   "name": "Pumpkin leaves, tender / Kumhra sag",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 44,
+   "protein": 4.2,
+   "carbs": 4.8,
+   "fat": 0.7,
+   "fiber": 2.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c031",
+   "name": "Radish leaves / Muli ka sag",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 26,
+   "protein": 2.2,
+   "carbs": 2.8,
+   "fat": 0.5,
+   "fiber": 1.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c032",
+   "name": "Rumex leaves",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 20,
+   "protein": 1.6,
+   "carbs": 2.3,
+   "fat": 0.3,
+   "fiber": 1.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c033",
+   "name": "Spinach / Palak",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 24,
+   "protein": 2.1,
+   "carbs": 2.1,
+   "fat": 0.6,
+   "fiber": 2.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-c034",
+   "name": "Tamarind leaves, tender",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 71,
+   "protein": 5.8,
+   "carbs": 10,
+   "fat": 0.5,
+   "fiber": 10.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d001",
+   "name": "Ash gourd / Petha",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 17,
+   "protein": 0.8,
+   "carbs": 2.8,
+   "fat": 0.1,
+   "fiber": 3.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d002",
+   "name": "Bamboo shoot, tender / Baans",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 16,
+   "protein": 1.3,
+   "carbs": 1.7,
+   "fat": 0.4,
+   "fiber": 1.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d003",
+   "name": "Bean scarlet, tender / Sem",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 43,
+   "protein": 2.9,
+   "carbs": 5.2,
+   "fat": 1,
+   "fiber": 4.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d004",
+   "name": "Bitter gourd, jagged, teeth ridges, elongate / Karela",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 21,
+   "protein": 1.4,
+   "carbs": 2.8,
+   "fat": 0.2,
+   "fiber": 3.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d005",
+   "name": "Bitter gourd, jagged, teeth ridges, short / Karela",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 19,
+   "protein": 1.3,
+   "carbs": 2.5,
+   "fat": 0.2,
+   "fiber": 3.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d006",
+   "name": "Bitter gourd, jagged, smooth ridges, elongate / Karela",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 19,
+   "protein": 1.6,
+   "carbs": 2.3,
+   "fat": 0.3,
+   "fiber": 3.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d007",
+   "name": "Bottle gourd, elongate, pale green / Lowki",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 11,
+   "protein": 0.5,
+   "carbs": 1.7,
+   "fat": 0.1,
+   "fiber": 2.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d008",
+   "name": "Bottle gourd, round, pale green / Lowki",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 14,
+   "protein": 0.4,
+   "carbs": 2.5,
+   "fat": 0.1,
+   "fiber": 2.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d009",
+   "name": "Bottle gourd, elongate, dark green / Lowki",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 13,
+   "protein": 0.5,
+   "carbs": 2.3,
+   "fat": 0.1,
+   "fiber": 2.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d010",
+   "name": "Brinjal-1 / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 27,
+   "protein": 1.8,
+   "carbs": 3.5,
+   "fat": 0.4,
+   "fiber": 3.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d011",
+   "name": "Brinjal-2 / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 24,
+   "protein": 1.8,
+   "carbs": 2.7,
+   "fat": 0.3,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d012",
+   "name": "Brinjal-3 / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 24,
+   "protein": 1.4,
+   "carbs": 3.4,
+   "fat": 0.3,
+   "fiber": 4.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d013",
+   "name": "Brinjal-4 / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 24,
+   "protein": 1.5,
+   "carbs": 3.2,
+   "fat": 0.3,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d014",
+   "name": "Brinjal-5 / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 27,
+   "protein": 1.4,
+   "carbs": 4,
+   "fat": 0.3,
+   "fiber": 4.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d015",
+   "name": "Brinjal-6 / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 23,
+   "protein": 1.5,
+   "carbs": 3.3,
+   "fat": 0.3,
+   "fiber": 3.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d016",
+   "name": "Brinjal-7 / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 23,
+   "protein": 1.4,
+   "carbs": 3.1,
+   "fat": 0.4,
+   "fiber": 3.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d017",
+   "name": "Brinjal-8 / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 28,
+   "protein": 1.8,
+   "carbs": 3.8,
+   "fat": 0.3,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d018",
+   "name": "Brinjal-9 / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 25,
+   "protein": 1.5,
+   "carbs": 3.5,
+   "fat": 0.4,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d019",
+   "name": "Brinjal-10 / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 28,
+   "protein": 1.7,
+   "carbs": 4.1,
+   "fat": 0.3,
+   "fiber": 3.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d020",
+   "name": "Brinjal-11 / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 25,
+   "protein": 1.4,
+   "carbs": 3.5,
+   "fat": 0.3,
+   "fiber": 4.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d021",
+   "name": "Brinjal-12 / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 22,
+   "protein": 1.6,
+   "carbs": 2.7,
+   "fat": 0.3,
+   "fiber": 3.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d022",
+   "name": "Brinjal-13 / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 30,
+   "protein": 1.5,
+   "carbs": 4.5,
+   "fat": 0.3,
+   "fiber": 3.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d023",
+   "name": "Brinjal-14 / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 25,
+   "protein": 1.6,
+   "carbs": 3.3,
+   "fat": 0.4,
+   "fiber": 3.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d024",
+   "name": "Brinjal-15 / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 27,
+   "protein": 1.6,
+   "carbs": 4,
+   "fat": 0.3,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d025",
+   "name": "Brinjal-16 / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 25,
+   "protein": 1.3,
+   "carbs": 3.5,
+   "fat": 0.3,
+   "fiber": 3.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d026",
+   "name": "Brinjal-17 / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 22,
+   "protein": 1.2,
+   "carbs": 2.9,
+   "fat": 0.4,
+   "fiber": 3.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d027",
+   "name": "Brinjal-18 / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 28,
+   "protein": 1.5,
+   "carbs": 4.1,
+   "fat": 0.3,
+   "fiber": 4.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d028",
+   "name": "Brinjal-19 / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 24,
+   "protein": 1.3,
+   "carbs": 3.4,
+   "fat": 0.3,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d029",
+   "name": "Brinjal-20 / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 24,
+   "protein": 1.4,
+   "carbs": 3.2,
+   "fat": 0.3,
+   "fiber": 3.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d030",
+   "name": "Brinjal-21 / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 27,
+   "protein": 1.4,
+   "carbs": 3.9,
+   "fat": 0.4,
+   "fiber": 3.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d031",
+   "name": "Brinjal - all varieties / Baingan",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 25,
+   "protein": 1.5,
+   "carbs": 3.5,
+   "fat": 0.3,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d032",
+   "name": "Broad beans / Bakla",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 29,
+   "protein": 3.9,
+   "carbs": 2.1,
+   "fat": 0.2,
+   "fiber": 8.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d033",
+   "name": "Capsicum, green / Shimla mirch",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 16,
+   "protein": 1.1,
+   "carbs": 1.8,
+   "fat": 0.3,
+   "fiber": 2.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d034",
+   "name": "Capsicum, red / Shimla mirch",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 20,
+   "protein": 1.5,
+   "carbs": 2.1,
+   "fat": 0.5,
+   "fiber": 2.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d035",
+   "name": "Capsicum, yellow / Shimla mirch",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 19,
+   "protein": 1.4,
+   "carbs": 2,
+   "fat": 0.4,
+   "fiber": 2.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d036",
+   "name": "Cauliflower / Phul gobi",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 23,
+   "protein": 2.2,
+   "carbs": 2,
+   "fat": 0.4,
+   "fiber": 3.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d037",
+   "name": "Celery stalk / Ajmud",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 16,
+   "protein": 1,
+   "carbs": 2.3,
+   "fat": 0.2,
+   "fiber": 2.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d038",
+   "name": "Cho-cho-marrow / Cho-cho-marrow",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 19,
+   "protein": 0.7,
+   "carbs": 3.5,
+   "fat": 0.2,
+   "fiber": 1.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d039",
+   "name": "Cluster beans / Gaur-ki-phalli",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 40,
+   "protein": 3.6,
+   "carbs": 4.9,
+   "fat": 0.4,
+   "fiber": 4.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d040",
+   "name": "Colocasia, stem, black / Arwi-ki-dandi",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 24,
+   "protein": 0.8,
+   "carbs": 3.8,
+   "fat": 0.3,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d041",
+   "name": "Colocasia, stem, green / Arwi-ki-dandi",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 19,
+   "protein": 0.9,
+   "carbs": 2.9,
+   "fat": 0.2,
+   "fiber": 2.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d042",
+   "name": "Corn, Baby",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 73,
+   "protein": 2.7,
+   "carbs": 11.7,
+   "fat": 1.3,
+   "fiber": 6.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d043",
+   "name": "Cucumber, green, elongate / Kheera",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 20,
+   "protein": 0.7,
+   "carbs": 3.5,
+   "fat": 0.2,
+   "fiber": 2.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d044",
+   "name": "Cucumber, green, short / Kheera",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 17,
+   "protein": 0.8,
+   "carbs": 2.8,
+   "fat": 0.2,
+   "fiber": 2.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d045",
+   "name": "Cucumber, orange, round / Kakadi",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 20,
+   "protein": 1,
+   "carbs": 3,
+   "fat": 0.2,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d046",
+   "name": "Drumstick / Saijan-ki-phalli",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 29,
+   "protein": 2.6,
+   "carbs": 3.8,
+   "fat": 0.1,
+   "fiber": 6.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d047",
+   "name": "Field beans, tender, broad / Sem",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 31,
+   "protein": 3.1,
+   "carbs": 2.8,
+   "fat": 0.6,
+   "fiber": 5.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d048",
+   "name": "Field beans, tender, lean / Sem",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 33,
+   "protein": 3.7,
+   "carbs": 2.9,
+   "fat": 0.6,
+   "fiber": 6.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d049",
+   "name": "French beans, country / Bakla",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 24,
+   "protein": 2.5,
+   "carbs": 2.7,
+   "fat": 0.3,
+   "fiber": 4.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d050",
+   "name": "French beans, hybrid / Bakla",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 22,
+   "protein": 2.1,
+   "carbs": 2.6,
+   "fat": 0.2,
+   "fiber": 4.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d051",
+   "name": "Jack fruit, raw / Kathal",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 26,
+   "protein": 2,
+   "carbs": 3.5,
+   "fat": 0.4,
+   "fiber": 7.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d052",
+   "name": "Jack fruit, seed, mature / Kathal",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 77,
+   "protein": 5.8,
+   "carbs": 11.8,
+   "fat": 0.4,
+   "fiber": 8.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d053",
+   "name": "Knol - Khol / Kohl-rabi",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 16,
+   "protein": 1.6,
+   "carbs": 1.4,
+   "fat": 0.4,
+   "fiber": 2.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d054",
+   "name": "Kovai, big / Konduri",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 17,
+   "protein": 1.4,
+   "carbs": 2,
+   "fat": 0.2,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d055",
+   "name": "Kovai, small / Konduri",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 19,
+   "protein": 1.2,
+   "carbs": 2.4,
+   "fat": 0.2,
+   "fiber": 3.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d056",
+   "name": "Ladies finger / Bhindi",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 27,
+   "protein": 2.1,
+   "carbs": 3.6,
+   "fat": 0.2,
+   "fiber": 4.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d057",
+   "name": "Mango, green, raw / Katcha Aam",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 49,
+   "protein": 0.7,
+   "carbs": 10.6,
+   "fat": 0.1,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d058",
+   "name": "Onion, stalk / Pyaz",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 26,
+   "protein": 2.1,
+   "carbs": 3,
+   "fat": 0.3,
+   "fiber": 5.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d059",
+   "name": "Papaya, raw / Katcha pepita",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 24,
+   "protein": 0.5,
+   "carbs": 4.4,
+   "fat": 0.2,
+   "fiber": 2.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d060",
+   "name": "Parwar / Parwal",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 24,
+   "protein": 1.4,
+   "carbs": 3.5,
+   "fat": 0.3,
+   "fiber": 2.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d061",
+   "name": "Peas, fresh / Matar",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 81,
+   "protein": 7.3,
+   "carbs": 11.9,
+   "fat": 0.1,
+   "fiber": 6.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d062",
+   "name": "Plantain, flower / Kele-ka phool",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 21,
+   "protein": 1.5,
+   "carbs": 2.2,
+   "fat": 0.6,
+   "fiber": 5.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d063",
+   "name": "Plantain, green / Kele (hara)",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 80,
+   "protein": 1.2,
+   "carbs": 17.6,
+   "fat": 0.2,
+   "fiber": 3.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d064",
+   "name": "Plantain, stem / Kele-ka-tana",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 39,
+   "protein": 0.4,
+   "carbs": 8.6,
+   "fat": 0.2,
+   "fiber": 2.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d065",
+   "name": "Pumpkin, green, cylindrical / Kaddu",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 25,
+   "protein": 0.9,
+   "carbs": 4.2,
+   "fat": 0.2,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d066",
+   "name": "Pumpkin, orange, round / Kaddu",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 23,
+   "protein": 0.8,
+   "carbs": 4,
+   "fat": 0.2,
+   "fiber": 2.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d067",
+   "name": "Red gram, tender, fresh / Arhar ki fali",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 124,
+   "protein": 8.1,
+   "carbs": 19.5,
+   "fat": 0.9,
+   "fiber": 5.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d068",
+   "name": "Ridge gourd / Torai",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 13,
+   "protein": 0.9,
+   "carbs": 1.7,
+   "fat": 0.1,
+   "fiber": 1.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d069",
+   "name": "Ridge gourd, smooth skin / Torai",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 15,
+   "protein": 1,
+   "carbs": 2.2,
+   "fat": 0.1,
+   "fiber": 1.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d070",
+   "name": "Snake gourd, long, pale green / Chachinda",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 12,
+   "protein": 1,
+   "carbs": 1.3,
+   "fat": 0.3,
+   "fiber": 2.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d071",
+   "name": "Snake gourd, long, dark green / Chachinda",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 12,
+   "protein": 0.9,
+   "carbs": 1.2,
+   "fat": 0.3,
+   "fiber": 2.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d072",
+   "name": "Snake gourd, short / Chachinda",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 15,
+   "protein": 0.5,
+   "carbs": 2.2,
+   "fat": 0.3,
+   "fiber": 2.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d073",
+   "name": "Tinda, tender / Tinda",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 14,
+   "protein": 1,
+   "carbs": 1.9,
+   "fat": 0.2,
+   "fiber": 2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d074",
+   "name": "Tomato, green / Tamator",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 21,
+   "protein": 1.1,
+   "carbs": 3.2,
+   "fat": 0.3,
+   "fiber": 1.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d075",
+   "name": "Tomato, ripe, hybrid / Tamator",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 19,
+   "protein": 0.8,
+   "carbs": 3.2,
+   "fat": 0.3,
+   "fiber": 1.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d076",
+   "name": "Tomato, ripe, local / Tamator",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 20,
+   "protein": 0.9,
+   "carbs": 2.7,
+   "fat": 0.5,
+   "fiber": 1.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d077",
+   "name": "Zucchini, green / Sabed kaddu",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 20,
+   "protein": 1.1,
+   "carbs": 2.3,
+   "fat": 0.5,
+   "fiber": 2.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-d078",
+   "name": "Zucchini, yellow / Sabed kaddu",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 19,
+   "protein": 1.3,
+   "carbs": 2.2,
+   "fat": 0.4,
+   "fiber": 1.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e001",
+   "name": "Apple, big / Sev",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 62,
+   "protein": 0.3,
+   "carbs": 13.1,
+   "fat": 0.6,
+   "fiber": 2.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e002",
+   "name": "Apple, green / Sev",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 51,
+   "protein": 0.5,
+   "carbs": 10.7,
+   "fat": 0.5,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e003",
+   "name": "Apple, small / Sev",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 64,
+   "protein": 0.3,
+   "carbs": 14,
+   "fat": 0.5,
+   "fiber": 2.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e004",
+   "name": "Apple, small, Kashmir / Sev",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 64,
+   "protein": 0.3,
+   "carbs": 14,
+   "fat": 0.6,
+   "fiber": 2.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e005",
+   "name": "Apricot, dried / Khoomani",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 316,
+   "protein": 3.2,
+   "carbs": 72.6,
+   "fat": 0.7,
+   "fiber": 3.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e006",
+   "name": "Apricot, processed / Khoomani",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 56,
+   "protein": 1.5,
+   "carbs": 10.9,
+   "fat": 0.6,
+   "fiber": 0.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e007",
+   "name": "Avocado fruit / Makhanphal",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 144,
+   "protein": 3,
+   "carbs": 1.8,
+   "fat": 13.9,
+   "fiber": 6.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e008",
+   "name": "Bael fruit / Bel",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 136,
+   "protein": 2.6,
+   "carbs": 28.2,
+   "fat": 0.6,
+   "fiber": 6.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e009",
+   "name": "Banana, ripe, montham / Kela",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 111,
+   "protein": 1.3,
+   "carbs": 25,
+   "fat": 0.3,
+   "fiber": 2.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e010",
+   "name": "Banana, ripe, poovam / Kela",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 106,
+   "protein": 1.5,
+   "carbs": 23.4,
+   "fat": 0.4,
+   "fiber": 2.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e011",
+   "name": "Banana, ripe, red / Kela",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 112,
+   "protein": 1.3,
+   "carbs": 25.2,
+   "fat": 0.3,
+   "fiber": 2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e012",
+   "name": "Banana, ripe, robusta / Kela",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 105,
+   "protein": 1.2,
+   "carbs": 23.6,
+   "fat": 0.3,
+   "fiber": 1.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e013",
+   "name": "Black berry / Kala Jamun",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 54,
+   "protein": 0.9,
+   "carbs": 10.6,
+   "fat": 0.6,
+   "fiber": 4.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e014",
+   "name": "Cherries, red / Gilas",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 60,
+   "protein": 1.5,
+   "carbs": 11.9,
+   "fat": 0.5,
+   "fiber": 2.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e015",
+   "name": "Currants, black / Munakka",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 54,
+   "protein": 1.5,
+   "carbs": 9.9,
+   "fat": 0.5,
+   "fiber": 4.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e016",
+   "name": "Custard apple / Sharifa",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 99,
+   "protein": 1.6,
+   "carbs": 20.4,
+   "fat": 0.7,
+   "fiber": 5.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e017",
+   "name": "Dates, dry, pale brown / Chuhara",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 320,
+   "protein": 2.5,
+   "carbs": 74.9,
+   "fat": 0.4,
+   "fiber": 9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e018",
+   "name": "Dates, dry, dark brown / Khajur",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 311,
+   "protein": 2.4,
+   "carbs": 72.7,
+   "fat": 0.4,
+   "fiber": 9.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e019",
+   "name": "Dates, processed / Khajur",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 286,
+   "protein": 1.2,
+   "carbs": 68,
+   "fat": 0.4,
+   "fiber": 6.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e020",
+   "name": "Fig / Anjeer",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 82,
+   "protein": 2,
+   "carbs": 16.3,
+   "fat": 0.4,
+   "fiber": 4.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e021",
+   "name": "Goosberry / Amla",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 24,
+   "protein": 0.3,
+   "carbs": 4.4,
+   "fat": 0.2,
+   "fiber": 7.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e022",
+   "name": "Grapes, seeded, round, black / Angoor",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 61,
+   "protein": 0.8,
+   "carbs": 13.2,
+   "fat": 0.3,
+   "fiber": 1.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e023",
+   "name": "Grapes, seeded, round, green / Angoor",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 56,
+   "protein": 0.8,
+   "carbs": 12.2,
+   "fat": 0.3,
+   "fiber": 1.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e024",
+   "name": "Grapes, seeded, round, red / Angoor",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 58,
+   "protein": 1,
+   "carbs": 12.6,
+   "fat": 0.3,
+   "fiber": 1.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e025",
+   "name": "Grapes, seedless, oval, black / Angoor",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 94,
+   "protein": 1.4,
+   "carbs": 20.5,
+   "fat": 0.5,
+   "fiber": 1.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e026",
+   "name": "Grapes, seedless, round, green / Angoor",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 54,
+   "protein": 0.6,
+   "carbs": 11.8,
+   "fat": 0.3,
+   "fiber": 1.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e027",
+   "name": "Grapes, seedless, round, black / Angoor",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 89,
+   "protein": 1.2,
+   "carbs": 19.9,
+   "fat": 0.4,
+   "fiber": 1.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e028",
+   "name": "Guava, white flesh / Amrud",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 32,
+   "protein": 1.4,
+   "carbs": 5.1,
+   "fat": 0.3,
+   "fiber": 8.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e029",
+   "name": "Guava, pink flesh / Amrud",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 47,
+   "protein": 1.2,
+   "carbs": 9.1,
+   "fat": 0.3,
+   "fiber": 7.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e030",
+   "name": "Jack fruit, ripe / Kathal",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 72,
+   "protein": 2.7,
+   "carbs": 14,
+   "fat": 0.2,
+   "fiber": 3.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e031",
+   "name": "Jambu fruit, ripe / Jamun",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 56,
+   "protein": 0.8,
+   "carbs": 12.3,
+   "fat": 0.2,
+   "fiber": 3.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e032",
+   "name": "Karonda fruit / Balalak",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 34,
+   "protein": 1.2,
+   "carbs": 2.9,
+   "fat": 1.7,
+   "fiber": 7.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e033",
+   "name": "Lemon, juice / Nimbhu",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 37,
+   "protein": 0.4,
+   "carbs": 0,
+   "fat": 0.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e034",
+   "name": "Lime, sweet, pulp / Mosambi",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 27,
+   "protein": 0.8,
+   "carbs": 5.2,
+   "fat": 0.2,
+   "fiber": 2.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e035",
+   "name": "Litchi / Lichi",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 54,
+   "protein": 1,
+   "carbs": 11.4,
+   "fat": 0.3,
+   "fiber": 1.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e036",
+   "name": "Mango, ripe, banganapalli / Aam (paka)",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 42,
+   "protein": 0.5,
+   "carbs": 8.2,
+   "fat": 0.6,
+   "fiber": 1.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e037",
+   "name": "Mango, ripe, gulabkhas / Aam (paka)",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 50,
+   "protein": 0.5,
+   "carbs": 10.3,
+   "fat": 0.5,
+   "fiber": 1.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e038",
+   "name": "Mango, ripe, himsagar / Aam (paka)",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 45,
+   "protein": 0.5,
+   "carbs": 9,
+   "fat": 0.5,
+   "fiber": 1.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e039",
+   "name": "Mango, ripe, kesar / Aam (paka)",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 55,
+   "protein": 0.5,
+   "carbs": 11.4,
+   "fat": 0.6,
+   "fiber": 2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e040",
+   "name": "Mango, ripe, neelam / Aam (paka)",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 43,
+   "protein": 0.7,
+   "carbs": 8.2,
+   "fat": 0.6,
+   "fiber": 1.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e041",
+   "name": "Mango, ripe, paheri / Aam (paka)",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 45,
+   "protein": 0.7,
+   "carbs": 8.7,
+   "fat": 0.6,
+   "fiber": 2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e042",
+   "name": "Mango, ripe, totapari / Aam (paka)",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 59,
+   "protein": 0.4,
+   "carbs": 12.8,
+   "fat": 0.5,
+   "fiber": 1.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e043",
+   "name": "Mangosteen / Mangustan",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 52,
+   "protein": 0.6,
+   "carbs": 11.4,
+   "fat": 0.2,
+   "fiber": 1.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e044",
+   "name": "Manila tamarind / Ganga imli/ Jangal jalebi",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 82,
+   "protein": 3.6,
+   "carbs": 13.5,
+   "fat": 1.1,
+   "fiber": 4.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e045",
+   "name": "Musk melon, orange flesh / Kharbooja",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 23,
+   "protein": 0.4,
+   "carbs": 4.2,
+   "fat": 0.4,
+   "fiber": 1.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e046",
+   "name": "Musk melon, yellow flesh / Kharbooja",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 28,
+   "protein": 0.5,
+   "carbs": 5.4,
+   "fat": 0.3,
+   "fiber": 1.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e047",
+   "name": "Orange, pulp / Santra",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 37,
+   "protein": 0.7,
+   "carbs": 7.9,
+   "fat": 0.1,
+   "fiber": 1.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e048",
+   "name": "Palm fruit, tender / Tar",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 24,
+   "protein": 0.5,
+   "carbs": 4.9,
+   "fat": 0.1,
+   "fiber": 2.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e049",
+   "name": "Papaya, ripe / Papita",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 24,
+   "protein": 0.4,
+   "carbs": 4.6,
+   "fat": 0.2,
+   "fiber": 2.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e050",
+   "name": "Peach / Aroo",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 40,
+   "protein": 0.9,
+   "carbs": 7.8,
+   "fat": 0.4,
+   "fiber": 2.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e051",
+   "name": "Pear / Nashpati",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 38,
+   "protein": 0.4,
+   "carbs": 8.1,
+   "fat": 0.3,
+   "fiber": 4.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e052",
+   "name": "Phalsa / Falsa",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 71,
+   "protein": 1.7,
+   "carbs": 15.1,
+   "fat": 0.1,
+   "fiber": 4.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e053",
+   "name": "Pineapple / Ananas",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 43,
+   "protein": 0.5,
+   "carbs": 9.4,
+   "fat": 0.2,
+   "fiber": 3.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e054",
+   "name": "Plum / Alubokhara",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 57,
+   "protein": 0.6,
+   "carbs": 12.1,
+   "fat": 0.4,
+   "fiber": 2.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e055",
+   "name": "Pomegranate, maroon seeds / Anar",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 55,
+   "protein": 1.3,
+   "carbs": 11.6,
+   "fat": 0.2,
+   "fiber": 2.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e056",
+   "name": "Pummelo / Chakotra",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 50,
+   "protein": 0.7,
+   "carbs": 10.6,
+   "fat": 0.4,
+   "fiber": 0.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e057",
+   "name": "Raisins, dried, black / Kishmish",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 306,
+   "protein": 2.6,
+   "carbs": 71.3,
+   "fat": 0.3,
+   "fiber": 3.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e058",
+   "name": "Raisins, dried, golden / Kishmish",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 297,
+   "protein": 2.8,
+   "carbs": 68.8,
+   "fat": 0.4,
+   "fiber": 4.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e059",
+   "name": "Rambutan / Rambutan",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 73,
+   "protein": 0.7,
+   "carbs": 16.8,
+   "fat": 0.2,
+   "fiber": 1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e060",
+   "name": "Sapota / Chiku",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 73,
+   "protein": 0.9,
+   "carbs": 13.9,
+   "fat": 1.3,
+   "fiber": 9.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e061",
+   "name": "Soursop / Shul-ram fal",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 62,
+   "protein": 0.7,
+   "carbs": 11.9,
+   "fat": 0.9,
+   "fiber": 5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e062",
+   "name": "Star fruit / Kazmal/Kamrakh",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 26,
+   "protein": 0.8,
+   "carbs": 4.5,
+   "fat": 0.4,
+   "fiber": 2.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e063",
+   "name": "Strawberry",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 25,
+   "protein": 1,
+   "carbs": 3.4,
+   "fat": 0.6,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e064",
+   "name": "Tamarind, pulp / Imli",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 288,
+   "protein": 2.9,
+   "carbs": 67.4,
+   "fat": 0.2,
+   "fiber": 5.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e065",
+   "name": "Water melon, dark green (sugar baby) / Tarbuj",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 20,
+   "protein": 0.6,
+   "carbs": 3.9,
+   "fat": 0.2,
+   "fiber": 0.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e066",
+   "name": "Water melon, pale green / Tarbuj",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 17,
+   "protein": 0.6,
+   "carbs": 3,
+   "fat": 0.2,
+   "fiber": 0.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e067",
+   "name": "Wood Apple / Kaith",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 78,
+   "protein": 3.1,
+   "carbs": 7.5,
+   "fat": 3.6,
+   "fiber": 5.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-e068",
+   "name": "Zizyphus / Ber",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 49,
+   "protein": 1.3,
+   "carbs": 9.4,
+   "fat": 0.4,
+   "fiber": 3.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-f001",
+   "name": "Beet root / Chukandar",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 36,
+   "protein": 2,
+   "carbs": 6.2,
+   "fat": 0.1,
+   "fiber": 3.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-f002",
+   "name": "Carrot, orange / Gajar",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 33,
+   "protein": 1,
+   "carbs": 5.6,
+   "fat": 0.5,
+   "fiber": 4.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-f003",
+   "name": "Carrot, red / Gajar",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 38,
+   "protein": 1,
+   "carbs": 6.7,
+   "fat": 0.5,
+   "fiber": 4.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-f004",
+   "name": "Colocasia / Arwi",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 89,
+   "protein": 3.3,
+   "carbs": 17.9,
+   "fat": 0.2,
+   "fiber": 3.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-f005",
+   "name": "Lotus root / Kamal gatta",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 79,
+   "protein": 1.9,
+   "carbs": 14.7,
+   "fat": 0.9,
+   "fiber": 4.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-f006",
+   "name": "Potato, brown skin, big / Alu",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 70,
+   "protein": 1.5,
+   "carbs": 14.9,
+   "fat": 0.2,
+   "fiber": 1.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-f007",
+   "name": "Potato, brown skin, small / Alu",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 61,
+   "protein": 1.4,
+   "carbs": 12.9,
+   "fat": 0.2,
+   "fiber": 1.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-f008",
+   "name": "Potato, red skin / Alu",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 73,
+   "protein": 1.8,
+   "carbs": 15.4,
+   "fat": 0.2,
+   "fiber": 1.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-f009",
+   "name": "Radish, elongate, red skin / Muli",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 32,
+   "protein": 0.7,
+   "carbs": 6.7,
+   "fat": 0.1,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-f010",
+   "name": "Radish, elongate, white skin / Muli",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 32,
+   "protein": 0.8,
+   "carbs": 6.6,
+   "fat": 0.2,
+   "fiber": 2.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-f011",
+   "name": "Radish, round, red skin / Muli",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 31,
+   "protein": 0.9,
+   "carbs": 6.1,
+   "fat": 0.2,
+   "fiber": 2.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-f012",
+   "name": "Radish, round, white skin / Muli",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 31,
+   "protein": 0.8,
+   "carbs": 6.1,
+   "fat": 0.1,
+   "fiber": 2.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-f013",
+   "name": "Sweet potato, brown skin / Shakarkand",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 109,
+   "protein": 1.3,
+   "carbs": 24.3,
+   "fat": 0.3,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-f014",
+   "name": "Sweet potato, pink skin / Shakarkand",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 108,
+   "protein": 1.3,
+   "carbs": 23.9,
+   "fat": 0.3,
+   "fiber": 3.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-f015",
+   "name": "Tapioca / Simla alu",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 80,
+   "protein": 1,
+   "carbs": 17.8,
+   "fat": 0.2,
+   "fiber": 4.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-f016",
+   "name": "Water Chestnut",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 96,
+   "protein": 0.9,
+   "carbs": 21.5,
+   "fat": 0.4,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-f017",
+   "name": "Yam, elephant / Zimikandha",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 84,
+   "protein": 2.6,
+   "carbs": 17.5,
+   "fat": 0.1,
+   "fiber": 4.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-f018",
+   "name": "Yam, ordinary / Sooran",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 83,
+   "protein": 2.2,
+   "carbs": 17.7,
+   "fat": 0.2,
+   "fiber": 4.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-f019",
+   "name": "Yam, wild / Suaralu",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 103,
+   "protein": 3.1,
+   "carbs": 21,
+   "fat": 0.3,
+   "fiber": 4.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g001",
+   "name": "Chillies, green-1 / Hara Mirchi",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 46,
+   "protein": 2.6,
+   "carbs": 6.3,
+   "fat": 0.7,
+   "fiber": 4.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g002",
+   "name": "Chillies, green-2 / Hara Mirchi",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 40,
+   "protein": 2.3,
+   "carbs": 5.3,
+   "fat": 0.8,
+   "fiber": 5.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g003",
+   "name": "Chillies, green-3 / Hara Mirchi",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 40,
+   "protein": 2.4,
+   "carbs": 5.2,
+   "fat": 0.8,
+   "fiber": 5.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g004",
+   "name": "Chillies, green-4 / Hara Mirchi",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 45,
+   "protein": 2.3,
+   "carbs": 6.6,
+   "fat": 0.7,
+   "fiber": 4.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g005",
+   "name": "Chillies, green-5 / Hara Mirchi",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 43,
+   "protein": 2,
+   "carbs": 6.6,
+   "fat": 0.7,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g006",
+   "name": "Chillies, green-6 / Hara Mirchi",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 42,
+   "protein": 3,
+   "carbs": 5.3,
+   "fat": 0.6,
+   "fiber": 5.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g007",
+   "name": "Chillies, green-7 / Hara Mirchi",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 39,
+   "protein": 2.1,
+   "carbs": 5.6,
+   "fat": 0.6,
+   "fiber": 5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g008",
+   "name": "Chillies, green - all varieties / Hara Mirchi",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 42,
+   "protein": 2.4,
+   "carbs": 5.9,
+   "fat": 0.7,
+   "fiber": 4.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g009",
+   "name": "Coriander leaves / Hara dhania",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 31,
+   "protein": 3.5,
+   "carbs": 1.9,
+   "fat": 0.7,
+   "fiber": 4.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g010",
+   "name": "Curry leaves / Gandhela",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 64,
+   "protein": 7.4,
+   "carbs": 4.5,
+   "fat": 1.1,
+   "fiber": 16.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g011",
+   "name": "Garlic, big clove / Lehsan",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 124,
+   "protein": 6.9,
+   "carbs": 21.9,
+   "fat": 0.2,
+   "fiber": 5.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g012",
+   "name": "Garlic, small clove / Lehsan",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 123,
+   "protein": 6.8,
+   "carbs": 21.8,
+   "fat": 0.1,
+   "fiber": 5.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g013",
+   "name": "Garlic, single clove, Kashmir / Lehsan",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 125,
+   "protein": 6.1,
+   "carbs": 23.5,
+   "fat": 0.2,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g014",
+   "name": "Ginger, fresh / Adrak",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 55,
+   "protein": 2.2,
+   "carbs": 9,
+   "fat": 0.9,
+   "fiber": 5.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g015",
+   "name": "Mango ginger / Aam adhrak",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 42,
+   "protein": 1.5,
+   "carbs": 7,
+   "fat": 0.7,
+   "fiber": 4.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g016",
+   "name": "Mint leaves / Pudina",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 37,
+   "protein": 4.7,
+   "carbs": 2.4,
+   "fat": 0.7,
+   "fiber": 5.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g017",
+   "name": "Onion, big / Pyaz",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 48,
+   "protein": 1.5,
+   "carbs": 9.6,
+   "fat": 0.2,
+   "fiber": 2.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g018",
+   "name": "Onion, small / Pyaaz Kali",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 57,
+   "protein": 1.8,
+   "carbs": 11.6,
+   "fat": 0.2,
+   "fiber": 1.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g019",
+   "name": "Asafoetida / Hing",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 332,
+   "protein": 6.3,
+   "carbs": 72,
+   "fat": 1.3,
+   "fiber": 5.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g020",
+   "name": "Cardamom, green / Elaychi",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 255,
+   "protein": 8.1,
+   "carbs": 47.8,
+   "fat": 2.6,
+   "fiber": 23.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g021",
+   "name": "Cardamom, black / Badi elaychi",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 271,
+   "protein": 6.7,
+   "carbs": 52.5,
+   "fat": 2.8,
+   "fiber": 23.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g022",
+   "name": "Chillies, red / Mirchi",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 237,
+   "protein": 12.7,
+   "carbs": 29.5,
+   "fat": 6.4,
+   "fiber": 31.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g023",
+   "name": "Cloves / Lavang",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 187,
+   "protein": 5.9,
+   "carbs": 18.7,
+   "fat": 8.4,
+   "fiber": 34.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g024",
+   "name": "Coriander seeds / Dhania",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 269,
+   "protein": 10.7,
+   "carbs": 13,
+   "fat": 17.5,
+   "fiber": 44.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g025",
+   "name": "Cumin seeds / Jira",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 304,
+   "protein": 13.9,
+   "carbs": 22.6,
+   "fat": 16.6,
+   "fiber": 30.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g026",
+   "name": "Fenugreek seeds / Methi",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 235,
+   "protein": 25.4,
+   "carbs": 10.6,
+   "fat": 5.7,
+   "fiber": 47.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g027",
+   "name": "Mace / Avithri",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 356,
+   "protein": 6.2,
+   "carbs": 26.5,
+   "fat": 24.4,
+   "fiber": 20.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g028",
+   "name": "Nutmeg / Jaiphal",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 464,
+   "protein": 6.3,
+   "carbs": 27.6,
+   "fat": 36.5,
+   "fiber": 12,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g029",
+   "name": "Omum / Ajwan",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 357,
+   "protein": 15.9,
+   "carbs": 24.5,
+   "fat": 21.1,
+   "fiber": 20.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g030",
+   "name": "Pippali / Pipli",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 217,
+   "protein": 10.5,
+   "carbs": 35.7,
+   "fat": 2.3,
+   "fiber": 34.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g031",
+   "name": "Pepper, black / Kalimirchi",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 217,
+   "protein": 10.1,
+   "carbs": 36.2,
+   "fat": 2.7,
+   "fiber": 33.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g032",
+   "name": "Poppy seeds / Postdana",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 423,
+   "protein": 20.3,
+   "carbs": 12.4,
+   "fat": 30.4,
+   "fiber": 26.7,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-g033",
+   "name": "Turmeric powder / Haldi",
+   "category": "Spices & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 281,
+   "protein": 7.7,
+   "carbs": 49.2,
+   "fat": 5,
+   "fiber": 21.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-h001",
+   "name": "Almond / Badam",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 609,
+   "protein": 18.4,
+   "carbs": 3,
+   "fat": 58.5,
+   "fiber": 13.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-h002",
+   "name": "Arecanut, dried, brown / Supari",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 351,
+   "protein": 5.8,
+   "carbs": 70.4,
+   "fat": 4.4,
+   "fiber": 11.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-h003",
+   "name": "Arecanut, dried, red color / Supari",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 353,
+   "protein": 6.5,
+   "carbs": 70.3,
+   "fat": 4.5,
+   "fiber": 11.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-h004",
+   "name": "Arecanut, fresh / Supari",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 245,
+   "protein": 2.7,
+   "carbs": 45,
+   "fat": 5.5,
+   "fiber": 7.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-h005",
+   "name": "Cashew nut / Kaju",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 583,
+   "protein": 18.8,
+   "carbs": 25.5,
+   "fat": 45.2,
+   "fiber": 3.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-h006",
+   "name": "Coconut, kernal, dry / Nariyal",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 624,
+   "protein": 7.3,
+   "carbs": 8,
+   "fat": 63.3,
+   "fiber": 15.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-h007",
+   "name": "Coconut, kernel, fresh / Nariyal",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 409,
+   "protein": 3.8,
+   "carbs": 6.3,
+   "fat": 41.4,
+   "fiber": 10.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-h008",
+   "name": "Garden cress, seeds / Halim",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 445,
+   "protein": 23.4,
+   "carbs": 33.7,
+   "fat": 23.7,
+   "fiber": 8.3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-h009",
+   "name": "Gingelly seeds, black / Til",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 508,
+   "protein": 19.2,
+   "carbs": 10.3,
+   "fat": 43.1,
+   "fiber": 17.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-h010",
+   "name": "Gingelly seeds, brown / Til",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 516,
+   "protein": 21.6,
+   "carbs": 9.8,
+   "fat": 43.2,
+   "fiber": 17.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-h011",
+   "name": "Gingelly seeds, white / Til",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 520,
+   "protein": 21.7,
+   "carbs": 10.8,
+   "fat": 43.1,
+   "fiber": 17,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-h012",
+   "name": "Ground nut / Moog phali",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 520,
+   "protein": 23.7,
+   "carbs": 17.3,
+   "fat": 39.6,
+   "fiber": 10.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-h013",
+   "name": "Mustard seeds / Rai",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 510,
+   "protein": 19.5,
+   "carbs": 16.8,
+   "fat": 40.2,
+   "fiber": 14.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-h014",
+   "name": "Linseeds / Alsi",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 444,
+   "protein": 18.6,
+   "carbs": 11,
+   "fat": 35.7,
+   "fiber": 26.2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-h015",
+   "name": "Niger seeds, black / Kala til",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 512,
+   "protein": 18.9,
+   "carbs": 23,
+   "fat": 38.6,
+   "fiber": 10.9,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-h016",
+   "name": "Niger seeds, gray / Kala til",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 509,
+   "protein": 18.3,
+   "carbs": 20.6,
+   "fat": 39.5,
+   "fiber": 11,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-h017",
+   "name": "Pine seed / Chilgoza",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 594,
+   "protein": 12.6,
+   "carbs": 26.8,
+   "fat": 48.8,
+   "fiber": 3.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-h018",
+   "name": "Pistachio nuts / Pista",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 539,
+   "protein": 23.4,
+   "carbs": 15.8,
+   "fat": 42.5,
+   "fiber": 10.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-h019",
+   "name": "Safflower seeds / Kardi",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 473,
+   "protein": 17.7,
+   "carbs": 30.2,
+   "fat": 30.9,
+   "fiber": 13.5,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-h020",
+   "name": "Sunflower seeds / Surya mukhi",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 586,
+   "protein": 23.5,
+   "carbs": 6.9,
+   "fat": 51.9,
+   "fiber": 10.8,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-h021",
+   "name": "Walnut / Akhrot",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 671,
+   "protein": 14.9,
+   "carbs": 10.1,
+   "fat": 64.3,
+   "fiber": 5.4,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-i001",
+   "name": "Jaggery, cane / Gud",
+   "category": "Sweeteners & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 354,
+   "protein": 1.9,
+   "carbs": 84.9,
+   "fat": 0.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-i002",
+   "name": "Sugarcane, juice / Ganne-ka-ras",
+   "category": "Sweeteners & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 58,
+   "protein": 0.2,
+   "carbs": 13.1,
+   "fat": 0.4,
+   "fiber": 0.6,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-j001",
+   "name": "Button mushroom, fresh",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 27,
+   "protein": 3.7,
+   "carbs": 2,
+   "fat": 0.4,
+   "fiber": 3.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-j002",
+   "name": "Chicken mushroom, fresh",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 21,
+   "protein": 1.8,
+   "carbs": 2.8,
+   "fat": 0.3,
+   "fiber": 2,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-j003",
+   "name": "Shiitake mushroom, fresh",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 58,
+   "protein": 3.2,
+   "carbs": 9,
+   "fat": 0.8,
+   "fiber": 3,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-j004",
+   "name": "Oyster mushroom, dried",
+   "category": "Vegetables",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 244,
+   "protein": 19,
+   "carbs": 33.1,
+   "fat": 2.9,
+   "fiber": 39.1,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-k001",
+   "name": "Toddy / Tarai",
+   "category": "Miscellaneous",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 24,
+   "protein": 0.2,
+   "carbs": 5.7,
+   "fat": 0,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-k002",
+   "name": "Coconut Water / Nariyal ka pani",
+   "category": "Miscellaneous",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 15,
+   "protein": 0.3,
+   "carbs": 3.2,
+   "fat": 0.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-l001",
+   "name": "Milk, whole, Buffalo / Bhains ka dhood",
+   "category": "Dairy & Alternatives",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 107,
+   "protein": 3.7,
+   "carbs": 8.4,
+   "fat": 6.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-l002",
+   "name": "Milk, whole, Cow / Gai ka doodh",
+   "category": "Dairy & Alternatives",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 73,
+   "protein": 3.3,
+   "carbs": 4.9,
+   "fat": 4.5,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-l003",
+   "name": "Paneer / Chhena",
+   "category": "Dairy & Alternatives",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 258,
+   "protein": 18.9,
+   "carbs": 12.4,
+   "fat": 14.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-l004",
+   "name": "Khoa",
+   "category": "Dairy & Alternatives",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 316,
+   "protein": 16.3,
+   "carbs": 16.5,
+   "fat": 20.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-m001",
+   "name": "Egg, poultry, whole, raw",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "egg",
+   "kcal": 135,
+   "protein": 13.3,
+   "carbs": 0,
+   "fat": 9.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-m002",
+   "name": "Egg, poultry, white, raw",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "egg",
+   "kcal": 45,
+   "protein": 10.8,
+   "carbs": 0,
+   "fat": 0.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-m003",
+   "name": "Egg, poultry, yolk, raw",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "egg",
+   "kcal": 297,
+   "protein": 15.7,
+   "carbs": 0,
+   "fat": 26.3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-m004",
+   "name": "Egg, poultry, whole, boiled",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "egg",
+   "kcal": 148,
+   "protein": 13.4,
+   "carbs": 0,
+   "fat": 10.5,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-m005",
+   "name": "Egg, poultry, white, boiled",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "egg",
+   "kcal": 53,
+   "protein": 12.4,
+   "carbs": 0,
+   "fat": 0.3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-m006",
+   "name": "Egg, poultry, yolk, boiled",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "egg",
+   "kcal": 308,
+   "protein": 16.1,
+   "carbs": 0,
+   "fat": 27.5,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-m007",
+   "name": "Egg, poultry, omlet",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "egg",
+   "kcal": 170,
+   "protein": 16.5,
+   "carbs": 0,
+   "fat": 11.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-m008",
+   "name": "Egg, country hen, whole, raw",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "egg",
+   "kcal": 168,
+   "protein": 13.1,
+   "carbs": 0,
+   "fat": 13,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-m009",
+   "name": "Egg, country hen, whole, boiled",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "egg",
+   "kcal": 183,
+   "protein": 14.4,
+   "carbs": 0,
+   "fat": 14.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-m010",
+   "name": "Egg, country hen, omlet",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "egg",
+   "kcal": 204,
+   "protein": 14.8,
+   "carbs": 0,
+   "fat": 16.3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-m011",
+   "name": "Egg, duck, whole, boiled",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "egg",
+   "kcal": 176,
+   "protein": 13.8,
+   "carbs": 0,
+   "fat": 13.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-m012",
+   "name": "Egg, duck, whole, raw",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "egg",
+   "kcal": 182,
+   "protein": 14.6,
+   "carbs": 0,
+   "fat": 13.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-m013",
+   "name": "Egg, duck, whole, omlet",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "egg",
+   "kcal": 192,
+   "protein": 15.1,
+   "carbs": 0,
+   "fat": 14.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-m014",
+   "name": "Egg, quial, whole, raw",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "egg",
+   "kcal": 152,
+   "protein": 12.4,
+   "carbs": 0,
+   "fat": 11.5,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-m015",
+   "name": "Egg, quial, whole, boiled",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "egg",
+   "kcal": 155,
+   "protein": 13,
+   "carbs": 0,
+   "fat": 11.5,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-n001",
+   "name": "Chicken, poultry, leg, skinless",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 191,
+   "protein": 19.4,
+   "carbs": 0,
+   "fat": 12.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-n002",
+   "name": "Chicken, poultry, thigh, skinless",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 200,
+   "protein": 18.2,
+   "carbs": 0,
+   "fat": 14.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-n003",
+   "name": "Chicken, poultry, breast, skinless",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 168,
+   "protein": 21.8,
+   "carbs": 0,
+   "fat": 9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-n004",
+   "name": "Chicken, poultry, wing, skinless",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 193,
+   "protein": 17.4,
+   "carbs": 0,
+   "fat": 13.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-n005",
+   "name": "Poultry, chicken, liver",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 124,
+   "protein": 21.6,
+   "carbs": 0,
+   "fat": 4.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-n006",
+   "name": "Poultry, chicken, gizzard",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 92,
+   "protein": 18.2,
+   "carbs": 0,
+   "fat": 2.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-n007",
+   "name": "Country hen, leg, with skin",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 173,
+   "protein": 17,
+   "carbs": 0,
+   "fat": 11.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-n008",
+   "name": "Country hen, thigh, with skin",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 188,
+   "protein": 18.3,
+   "carbs": 0,
+   "fat": 12.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-n009",
+   "name": "Country hen, breast, with skin",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 180,
+   "protein": 22.1,
+   "carbs": 0,
+   "fat": 10.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-n010",
+   "name": "Country hen, wing, with skin",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 183,
+   "protein": 18.7,
+   "carbs": 0,
+   "fat": 12.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-n011",
+   "name": "Duck, meat, with skin",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 131,
+   "protein": 19.1,
+   "carbs": 0,
+   "fat": 6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-n012",
+   "name": "Emu, meat, skinless",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 133,
+   "protein": 22.7,
+   "carbs": 0,
+   "fat": 4.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-n013",
+   "name": "Guinea fowl, meat, with skin",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 112,
+   "protein": 20.5,
+   "carbs": 0,
+   "fat": 3.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-n014",
+   "name": "Pigeon, meat, with skin",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 126,
+   "protein": 17.9,
+   "carbs": 0,
+   "fat": 6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-n015",
+   "name": "Quail, meat, skinless",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 138,
+   "protein": 20.9,
+   "carbs": 0,
+   "fat": 6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-n016",
+   "name": "Turkey, leg, with skin",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 155,
+   "protein": 20.3,
+   "carbs": 0,
+   "fat": 8.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-n017",
+   "name": "Turkey, thigh, with skin",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 139,
+   "protein": 20.5,
+   "carbs": 0,
+   "fat": 6.3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-n018",
+   "name": "Turkey, breast, with skin",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 160,
+   "protein": 22,
+   "carbs": 0,
+   "fat": 8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-n019",
+   "name": "Turkey, wing, with skin",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 184,
+   "protein": 21.9,
+   "carbs": 0,
+   "fat": 10.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o001",
+   "name": "Goat, shoulder, meat",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 188,
+   "protein": 20.3,
+   "carbs": 0,
+   "fat": 11.9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o002",
+   "name": "Goat, chops",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 136,
+   "protein": 20.4,
+   "carbs": 0,
+   "fat": 6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o003",
+   "name": "Goat, legs",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 160,
+   "protein": 22.1,
+   "carbs": 0,
+   "fat": 7.9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o004",
+   "name": "Goat, brain",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 127,
+   "protein": 13.8,
+   "carbs": 0,
+   "fat": 8.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o005",
+   "name": "Goat, tongue",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 189,
+   "protein": 16.6,
+   "carbs": 0,
+   "fat": 13.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o006",
+   "name": "Goat, lungs",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 96,
+   "protein": 16.9,
+   "carbs": 0,
+   "fat": 3.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o007",
+   "name": "Goat, heart",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 118,
+   "protein": 19.4,
+   "carbs": 0,
+   "fat": 4.4,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o008",
+   "name": "Goat, liver",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 126,
+   "protein": 20.3,
+   "carbs": 0,
+   "fat": 4.9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o009",
+   "name": "Goat, tripe",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 92,
+   "protein": 15.4,
+   "carbs": 0,
+   "fat": 3.4,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o010",
+   "name": "Goat, spleen",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 96,
+   "protein": 18.5,
+   "carbs": 0,
+   "fat": 2.4,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o011",
+   "name": "Goat, kidneys",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 89,
+   "protein": 15.6,
+   "carbs": 0,
+   "fat": 2.9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o012",
+   "name": "Goat, tube (small intestine)",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 125,
+   "protein": 12.9,
+   "carbs": 0,
+   "fat": 8.3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o013",
+   "name": "Goat, testis",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 71,
+   "protein": 12.3,
+   "carbs": 0,
+   "fat": 2.4,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o014",
+   "name": "Sheep, shoulder",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 201,
+   "protein": 18.2,
+   "carbs": 0,
+   "fat": 14.3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o015",
+   "name": "Sheep, chops",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 119,
+   "protein": 18,
+   "carbs": 0,
+   "fat": 5.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o016",
+   "name": "Sheep, leg",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 164,
+   "protein": 21.4,
+   "carbs": 0,
+   "fat": 8.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o017",
+   "name": "Sheep, brain",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 118,
+   "protein": 13.1,
+   "carbs": 0,
+   "fat": 7.3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o018",
+   "name": "Sheep, tongue",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 187,
+   "protein": 16.6,
+   "carbs": 0,
+   "fat": 13.5,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o019",
+   "name": "Sheep, lungs",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 87,
+   "protein": 16.1,
+   "carbs": 0,
+   "fat": 2.4,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o020",
+   "name": "Sheep, heart",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 106,
+   "protein": 18.2,
+   "carbs": 0,
+   "fat": 3.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o021",
+   "name": "Sheep, liver",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 134,
+   "protein": 22.3,
+   "carbs": 0,
+   "fat": 4.9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o022",
+   "name": "Sheep, tripe",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 104,
+   "protein": 16.8,
+   "carbs": 0,
+   "fat": 4.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o023",
+   "name": "Sheep, spleen",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 92,
+   "protein": 16,
+   "carbs": 0,
+   "fat": 3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o024",
+   "name": "Sheep, kidneys",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 92,
+   "protein": 16.2,
+   "carbs": 0,
+   "fat": 2.9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o025",
+   "name": "Beef, shoulder",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 212,
+   "protein": 20.6,
+   "carbs": 0,
+   "fat": 14.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o026",
+   "name": "Beef, chops",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 140,
+   "protein": 19.8,
+   "carbs": 0,
+   "fat": 6.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o027",
+   "name": "Beef, round (leg)",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 157,
+   "protein": 22.6,
+   "carbs": 0,
+   "fat": 7.4,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o028",
+   "name": "Beef, brain",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 125,
+   "protein": 10.6,
+   "carbs": 0,
+   "fat": 9.3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o029",
+   "name": "Beef, tongue",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 175,
+   "protein": 15.6,
+   "carbs": 0,
+   "fat": 12.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o030",
+   "name": "Beef, lungs",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 84,
+   "protein": 15.7,
+   "carbs": 0,
+   "fat": 2.3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o031",
+   "name": "Beef, heart",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 103,
+   "protein": 17.7,
+   "carbs": 0,
+   "fat": 3.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o032",
+   "name": "Beef, liver",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 119,
+   "protein": 20.7,
+   "carbs": 0,
+   "fat": 4,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o033",
+   "name": "Beef, tripe",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 76,
+   "protein": 13.1,
+   "carbs": 0,
+   "fat": 2.5,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o034",
+   "name": "Beef, spleen",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 90,
+   "protein": 17.4,
+   "carbs": 0,
+   "fat": 2.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o035",
+   "name": "Beef, kidneys",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 105,
+   "protein": 17.1,
+   "carbs": 0,
+   "fat": 4,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o036",
+   "name": "Calf, shoulder",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 151,
+   "protein": 21,
+   "carbs": 0,
+   "fat": 7.5,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o037",
+   "name": "Calf, chops",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 125,
+   "protein": 22.5,
+   "carbs": 0,
+   "fat": 3.9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o038",
+   "name": "Calf, round (leg)",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 147,
+   "protein": 21.1,
+   "carbs": 0,
+   "fat": 6.9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o039",
+   "name": "Calf, brain",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 107,
+   "protein": 9.8,
+   "carbs": 0,
+   "fat": 7.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o040",
+   "name": "Calf, tongue",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 176,
+   "protein": 17.8,
+   "carbs": 0,
+   "fat": 11.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o041",
+   "name": "Calf, heart",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 110,
+   "protein": 18.8,
+   "carbs": 0,
+   "fat": 3.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o042",
+   "name": "Calf, liver",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 120,
+   "protein": 21,
+   "carbs": 0,
+   "fat": 4,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o043",
+   "name": "Calf, spleen",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 91,
+   "protein": 17.7,
+   "carbs": 0,
+   "fat": 2.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o044",
+   "name": "Calf, kidneys",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 92,
+   "protein": 15.2,
+   "carbs": 0,
+   "fat": 3.5,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o045",
+   "name": "Mithun, shoulder",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 176,
+   "protein": 19.1,
+   "carbs": 0,
+   "fat": 11.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o046",
+   "name": "Mithun, chops",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 128,
+   "protein": 18.2,
+   "carbs": 0,
+   "fat": 6.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o047",
+   "name": "Mithun, round (leg)",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 116,
+   "protein": 19.6,
+   "carbs": 0,
+   "fat": 4.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o048",
+   "name": "Pork, shoulder",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 237,
+   "protein": 17.4,
+   "carbs": 0,
+   "fat": 18.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o049",
+   "name": "Pork, chops",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 179,
+   "protein": 19.4,
+   "carbs": 0,
+   "fat": 11.3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o050",
+   "name": "Pork, ham",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 240,
+   "protein": 18.8,
+   "carbs": 0,
+   "fat": 18.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o051",
+   "name": "Pork, lungs",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 86,
+   "protein": 15.1,
+   "carbs": 0,
+   "fat": 2.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o052",
+   "name": "Pork, heart",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 109,
+   "protein": 16.3,
+   "carbs": 0,
+   "fat": 4.9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o053",
+   "name": "Pork, liver",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 116,
+   "protein": 19.9,
+   "carbs": 0,
+   "fat": 3.9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o054",
+   "name": "Pork, stomach",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 131,
+   "protein": 15.4,
+   "carbs": 0,
+   "fat": 7.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o055",
+   "name": "Pork, spleen",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 85,
+   "protein": 15.1,
+   "carbs": 0,
+   "fat": 2.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o056",
+   "name": "Pork, kidneys",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 91,
+   "protein": 14.4,
+   "carbs": 0,
+   "fat": 3.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o057",
+   "name": "Pork, tube (small intestine)",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 140,
+   "protein": 15,
+   "carbs": 0,
+   "fat": 9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o058",
+   "name": "Hare, shoulder",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 144,
+   "protein": 21.1,
+   "carbs": 0,
+   "fat": 6.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o059",
+   "name": "Hare, chops",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 106,
+   "protein": 20.6,
+   "carbs": 0,
+   "fat": 2.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o060",
+   "name": "Hare, leg",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 120,
+   "protein": 20.5,
+   "carbs": 0,
+   "fat": 4.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o061",
+   "name": "Rabbit, shoulder",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 152,
+   "protein": 20,
+   "carbs": 0,
+   "fat": 8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o062",
+   "name": "Rabbit, chops",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 135,
+   "protein": 22.6,
+   "carbs": 0,
+   "fat": 4.9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-o063",
+   "name": "Rabbit, leg",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 140,
+   "protein": 21.3,
+   "carbs": 0,
+   "fat": 6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p001",
+   "name": "Allathi",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 97,
+   "protein": 21.8,
+   "carbs": 0,
+   "fat": 1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p002",
+   "name": "Aluva",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 104,
+   "protein": 21.6,
+   "carbs": 0,
+   "fat": 1.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p003",
+   "name": "Anchovy",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 88,
+   "protein": 19.9,
+   "carbs": 0,
+   "fat": 0.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p004",
+   "name": "Ari fish",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 99,
+   "protein": 22,
+   "carbs": 0,
+   "fat": 1.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p005",
+   "name": "Betki",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 68,
+   "protein": 15.3,
+   "carbs": 0,
+   "fat": 0.3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p006",
+   "name": "Black snapper",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 90,
+   "protein": 19.5,
+   "carbs": 0,
+   "fat": 1.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p007",
+   "name": "Bombay duck",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 69,
+   "protein": 13.5,
+   "carbs": 0,
+   "fat": 1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p008",
+   "name": "Bommuralu",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 116,
+   "protein": 22.3,
+   "carbs": 0,
+   "fat": 2.9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p009",
+   "name": "Cat fish",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 109,
+   "protein": 22.2,
+   "carbs": 0,
+   "fat": 2.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p010",
+   "name": "Chakla",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 97,
+   "protein": 20.2,
+   "carbs": 0,
+   "fat": 1.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p011",
+   "name": "Chappal",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 76,
+   "protein": 17.2,
+   "carbs": 0,
+   "fat": 0.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p012",
+   "name": "Chelu",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 87,
+   "protein": 20,
+   "carbs": 0,
+   "fat": 0.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p013",
+   "name": "Chembali",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 97,
+   "protein": 20.1,
+   "carbs": 0,
+   "fat": 1.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p014",
+   "name": "Eri meen",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 109,
+   "protein": 22.3,
+   "carbs": 0,
+   "fat": 2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p015",
+   "name": "Gobro",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 87,
+   "protein": 19.4,
+   "carbs": 0,
+   "fat": 0.9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p016",
+   "name": "Guitar fish",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 96,
+   "protein": 22.6,
+   "carbs": 0,
+   "fat": 0.4,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p017",
+   "name": "Hilsa / Hilsa",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 259,
+   "protein": 21.8,
+   "carbs": 0,
+   "fat": 18.5,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p018",
+   "name": "Jallal",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 100,
+   "protein": 21.6,
+   "carbs": 0,
+   "fat": 1.5,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p019",
+   "name": "Jathi vela meen",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 108,
+   "protein": 22.5,
+   "carbs": 0,
+   "fat": 1.9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p020",
+   "name": "Kadal bral",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 88,
+   "protein": 18.7,
+   "carbs": 0,
+   "fat": 1.3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p021",
+   "name": "Kadali",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 127,
+   "protein": 22.1,
+   "carbs": 0,
+   "fat": 4.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p022",
+   "name": "Kalamaara",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 125,
+   "protein": 20.9,
+   "carbs": 0,
+   "fat": 4.5,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p023",
+   "name": "Kalava",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 89,
+   "protein": 19.4,
+   "carbs": 0,
+   "fat": 1.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p024",
+   "name": "Kanamayya",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 88,
+   "protein": 20.2,
+   "carbs": 0,
+   "fat": 0.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p025",
+   "name": "Kannadi paarai",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 101,
+   "protein": 22.1,
+   "carbs": 0,
+   "fat": 1.3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p026",
+   "name": "Karimeen",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 92,
+   "protein": 19.7,
+   "carbs": 0,
+   "fat": 1.4,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p027",
+   "name": "Karnagawala",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 87,
+   "protein": 19.5,
+   "carbs": 0,
+   "fat": 0.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p028",
+   "name": "Kayrai",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 109,
+   "protein": 20.2,
+   "carbs": 0,
+   "fat": 3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p029",
+   "name": "Kiriyan",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 133,
+   "protein": 22.5,
+   "carbs": 0,
+   "fat": 4.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p030",
+   "name": "Kite fish",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 99,
+   "protein": 23.1,
+   "carbs": 0,
+   "fat": 0.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p031",
+   "name": "Korka",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 126,
+   "protein": 23.7,
+   "carbs": 0,
+   "fat": 3.4,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p032",
+   "name": "Kulam paarai",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 120,
+   "protein": 21.6,
+   "carbs": 0,
+   "fat": 3.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p033",
+   "name": "Maagaa",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 87,
+   "protein": 20.1,
+   "carbs": 0,
+   "fat": 0.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p034",
+   "name": "Mackerel",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 101,
+   "protein": 21.5,
+   "carbs": 0,
+   "fat": 1.5,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p035",
+   "name": "Manda clathi",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 95,
+   "protein": 21.3,
+   "carbs": 0,
+   "fat": 1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p036",
+   "name": "Matha",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 93,
+   "protein": 21.2,
+   "carbs": 0,
+   "fat": 0.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p037",
+   "name": "Milk fish",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 106,
+   "protein": 23.7,
+   "carbs": 0,
+   "fat": 1.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p038",
+   "name": "Moon fish",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 126,
+   "protein": 20.7,
+   "carbs": 0,
+   "fat": 4.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p039",
+   "name": "Mullet",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 94,
+   "protein": 20.2,
+   "carbs": 0,
+   "fat": 1.3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p040",
+   "name": "Mural",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 82,
+   "protein": 19,
+   "carbs": 0,
+   "fat": 0.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p041",
+   "name": "Myil meen",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 98,
+   "protein": 22.9,
+   "carbs": 0,
+   "fat": 0.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p042",
+   "name": "Nalla bontha",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 87,
+   "protein": 19.8,
+   "carbs": 0,
+   "fat": 0.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p043",
+   "name": "Narba",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 103,
+   "protein": 22,
+   "carbs": 0,
+   "fat": 1.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p044",
+   "name": "Paarai",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 104,
+   "protein": 21.6,
+   "carbs": 0,
+   "fat": 1.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p045",
+   "name": "Padayappa",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 86,
+   "protein": 19.7,
+   "carbs": 0,
+   "fat": 0.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p046",
+   "name": "Pali kora",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 94,
+   "protein": 19.3,
+   "carbs": 0,
+   "fat": 1.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p047",
+   "name": "Pambada",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 128,
+   "protein": 22,
+   "carbs": 0,
+   "fat": 4.4,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p048",
+   "name": "Pandukopa",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 86,
+   "protein": 19.7,
+   "carbs": 0,
+   "fat": 0.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p049",
+   "name": "Parava",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 112,
+   "protein": 21.5,
+   "carbs": 0,
+   "fat": 2.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p050",
+   "name": "Parcus",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 86,
+   "protein": 19.9,
+   "carbs": 0,
+   "fat": 0.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p051",
+   "name": "Parrot fish",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 90,
+   "protein": 20.8,
+   "carbs": 0,
+   "fat": 0.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p052",
+   "name": "Perinkilichai",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 92,
+   "protein": 20.9,
+   "carbs": 0,
+   "fat": 0.9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p053",
+   "name": "Phopat",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 101,
+   "protein": 22.1,
+   "carbs": 0,
+   "fat": 1.3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p054",
+   "name": "Piranha",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 131,
+   "protein": 20.5,
+   "carbs": 0,
+   "fat": 5.4,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p055",
+   "name": "Pomfret, black",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 123,
+   "protein": 18.9,
+   "carbs": 0,
+   "fat": 4.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p056",
+   "name": "Pomfret, snub nose",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 90,
+   "protein": 21.1,
+   "carbs": 0,
+   "fat": 0.5,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p057",
+   "name": "Pomfret, white",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 123,
+   "protein": 19,
+   "carbs": 0,
+   "fat": 5.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p058",
+   "name": "Pranel",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 97,
+   "protein": 19.7,
+   "carbs": 0,
+   "fat": 1.9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p059",
+   "name": "Pulli paarai",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 95,
+   "protein": 20.1,
+   "carbs": 0,
+   "fat": 1.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p060",
+   "name": "Queen fish",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 96,
+   "protein": 21,
+   "carbs": 0,
+   "fat": 1.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p061",
+   "name": "Raai fish",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 103,
+   "protein": 21.6,
+   "carbs": 0,
+   "fat": 1.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p062",
+   "name": "Raai vanthu",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 98,
+   "protein": 19.4,
+   "carbs": 0,
+   "fat": 2.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p063",
+   "name": "Rani",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 90,
+   "protein": 18.8,
+   "carbs": 0,
+   "fat": 1.5,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p064",
+   "name": "Ray fish, bow head, spotted",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 83,
+   "protein": 19,
+   "carbs": 0,
+   "fat": 0.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p065",
+   "name": "Red snapper",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 104,
+   "protein": 22.8,
+   "carbs": 0,
+   "fat": 1.3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p066",
+   "name": "Red snapper, small",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 108,
+   "protein": 21.5,
+   "carbs": 0,
+   "fat": 2.3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p067",
+   "name": "Sadaya",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 110,
+   "protein": 20.7,
+   "carbs": 0,
+   "fat": 3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p068",
+   "name": "Salmon",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 172,
+   "protein": 21,
+   "carbs": 0,
+   "fat": 9.9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p069",
+   "name": "Sangada",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 106,
+   "protein": 20.3,
+   "carbs": 0,
+   "fat": 2.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p070",
+   "name": "Sankata paarai",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 104,
+   "protein": 21.9,
+   "carbs": 0,
+   "fat": 1.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p071",
+   "name": "Sardine",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 152,
+   "protein": 17.9,
+   "carbs": 0,
+   "fat": 9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p072",
+   "name": "Shark",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 95,
+   "protein": 21.6,
+   "carbs": 0,
+   "fat": 0.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p073",
+   "name": "Shark, hammer head",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 103,
+   "protein": 23.4,
+   "carbs": 0,
+   "fat": 0.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p074",
+   "name": "Shark, spotted",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 92,
+   "protein": 21,
+   "carbs": 0,
+   "fat": 0.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p075",
+   "name": "Shelavu",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 107,
+   "protein": 22.5,
+   "carbs": 0,
+   "fat": 1.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p076",
+   "name": "Silan",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 151,
+   "protein": 22.7,
+   "carbs": 0,
+   "fat": 6.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p077",
+   "name": "Silk fish",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 98,
+   "protein": 20.7,
+   "carbs": 0,
+   "fat": 1.5,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p078",
+   "name": "Silver carp",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 133,
+   "protein": 21.7,
+   "carbs": 0,
+   "fat": 5.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p079",
+   "name": "Sole fish",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 88,
+   "protein": 19.1,
+   "carbs": 0,
+   "fat": 1.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p080",
+   "name": "Stingray",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 98,
+   "protein": 24,
+   "carbs": 0,
+   "fat": 0.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p081",
+   "name": "Tarlava",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 99,
+   "protein": 21.7,
+   "carbs": 0,
+   "fat": 1.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p082",
+   "name": "Tholam",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 103,
+   "protein": 20.8,
+   "carbs": 0,
+   "fat": 2.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p083",
+   "name": "Tilapia",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 83,
+   "protein": 18.5,
+   "carbs": 0,
+   "fat": 1.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p084",
+   "name": "Tuna",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 112,
+   "protein": 24.5,
+   "carbs": 0,
+   "fat": 1.4,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p085",
+   "name": "Tuna, striped",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 96,
+   "protein": 21.3,
+   "carbs": 0,
+   "fat": 1.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p086",
+   "name": "Valava",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 98,
+   "protein": 21.8,
+   "carbs": 0,
+   "fat": 1.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p087",
+   "name": "Vanjaram",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 136,
+   "protein": 22.3,
+   "carbs": 0,
+   "fat": 5.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p088",
+   "name": "Vela meen",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 128,
+   "protein": 22.2,
+   "carbs": 0,
+   "fat": 4.3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p089",
+   "name": "Vora",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 101,
+   "protein": 20.1,
+   "carbs": 0,
+   "fat": 2.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p090",
+   "name": "Whale shark",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 96,
+   "protein": 21.8,
+   "carbs": 0,
+   "fat": 0.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p091",
+   "name": "Xiphinis",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 88,
+   "protein": 19.8,
+   "carbs": 0,
+   "fat": 0.9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-p092",
+   "name": "Eggs, Cat fish",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 143,
+   "protein": 24.7,
+   "carbs": 0,
+   "fat": 5.3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-q001",
+   "name": "Crab",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 53,
+   "protein": 10.2,
+   "carbs": 0,
+   "fat": 1.4,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-q002",
+   "name": "Crab, sea",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 68,
+   "protein": 15.4,
+   "carbs": 0,
+   "fat": 0.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-q003",
+   "name": "Lobster, brown",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 70,
+   "protein": 16,
+   "carbs": 0,
+   "fat": 0.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-q004",
+   "name": "Lobster, king size",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 90,
+   "protein": 18.5,
+   "carbs": 0,
+   "fat": 0.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-q005",
+   "name": "Mud crab",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 45,
+   "protein": 10,
+   "carbs": 0,
+   "fat": 0.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-q006",
+   "name": "Oyster",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 60,
+   "protein": 9.5,
+   "carbs": 0,
+   "fat": 2.4,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-q007",
+   "name": "Tiger prawns, brown",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 65,
+   "protein": 14.9,
+   "carbs": 0,
+   "fat": 0.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-q008",
+   "name": "Tiger Prawns, orange",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 65,
+   "protein": 14.3,
+   "carbs": 0,
+   "fat": 0.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-r001",
+   "name": "Clam, green shell",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 58,
+   "protein": 12.1,
+   "carbs": 0,
+   "fat": 1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-r002",
+   "name": "Clam, white shell, ribbed",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 60,
+   "protein": 11.8,
+   "carbs": 0,
+   "fat": 1.3,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-r003",
+   "name": "Octopus",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 80,
+   "protein": 14.7,
+   "carbs": 0,
+   "fat": 1.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-r004",
+   "name": "Squid, black",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 80,
+   "protein": 16.1,
+   "carbs": 0,
+   "fat": 1.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-r005",
+   "name": "Squid, hard shell",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 76,
+   "protein": 16.8,
+   "carbs": 0,
+   "fat": 0.9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-r006",
+   "name": "Squid, red",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 79,
+   "protein": 16.3,
+   "carbs": 0,
+   "fat": 1.4,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-r007",
+   "name": "Squid, white, small",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 84,
+   "protein": 17.4,
+   "carbs": 0,
+   "fat": 1.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-s001",
+   "name": "Cat fish",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 124,
+   "protein": 15.9,
+   "carbs": 0,
+   "fat": 6.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-s002",
+   "name": "Catla / Catla",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 94,
+   "protein": 17.9,
+   "carbs": 0,
+   "fat": 2.2,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-s003",
+   "name": "Freshwater Eel",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 108,
+   "protein": 20.4,
+   "carbs": 0,
+   "fat": 2.6,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-s004",
+   "name": "Gold fish",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 95,
+   "protein": 16.9,
+   "carbs": 0,
+   "fat": 2.9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-s005",
+   "name": "Pangas",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 204,
+   "protein": 17.1,
+   "carbs": 0,
+   "fat": 16.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-s006",
+   "name": "Rohu / Bhobhari",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 102,
+   "protein": 19.7,
+   "carbs": 0,
+   "fat": 2.4,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-s007",
+   "name": "Crab",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 78,
+   "protein": 13.2,
+   "carbs": 0,
+   "fat": 0.9,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-s008",
+   "name": "Prawns, big",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 91,
+   "protein": 19.2,
+   "carbs": 0,
+   "fat": 0.5,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-s009",
+   "name": "Prawns, small",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 71,
+   "protein": 13.1,
+   "carbs": 0,
+   "fat": 0.8,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-s010",
+   "name": "Tiger prawns",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 68,
+   "protein": 14.2,
+   "carbs": 0,
+   "fat": 0.7,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-t001",
+   "name": "Coconut oil",
+   "category": "Oils & Fats",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 0,
+   "protein": 0,
+   "carbs": 0,
+   "fat": 100,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-t002",
+   "name": "Corn oil",
+   "category": "Oils & Fats",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 0,
+   "protein": 0,
+   "carbs": 0,
+   "fat": 100,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-t003",
+   "name": "Cotton seed oil",
+   "category": "Oils & Fats",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 0,
+   "protein": 0,
+   "carbs": 0,
+   "fat": 100,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-t004",
+   "name": "Gingelly oil",
+   "category": "Oils & Fats",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 0,
+   "protein": 0,
+   "carbs": 0,
+   "fat": 100,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-t005",
+   "name": "Groundnut oil",
+   "category": "Oils & Fats",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 0,
+   "protein": 0,
+   "carbs": 0,
+   "fat": 100,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-t006",
+   "name": "Mustard oil",
+   "category": "Oils & Fats",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 0,
+   "protein": 0,
+   "carbs": 0,
+   "fat": 100,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-t007",
+   "name": "Palm oil",
+   "category": "Oils & Fats",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 0,
+   "protein": 0,
+   "carbs": 0,
+   "fat": 100,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-t008",
+   "name": "Rice bran oil",
+   "category": "Oils & Fats",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 0,
+   "protein": 0,
+   "carbs": 0,
+   "fat": 100,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-t009",
+   "name": "Safflower oil",
+   "category": "Oils & Fats",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 0,
+   "protein": 0,
+   "carbs": 0,
+   "fat": 100,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-t010",
+   "name": "Safflower oil (blended)",
+   "category": "Oils & Fats",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 0,
+   "protein": 0,
+   "carbs": 0,
+   "fat": 100,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-t011",
+   "name": "Soyabean oil",
+   "category": "Oils & Fats",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 0,
+   "protein": 0,
+   "carbs": 0,
+   "fat": 100,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-t012",
+   "name": "Sunflower oil",
+   "category": "Oils & Fats",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 0,
+   "protein": 0,
+   "carbs": 0,
+   "fat": 100,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-t013",
+   "name": "Ghee",
+   "category": "Oils & Fats",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 0,
+   "protein": 0,
+   "carbs": 0,
+   "fat": 100,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  },
+  {
+   "id": "ifct-t014",
+   "name": "Vanaspati",
+   "category": "Oils & Fats",
+   "unit": "100ml",
+   "diet": "veg",
+   "kcal": 0,
+   "protein": 0,
+   "carbs": 0,
+   "fat": 100,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "ifct-2017"
+   ]
+  }
+ ]
+}

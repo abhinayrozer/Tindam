@@ -10,15 +10,18 @@ Gym-goers know *how much* they should eat, but planning, cooking and portioning 
 2. **Indian food only** — dal khichdi, paneer bhurji, chole brown rice, boiled chicken with 300 g rice, banana oat-milk shakes, sattu coolers, seasonal fruit bowls. Healthy desi food, not international diet food.
 3. **Subscription, not ordering** — pick a 1 / 2 / 4-week plan (up to 10% off), choose morning or evening delivery, and meals arrive daily. Choose tomorrow's or next week's meals in advance; change any day's meals until **8 PM the previous evening**; skip a day or pause anytime — the Country Delight model, applied to fitness food.
 4. **Build your own meals** — beyond the chef's menu, users compose their own meals ingredient-by-ingredient from the full database ("200 g boiled chicken + 300 g rice + 100 g broccoli"), with macros computed live and transparent pricing (₹40 kitchen base + ₹6 per 100 kcal). Custom meals go straight into the daily box and subscription.
-5. **Transparent nutrition** — an exhaustive local database of **330+ Indian foods** with values **per 100 g / 100 ml** (calories, protein, carbs, fat, fiber, veg/egg/non-veg, seasonality), compiled from IFCT 2017 (ICMR-NIN) and USDA FoodData Central.
+5. **Transparent nutrition** — an exhaustive local database of **1,034 Indian foods** with values **per 100 g / 100 ml** (calories, protein, carbs, fat, fiber, veg/egg/non-veg, seasonality). It includes the complete **IFCT 2017** (Indian Food Composition Tables, ICMR-National Institute of Nutrition — 542 lab-analyzed foods with regional names) plus ~490 curated raw foods, drinks and prepared Indian dishes.
 
 ## What's in this repo
 
 A complete, runnable website + API with **zero external dependencies** (plain Node.js).
 
 ```
-data/foods.json        Core food database (165 items, per-100g/100ml nutrition)
-data/foods-extra.json  Extension database (174 more items) — 339 foods total
+data/foods.json        Core curated foods (165 items, per-100g/100ml nutrition)
+data/foods-extra.json  Curated extension (174 items: regional veg, fruits, millets…)
+data/foods-extra2.json Curated prepared dishes (153 items: sabzis, dals, chaats…)
+data/foods-ifct.json   Complete IFCT 2017 dataset (542 lab-analyzed foods, ICMR-NIN)
+                       — 1,034 foods total
 data/meals.json        41 deliverable, portioned & priced meals across 4 slots
 lib/nutrition.js       BMR / TDEE / calorie & macro target engine
 lib/planner.js         7-day meal plan generator (hits kcal + protein within tolerance)
@@ -44,7 +47,7 @@ npm test              # run the test suite
 - **Daily box (cart)** — Swiggy-style ADD buttons and floating cart bar; the box shows daily macro meters against your targets and subscribes as a repeating daily delivery.
 - **Subscription flow** — name, 10-digit phone, address, start date, delivery slot; the weekly plan or daily box is repeated across the chosen duration; pricing with 5% (2-week) / 10% (4-week) discounts.
 - **Subscription management** — look up by phone; skip/unskip any upcoming day, pause/resume, cancel. The **8 PM previous-day cutoff** is enforced server-side.
-- **Nutrition database explorer** — searchable, category-filterable table of all 339 foods with seasonal availability (mango Apr–Jul, guava Oct–Feb, bathua Nov–Feb, …).
+- **Nutrition database explorer** — searchable, category-filterable table of all 1,034 foods with seasonal availability (mango Apr–Jul, guava Oct–Feb, bathua Nov–Feb, …). IFCT entries carry the `ifct-2017` tag and Hindi names.
 
 ## API
 
