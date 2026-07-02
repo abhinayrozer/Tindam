@@ -480,7 +480,7 @@ const MIXERS = {
     slots: ['breakfast', 'snack'], verb: 'Build',
     groups: [
       { key: 'fruit', label: '1 · Pick your fruits (grams)', step: 25, defaultQty: 100, unit: 'g',
-        ids: ['banana', 'apple', 'papaya', 'mango', 'guava', 'orange', 'pomegranate', 'watermelon', 'muskmelon', 'grapes', 'chikoo', 'pineapple', 'kiwi', 'strawberry', 'pear', 'custard-apple', 'litchi', 'jamun', 'dragon-fruit', 'blueberries', 'persimmon-japani-phal', 'avocado'] },
+        ids: ['banana', 'apple', 'papaya', 'mango', 'guava', 'orange', 'kinnow', 'mosambi', 'grapefruit', 'pomegranate', 'watermelon', 'muskmelon', 'honeydew-melon', 'grapes', 'chikoo', 'pineapple', 'kiwi', 'strawberry', 'raspberry', 'blackberry-imported', 'blueberries', 'pear', 'peach', 'plum', 'custard-apple', 'litchi', 'longan', 'ifct-e059', 'ifct-e043', 'ifct-e061', 'jamun', 'rose-apple', 'rasbhari', 'loquat', 'dragon-fruit', 'persimmon-japani-phal', 'fig-fresh', 'cherries', 'avocado', 'tender-coconut-malai'] },
       { key: 'top', label: '2 · Toppings & crunch', step: 5, defaultQty: 10, unit: 'g',
         ids: ['almonds', 'walnuts', 'pistachios', 'pumpkin-seeds', 'sunflower-seeds', 'chia-seeds', 'raisins', 'dried-figs', 'dates-dried', 'makhana', 'magaz-seeds', 'honey', 'peanut-butter'] },
       { key: 'extra', label: '3 · Creamy extras (optional)', step: 50, defaultQty: 100, unit: 'g',

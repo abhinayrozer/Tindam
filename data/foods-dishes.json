@@ -4761,6 +4761,347 @@
    "tags": [
     "low-calorie"
    ]
+  },
+  {
+   "id": "kinnow",
+   "name": "Kinnow",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 55,
+   "protein": 0.9,
+   "carbs": 11.5,
+   "fat": 0.3,
+   "fiber": 1.5,
+   "season": "Dec–Mar",
+   "tags": [
+    "vitamin-c",
+    "seasonal",
+    "north-india"
+   ]
+  },
+  {
+   "id": "grapefruit",
+   "name": "Grapefruit",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 50,
+   "protein": 0.8,
+   "carbs": 10.7,
+   "fat": 0.1,
+   "fiber": 1.6,
+   "season": "Nov–Feb",
+   "tags": [
+    "vitamin-c",
+    "weight-loss"
+   ]
+  },
+  {
+   "id": "rasbhari",
+   "name": "Cape Gooseberry / Rasbhari",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 65,
+   "protein": 1.9,
+   "carbs": 11.2,
+   "fat": 0.7,
+   "fiber": 3,
+   "season": "Dec–Mar",
+   "tags": [
+    "seasonal",
+    "antioxidant"
+   ]
+  },
+  {
+   "id": "loquat",
+   "name": "Loquat / Lukat",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 55,
+   "protein": 0.4,
+   "carbs": 12.1,
+   "fat": 0.2,
+   "fiber": 1.7,
+   "season": "Mar–May",
+   "tags": [
+    "seasonal"
+   ]
+  },
+  {
+   "id": "raspberry",
+   "name": "Raspberry",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 72,
+   "protein": 1.2,
+   "carbs": 11.9,
+   "fat": 0.7,
+   "fiber": 6.5,
+   "season": "Dec–Feb",
+   "tags": [
+    "antioxidant",
+    "high-fiber",
+    "imported"
+   ]
+  },
+  {
+   "id": "blackberry-imported",
+   "name": "Blackberry (imported)",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 59,
+   "protein": 1.4,
+   "carbs": 9.6,
+   "fat": 0.5,
+   "fiber": 5.3,
+   "season": null,
+   "tags": [
+    "antioxidant",
+    "high-fiber",
+    "imported"
+   ]
+  },
+  {
+   "id": "longan",
+   "name": "Longan",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 69,
+   "protein": 1.3,
+   "carbs": 15.1,
+   "fat": 0.1,
+   "fiber": 1.1,
+   "season": "Jun–Aug",
+   "tags": [
+    "seasonal"
+   ]
+  },
+  {
+   "id": "honeydew-melon",
+   "name": "Honeydew Melon (imported)",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 41,
+   "protein": 0.5,
+   "carbs": 9.1,
+   "fat": 0.1,
+   "fiber": 0.8,
+   "season": null,
+   "tags": [
+    "hydrating",
+    "imported"
+   ]
+  },
+  {
+   "id": "rose-apple",
+   "name": "Rose Apple / Safed Jamun",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 30,
+   "protein": 0.6,
+   "carbs": 5.7,
+   "fat": 0.3,
+   "fiber": 1.1,
+   "season": "Mar–Jun",
+   "tags": [
+    "seasonal",
+    "low-calorie"
+   ]
+  },
+  {
+   "id": "ramphal",
+   "name": "Ramphal / Bullock’s Heart",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 118,
+   "protein": 1.7,
+   "carbs": 25.2,
+   "fat": 0.6,
+   "fiber": 2.4,
+   "season": "Feb–May",
+   "tags": [
+    "seasonal"
+   ]
+  },
+  {
+   "id": "sweet-tamarind",
+   "name": "Sweet Tamarind (Thai, imported)",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 255,
+   "protein": 2.8,
+   "carbs": 57,
+   "fat": 0.6,
+   "fiber": 5,
+   "season": "Dec–Feb",
+   "tags": [
+    "imported",
+    "seasonal"
+   ]
+  },
+  {
+   "id": "lemon-whole",
+   "name": "Lemon / Nimbu (whole)",
+   "category": "Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 39,
+   "protein": 1.1,
+   "carbs": 6.5,
+   "fat": 0.3,
+   "fiber": 2.8,
+   "season": null,
+   "tags": [
+    "vitamin-c"
+   ]
+  },
+  {
+   "id": "egg-yolk-boiled",
+   "name": "Egg Yolk (boiled)",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "egg",
+   "kcal": 317,
+   "protein": 15.9,
+   "carbs": 3.6,
+   "fat": 26.5,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "healthy-fat",
+    "vitamin-d"
+   ]
+  },
+  {
+   "id": "atlantic-salmon",
+   "name": "Atlantic Salmon (imported, cooked)",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 205,
+   "protein": 22,
+   "carbs": 0,
+   "fat": 13,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "omega-3",
+    "high-protein",
+    "imported"
+   ]
+  },
+  {
+   "id": "chicken-sausage-lean",
+   "name": "Chicken Sausage, Lean (grilled)",
+   "category": "Eggs, Chicken, Fish & Meat",
+   "unit": "100g",
+   "diet": "nonveg",
+   "kcal": 167,
+   "protein": 14,
+   "carbs": 3,
+   "fat": 11,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "high-protein",
+    "processed"
+   ]
+  },
+  {
+   "id": "hemp-seeds",
+   "name": "Hemp Seeds",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 586,
+   "protein": 31.6,
+   "carbs": 3,
+   "fat": 48.8,
+   "fiber": 4,
+   "season": null,
+   "tags": [
+    "high-protein",
+    "omega-3",
+    "vegan"
+   ]
+  },
+  {
+   "id": "almond-flour",
+   "name": "Almond Flour",
+   "category": "Nuts, Seeds & Dry Fruits",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 594,
+   "protein": 21,
+   "carbs": 10,
+   "fat": 50,
+   "fiber": 10,
+   "season": null,
+   "tags": [
+    "low-carb",
+    "gluten-free"
+   ]
+  },
+  {
+   "id": "coconut-flour",
+   "name": "Coconut Flour",
+   "category": "Grains & Cereals",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 355,
+   "protein": 19,
+   "carbs": 21,
+   "fat": 13,
+   "fiber": 39,
+   "season": null,
+   "tags": [
+    "high-fiber",
+    "gluten-free"
+   ]
+  },
+  {
+   "id": "stevia",
+   "name": "Stevia (zero-calorie sweetener)",
+   "category": "Sweeteners & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 0,
+   "protein": 0,
+   "carbs": 0,
+   "fat": 0,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "zero-calorie",
+    "natural-sweetener"
+   ]
+  },
+  {
+   "id": "maple-syrup",
+   "name": "Maple Syrup (imported)",
+   "category": "Sweeteners & Condiments",
+   "unit": "100g",
+   "diet": "veg",
+   "kcal": 269,
+   "protein": 0,
+   "carbs": 67,
+   "fat": 0.1,
+   "fiber": 0,
+   "season": null,
+   "tags": [
+    "natural-sweetener",
+    "imported"
+   ]
   }
  ]
 }
