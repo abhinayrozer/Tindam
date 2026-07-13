@@ -190,6 +190,9 @@ function navigate() {
     a.classList.toggle('active', a.dataset.route === path);
   });
   window.scrollTo(0, 0);
+  app.classList.remove('page-in');
+  void app.offsetWidth; // restart the enter animation
+  app.classList.add('page-in');
   Promise.resolve(view()).then(refreshCartUi);
 }
 window.addEventListener('hashchange', navigate);
@@ -366,6 +369,7 @@ async function renderCreate() {
     </div>
     <div class="card">
       <h3>Your meal</h3>
+      <div id="plate-stage-mount"></div>
       <div class="field" style="margin-top:.6rem"><label>Meal name</label>
         <input id="b-name" placeholder="e.g. My Bulk Bowl" maxlength="60"></div>
       <div class="field"><label>Serve as</label>
@@ -404,15 +408,19 @@ function renderBuilderResults() {
     <div class="ing-row">
       ${foodIcon(f, 'fico-xs')}${dietDot(f.diet)}<span class="nm">${esc(f.name)}</span>
       <span class="kc">${f.kcal} kcal · ${f.protein}g P /${f.unit === '100ml' ? '100ml' : '100g'}</span>
-      <button class="add-btn" style="padding:.25rem .8rem" onclick="builderAdd('${f.id}')">Add</button>
+      <button class="add-btn" style="padding:.25rem .8rem" onclick="builderAdd(event,'${f.id}')">Add</button>
     </div>`).join('') || '<div class="ing-row muted">No ingredients found.</div>';
 }
 
-window.builderAdd = (foodId) => {
+window.builderAdd = (ev, foodId) => {
   if (builder.items.some((i) => i.foodId === foodId)) return;
   if (builder.items.length >= 15) { alert('Maximum 15 ingredients per meal'); return; }
   builder.items.push({ foodId, grams: 100 });
-  renderBuilderPicked();
+  renderBuilderPicked(foodId);
+  const f = state.foods.find((x) => x.id === foodId);
+  const stageEl = document.getElementById('plate-stage');
+  const srcEl = ev && ev.target ? ev.target : null;
+  flyIcon(srcEl, stageEl, f, () => landStageItem(stageEl, foodId));
 };
 window.builderRemove = (foodId) => {
   builder.items = builder.items.filter((i) => i.foodId !== foodId);
@@ -421,17 +429,38 @@ window.builderRemove = (foodId) => {
 window.builderGrams = (foodId, val) => {
   const it = builder.items.find((i) => i.foodId === foodId);
   if (it) it.grams = Number(val) || 0;
+  renderPlateStage();
   renderBuilderTotals();
 };
+
+function plateStageHtml(pendingId) {
+  const items = builder.items.map((it, i) => {
+    const f = state.foods.find((x) => x.id === it.foodId);
+    return f ? stageItemHtml(f, platePos(it.foodId, it.grams, i), it.foodId === pendingId) : '';
+  }).join('');
+  return `<div class="stage stage-plate" id="plate-stage">
+    <div class="stage-inner">
+      ${plateSvg()}
+      <div class="stage-items">${items}</div>
+    </div>
+    ${builder.items.length === 0 ? '<div class="hint">An empty plate — add ingredients and we’ll plate them up 🍽️</div>' : ''}
+  </div>`;
+}
+
+function renderPlateStage(pendingId) {
+  const mount = document.getElementById('plate-stage-mount');
+  if (mount) mount.innerHTML = plateStageHtml(pendingId || null);
+}
 window.toggleSlot = (s) => {
   if (builder.slots.includes(s)) builder.slots = builder.slots.filter((x) => x !== s);
   else builder.slots.push(s);
   renderCreate();
 };
 
-function renderBuilderPicked() {
+function renderBuilderPicked(pendingId) {
   const box = document.getElementById('b-picked');
   if (!box) return;
+  renderPlateStage(pendingId);
   box.innerHTML = builder.items.length === 0
     ? '<p class="muted" style="padding:.6rem 0">No ingredients yet — search on the left and hit Add.</p>'
     : builder.items.map((it) => {
@@ -479,6 +508,7 @@ window.saveCustomMeal = async () => {
       slots: builder.slots,
       items: builder.items
     });
+    confettiBurst(document.getElementById('plate-stage'));
     state.customMeals.push(res.meal);
     state.myMealIds.push(res.meal.id);
     persist('tindam.myMeals', state.myMealIds);
@@ -490,6 +520,170 @@ window.saveCustomMeal = async () => {
     errBox.innerHTML = `<div class="error-box">${esc(e.message)}</div>`;
   }
 };
+
+/* ---------------- Visual stage: bowl / glass / plate animations ---------------- */
+
+const REDUCED_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function posHash(id, salt) {
+  let h = salt || 7;
+  for (const c of id) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+  return h;
+}
+
+function foodIconSrc(f) {
+  const file = state.icons && (state.icons.foods[f.id] || state.icons.ui.custom);
+  return file ? `/icons/${file}` : null;
+}
+
+function stageItemHtml(f, pos, pending) {
+  const src = foodIconSrc(f);
+  const inner = src
+    ? `<img src="${src}" alt="">`
+    : `<span style="font-size:${Math.round(pos.size * 0.8)}px">${foodEmoji(f)}</span>`;
+  return `<span class="stage-item ${pending ? 'pending' : ''}" data-stage-id="${f.id}"
+    style="left:${pos.x}%;top:${pos.y}%;width:${pos.size}px;height:${pos.size}px;--rot:${pos.rot}deg;--bob-delay:${pos.delay}s">${inner}</span>`;
+}
+
+/* Deterministic per-food positions (index-salted so items don't pile up). */
+function bowlPos(id, qty, i) {
+  const h = posHash(id, 7 + (i || 0) * 11);
+  return {
+    x: 24 + (h % 53), y: 32 + ((h >>> 5) % 16),
+    rot: -18 + ((h >>> 3) % 37), delay: ((h >>> 7) % 20) / 10,
+    size: Math.round(Math.min(54, 26 + qty * 0.16))
+  };
+}
+function glassPos(id, qty, fillPct, i) {
+  const h = posHash(id, 5 + (i || 0) * 11);
+  const surface = 100 - fillPct; // top of the liquid, % of glass height
+  const depth = Math.max(4, Math.round(fillPct * 0.55));
+  return {
+    x: 20 + (h % 61), y: Math.min(86, surface + 10 + ((h >>> 4) % depth)),
+    rot: -20 + ((h >>> 3) % 41), delay: ((h >>> 7) % 20) / 10,
+    size: Math.round(Math.min(32, 16 + qty * 0.1))
+  };
+}
+function platePos(id, grams, i) {
+  const h = posHash(id, 13 + (i || 0) * 11);
+  return {
+    x: 30 + (h % 41), y: 46 + ((h >>> 4) % 16),
+    rot: -15 + ((h >>> 6) % 31), delay: ((h >>> 8) % 20) / 10,
+    size: Math.round(Math.min(50, 24 + grams * 0.14))
+  };
+}
+
+function bowlSvgBack() {
+  return `<svg class="bowl-back" width="300" height="150" viewBox="0 0 300 150" aria-hidden="true">
+    <ellipse cx="150" cy="142" rx="104" ry="8" fill="rgba(120,60,10,.14)"/>
+    <ellipse cx="150" cy="38" rx="118" ry="26" fill="#f3d9b8"/>
+    <ellipse cx="150" cy="40" rx="106" ry="21" fill="#e9c39a"/>
+  </svg>`;
+}
+function bowlSvgFront() {
+  return `<svg class="bowl-front" width="300" height="150" viewBox="0 0 300 150" aria-hidden="true">
+    <defs>
+      <linearGradient id="bowlBody" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#ff9a4d"/>
+        <stop offset=".55" stop-color="#f0762e"/>
+        <stop offset="1" stop-color="#d95a18"/>
+      </linearGradient>
+    </defs>
+    <path d="M32 38 A118 26 0 0 0 268 38 A118 100 0 0 1 32 38 Z" fill="url(#bowlBody)"/>
+    <ellipse cx="150" cy="38" rx="118" ry="26" fill="none" stroke="rgba(255,255,255,.75)" stroke-width="3"/>
+    <path d="M56 74 Q82 108 128 120" stroke="rgba(255,255,255,.38)" stroke-width="7" stroke-linecap="round" fill="none"/>
+  </svg>`;
+}
+function plateSvg() {
+  return `<svg class="plate-svg" width="300" height="160" viewBox="0 0 300 160" aria-hidden="true">
+    <ellipse cx="150" cy="150" rx="112" ry="8" fill="rgba(120,60,10,.13)"/>
+    <defs>
+      <radialGradient id="plateG" cx=".5" cy=".42" r=".65">
+        <stop offset="0" stop-color="#ffffff"/>
+        <stop offset=".62" stop-color="#f6f1e8"/>
+        <stop offset=".8" stop-color="#ffffff"/>
+        <stop offset="1" stop-color="#d9d2c4"/>
+      </radialGradient>
+    </defs>
+    <ellipse cx="150" cy="84" rx="132" ry="58" fill="url(#plateG)" stroke="#e5ddcf"/>
+    <ellipse cx="150" cy="82" rx="94" ry="40" fill="#f1e9db" opacity=".8"/>
+  </svg>`;
+}
+
+/* Shake liquid colour — blend picked ingredients into one smoothie shade. */
+const LIQUID_COLORS = [
+  [/spinach|spirulina|moringa|wheat-germ/, [104, 187, 92]],
+  [/beetroot/, [198, 40, 91]],
+  [/cocoa|coffee|chocolate/, [141, 90, 59]],
+  [/strawberr|raspberr|frozen-berries|cherr|watermelon/, [240, 98, 146]],
+  [/blueberr|blackberr|jamun/, [126, 87, 194]],
+  [/mango|papaya|orange|kinnow|persimmon/, [255, 167, 38]],
+  [/banana|chikoo|date|honey|jaggery|sattu|peanut|almond butter|oats/, [243, 201, 105]],
+  [/coconut water/, [214, 234, 189]],
+  [/water/, [173, 216, 230]],
+  [/milk|curd|yogurt|whey|casein|protein|cream/, [250, 244, 232]]
+];
+function liquidColorFor(f) {
+  const n = (f.id + ' ' + f.name).toLowerCase();
+  for (const [re, c] of LIQUID_COLORS) if (re.test(n)) return c;
+  return [246, 224, 168];
+}
+
+/* Fly a food icon from the clicked tile into the stage, arcing like a toss. */
+function flyIcon(srcEl, destEl, f, done) {
+  if (REDUCED_MOTION || !srcEl || !destEl || !document.body.animate) { done && done(); return; }
+  const a = srcEl.getBoundingClientRect();
+  const b = destEl.getBoundingClientRect();
+  const ghost = document.createElement('div');
+  ghost.className = 'fly-ghost';
+  const src = foodIconSrc(f);
+  ghost.innerHTML = src ? `<img src="${src}" alt="">` : `<span style="font-size:34px">${foodEmoji(f)}</span>`;
+  const x0 = a.left + a.width / 2, y0 = a.top + a.height / 2;
+  const dx = (b.left + b.width / 2) - x0;
+  const dy = (b.top + b.height * 0.42) - y0;
+  ghost.style.left = x0 + 'px';
+  ghost.style.top = y0 + 'px';
+  document.body.appendChild(ghost);
+  const anim = ghost.animate([
+    { transform: 'translate(-50%,-50%) scale(1) rotate(0deg)', opacity: 1 },
+    { transform: `translate(calc(-50% + ${dx * 0.5}px), calc(-50% + ${dy * 0.5 - 70}px)) scale(1.2) rotate(-14deg)`, opacity: 1, offset: 0.55 },
+    { transform: `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) scale(.6) rotate(10deg)`, opacity: 0.9 }
+  ], { duration: 640, easing: 'cubic-bezier(.3,.6,.35,1)' });
+  anim.onfinish = () => { ghost.remove(); done && done(); };
+}
+
+/* Reveal the pending stage item with a drop-bounce and a landing ripple. */
+function landStageItem(stageEl, foodId) {
+  if (!stageEl) return;
+  const item = stageEl.querySelector(`[data-stage-id="${foodId}"]`);
+  if (!item) return;
+  item.classList.remove('pending');
+  item.classList.add('drop');
+  const ripple = document.createElement('span');
+  ripple.className = 'stage-ripple';
+  ripple.style.left = item.style.left;
+  ripple.style.top = item.style.top;
+  item.parentElement.appendChild(ripple);
+  setTimeout(() => ripple.remove(), 600);
+}
+
+function confettiBurst(el) {
+  if (REDUCED_MOTION || !el) return;
+  const r = el.getBoundingClientRect();
+  const colors = ['#ff5f1f', '#ffb347', '#ff3d77', '#3fbf77', '#5aa9ff', '#ffd166'];
+  for (let i = 0; i < 16; i++) {
+    const p = document.createElement('span');
+    p.className = 'confetti';
+    p.style.left = (r.left + r.width / 2) + 'px';
+    p.style.top = (r.top + r.height * 0.4) + 'px';
+    p.style.background = colors[i % colors.length];
+    p.style.setProperty('--cx', (Math.random() * 220 - 110) + 'px');
+    p.style.setProperty('--cy', (-40 - Math.random() * 150) + 'px');
+    p.style.setProperty('--cr', (Math.random() * 520 - 260) + 'deg');
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 950);
+  }
+}
 
 /* ---------------- Mixers: Shake Mixer & Fruit Bowl Builder ---------------- */
 
@@ -539,7 +733,6 @@ async function renderMixer() {
     state.foodCategories = res.categories;
   }
   const cfg = MIXERS[mixerKind];
-  const qtys = mixQtyState[mixerKind];
   const mine = state.customMeals.filter((m) => (m.tags || []).includes(mixerKind));
   app.innerHTML = `
   <h2 class="section-title" style="margin-top:.4rem">${cfg.icon} ${esc(cfg.title)}</h2>
@@ -552,27 +745,14 @@ async function renderMixer() {
         <div class="shake-grid">
           ${g.ids.map((id) => {
             const f = state.foods.find((x) => x.id === id);
-            if (!f) return '';
-            const qty = qtys[id] || 0;
-            return `<div class="shake-item ${qty ? 'on' : ''}">
-              <button class="shake-pick" onclick="mixToggle('${id}','${g.key}')">
-                <span class="shake-emoji">${foodIcon(f, 'fico-md')}</span>
-                <small>${esc(f.name.split('/')[0].split('(')[0].trim())}</small>
-                <span class="kc">${f.kcal} kcal/${f.unit === '100ml' ? '100ml' : '100g'}</span>
-                ${f.season ? `<span class="kc" style="color:var(--primary-dark);font-weight:700">${esc(f.season)}</span>` : ''}
-              </button>
-              ${qty ? `<span class="qty-ctrl">
-                <button onclick="mixQty('${id}',${-g.step})">−</button>
-                <span>${qty}${g.unit}</span>
-                <button onclick="mixQty('${id}',${g.step})">+</button>
-              </span>` : ''}
-            </div>`;
+            return f ? mixItemHtml(g, f) : '';
           }).join('')}
         </div>
       </div>`).join('')}
     </div>
     <div class="card" style="position:sticky;top:70px">
       <h3>Your ${esc(cfg.suffixWord.toLowerCase())}</h3>
+      <div id="sh-stage"></div>
       <div class="field" style="margin-top:.6rem"><label>${esc(cfg.suffixWord)} name</label>
         <input id="sh-name" placeholder="${esc(cfg.namePh)}" maxlength="60"></div>
       <div id="sh-recipe"></div>
@@ -585,6 +765,89 @@ async function renderMixer() {
     <h2 class="section-title">My ${esc(cfg.suffixWord.toLowerCase())}s</h2>
     <div class="grid grid-3">${mine.map(mealCardHtml).join('')}</div>` : ''}`;
   renderMixSummary();
+}
+
+function mixItemHtml(g, f) {
+  const qty = mixQtyState[mixerKind][f.id] || 0;
+  return `<div class="shake-item ${qty ? 'on' : ''}" id="mixitem-${f.id}">
+    <button class="shake-pick" onclick="mixToggle(event,'${f.id}','${g.key}')">
+      <span class="shake-emoji">${foodIcon(f, 'fico-md')}</span>
+      <small>${esc(f.name.split('/')[0].split('(')[0].trim())}</small>
+      <span class="kc">${f.kcal} kcal/${f.unit === '100ml' ? '100ml' : '100g'}</span>
+      ${f.season ? `<span class="kc" style="color:var(--primary-dark);font-weight:700">${esc(f.season)}</span>` : ''}
+    </button>
+    ${qty ? `<span class="qty-ctrl">
+      <button onclick="mixQty('${f.id}',${-g.step})">−</button>
+      <span>${qty}${g.unit}</span>
+      <button onclick="mixQty('${f.id}',${g.step})">+</button>
+    </span>` : ''}
+  </div>`;
+}
+
+function refreshMixTile(id) {
+  const cfg = MIXERS[mixerKind];
+  const g = cfg.groups.find((x) => x.ids.includes(id));
+  const f = state.foods.find((x) => x.id === id);
+  const el = document.getElementById('mixitem-' + id);
+  if (el && g && f) el.outerHTML = mixItemHtml(g, f);
+}
+
+/* The live scene in the summary card: a filling glass or a fruit bowl. */
+function mixerStageHtml(pendingId) {
+  const cfg = MIXERS[mixerKind];
+  const entries = Object.entries(mixQtyState[mixerKind]);
+  const empty = entries.length === 0;
+
+  if (mixerKind === 'bowl') {
+    const items = entries.map(([id, qty], i) => {
+      const f = state.foods.find((x) => x.id === id);
+      return f ? stageItemHtml(f, bowlPos(id, qty, i), id === pendingId) : '';
+    }).join('');
+    return `<div class="stage stage-bowl" id="mix-stage">
+      <div class="stage-inner">
+        ${bowlSvgBack()}
+        <div class="stage-items">${items}</div>
+        ${bowlSvgFront()}
+      </div>
+      ${empty ? '<div class="hint">Your bowl is waiting — tap a fruit and watch it drop in 🍓</div>' : ''}
+    </div>`;
+  }
+
+  // Shake glass: liquid level & colour follow what you pour in.
+  const baseGroup = cfg.groups.find((g) => g.key === 'base');
+  let total = 0, colorW = 0;
+  const colorAcc = [0, 0, 0];
+  for (const [id, qty] of entries) {
+    const f = state.foods.find((x) => x.id === id);
+    if (!f) continue;
+    total += qty;
+    const c = liquidColorFor(f);
+    colorAcc[0] += c[0] * qty; colorAcc[1] += c[1] * qty; colorAcc[2] += c[2] * qty;
+    colorW += qty;
+  }
+  const fill = empty ? 0 : Math.max(18, Math.min(94, Math.round((total / 550) * 100)));
+  const rgb = colorW ? colorAcc.map((v) => Math.round(v / colorW)) : [250, 244, 232];
+  const light = rgb.map((v) => Math.round(v + (255 - v) * 0.35));
+  const chunks = entries
+    .filter(([id]) => !(baseGroup && baseGroup.ids.includes(id)))
+    .map(([id, qty], i) => {
+      const f = state.foods.find((x) => x.id === id);
+      return f ? stageItemHtml(f, glassPos(id, qty, fill, i), id === pendingId) : '';
+    }).join('');
+  const bubbles = fill ? Array.from({ length: 5 }, (_, i) =>
+    `<span class="bubble" style="left:${14 + i * 16}%;--sz:${5 + (i % 3) * 3}px;--dur:${2.4 + i * 0.5}s;--delay:${i * 0.7}s;--rise:${Math.round(fill * 1.6)}px"></span>`
+  ).join('') : '';
+  return `<div class="stage stage-glass" id="mix-stage">
+    <div class="stage-inner">
+      ${fill ? '<div class="glass-straw"></div>' : ''}
+      <div class="glass-wrap">
+        <div class="glass-liquid" style="height:${fill}%;background:linear-gradient(180deg, rgb(${light.join(',')}) 0%, rgb(${rgb.join(',')}) 60%)"></div>
+        ${bubbles}
+        <div class="stage-items">${chunks}</div>
+      </div>
+    </div>
+    ${empty ? '<div class="hint">Empty glass — pick a base to start pouring 🥛</div>' : ''}
+  </div>`;
 }
 
 function foodEmoji(f) {
@@ -624,17 +887,27 @@ function foodEmoji(f) {
   return '✨';
 }
 
-window.mixToggle = (id, groupKey) => {
+window.mixToggle = (ev, id, groupKey) => {
   const cfg = MIXERS[mixerKind];
   const qtys = mixQtyState[mixerKind];
   const g = cfg.groups.find((x) => x.key === groupKey);
-  if (qtys[id]) {
+  const adding = !qtys[id];
+  const cleared = [];
+  if (!adding) {
     delete qtys[id];
   } else {
-    if (g.single) for (const other of g.ids) delete qtys[other];
+    if (g.single) for (const other of g.ids) if (qtys[other]) { cleared.push(other); delete qtys[other]; }
     qtys[id] = g.defaultQty;
   }
-  renderMixer();
+  refreshMixTile(id);
+  cleared.forEach(refreshMixTile);
+  renderMixSummary(adding ? id : null);
+  if (adding) {
+    const f = state.foods.find((x) => x.id === id);
+    const stageEl = document.getElementById('mix-stage');
+    const srcEl = ev && ev.target ? ev.target.closest('.shake-pick') : null;
+    flyIcon(srcEl, stageEl, f, () => landStageItem(stageEl, id));
+  }
 };
 
 window.mixQty = (id, delta) => {
@@ -642,7 +915,8 @@ window.mixQty = (id, delta) => {
   const next = (qtys[id] || 0) + delta;
   if (next <= 0) delete qtys[id];
   else qtys[id] = Math.min(next, 500);
-  renderMixer();
+  refreshMixTile(id);
+  renderMixSummary();
 };
 
 function mixTotals() {
@@ -657,12 +931,14 @@ function mixTotals() {
   return { kcal, protein, carbs, fat, fiber };
 }
 
-function renderMixSummary() {
+function renderMixSummary(pendingId) {
   const cfg = MIXERS[mixerKind];
   const entries = Object.entries(mixQtyState[mixerKind]);
   const recipeBox = document.getElementById('sh-recipe');
   const totalsBox = document.getElementById('sh-totals');
   if (!recipeBox) return;
+  const stageBox = document.getElementById('sh-stage');
+  if (stageBox) stageBox.innerHTML = mixerStageHtml(pendingId || null);
   recipeBox.innerHTML = entries.length === 0
     ? `<p class="muted" style="padding:.5rem 0">Empty ${mixerKind === 'shake' ? 'glass — pick a base' : 'bowl — pick some fruits'} to start.</p>`
     : entries.map(([id, grams]) => {
@@ -687,18 +963,25 @@ window.saveMix = async () => {
   const cfg = MIXERS[mixerKind];
   const errBox = document.getElementById('sh-error');
   errBox.innerHTML = '';
+  const stageEl = document.getElementById('mix-stage');
   try {
     const entries = Object.entries(mixQtyState[mixerKind]);
     if (entries.length === 0) throw new Error(mixerKind === 'shake' ? 'Pick at least a base and one ingredient' : 'Pick at least one fruit');
     let name = document.getElementById('sh-name').value.trim();
     if (name && !cfg.suffixRe.test(name)) name += ' ' + cfg.suffixWord;
-    const res = await api('/api/custom-meals', {
-      name,
-      kind: mixerKind,
-      phone: load('tindam.phone') || null,
-      slots: cfg.slots,
-      items: entries.map(([foodId, grams]) => ({ foodId, grams }))
-    });
+    if (stageEl && !REDUCED_MOTION) stageEl.classList.add('blending');
+    // Let the blend/toss animation play while the request runs.
+    const [res] = await Promise.all([
+      api('/api/custom-meals', {
+        name,
+        kind: mixerKind,
+        phone: load('tindam.phone') || null,
+        slots: cfg.slots,
+        items: entries.map(([foodId, grams]) => ({ foodId, grams }))
+      }),
+      new Promise((r) => setTimeout(r, REDUCED_MOTION ? 0 : 1300))
+    ]);
+    confettiBurst(stageEl);
     state.customMeals.push(res.meal);
     state.myMealIds.push(res.meal.id);
     persist('tindam.myMeals', state.myMealIds);
@@ -706,6 +989,7 @@ window.saveMix = async () => {
     window.cartAdd(res.meal.id, 1);
     renderMixer();
   } catch (e) {
+    if (stageEl) stageEl.classList.remove('blending');
     errBox.innerHTML = `<div class="error-box">${esc(e.message)}</div>`;
   }
 };
