@@ -1,1 +1,3 @@
-Food icons are Twemoji graphics (https://github.com/jdecked/twemoji), licensed CC-BY 4.0. Code MIT.
+Food icons (`f-*.svg`) are Microsoft Fluent Emoji 3D graphics
+(https://github.com/microsoft/fluentui-emoji), licensed MIT, delivered via
+the `@iconify-json/fluent-emoji` package.
