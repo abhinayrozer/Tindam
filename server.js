@@ -16,6 +16,23 @@ const store = require('./lib/store');
 const auth = require('./lib/auth');
 
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || null;
+
+// Firebase web config is public by design (it identifies the project; security
+// comes from server-side ID-token verification + Firebase console rules).
+// Override with FIREBASE_CONFIG='{"apiKey":...}' or disable with FIREBASE_CONFIG=off.
+const FIREBASE_CONFIG = (() => {
+  const env = process.env.FIREBASE_CONFIG;
+  if (env === 'off' || env === '0') return null;
+  if (env) { try { return JSON.parse(env); } catch { console.error('Bad FIREBASE_CONFIG JSON — ignoring'); } }
+  return {
+    apiKey: 'AIzaSyB_F3wKmC7_rjhRR_rV1m-oxLOjKyMNF_I',
+    authDomain: 'gen-lang-client-0415222577.firebaseapp.com',
+    projectId: 'gen-lang-client-0415222577',
+    storageBucket: 'gen-lang-client-0415222577.firebasestorage.app',
+    messagingSenderId: '882590367120',
+    appId: '1:882590367120:web:6253b34dd0a948a6a6c715'
+  };
+})();
 const ORDER_STATUSES = ['accepted', 'preparing', 'scheduled', 'delivered', 'rejected', 'not_delivered'];
 
 // Seed the admin account on first boot (change the password after login,
@@ -134,6 +151,27 @@ function loginAs(user, ctx) {
   return { ok: true, user: safeUser(user) };
 }
 
+// Shared find-or-create for Google-verified profiles (GIS or Firebase).
+function googleProfileLogin(g, via, ctx) {
+  let user = store.findUser((u) => u.googleSub === g.sub || u.email === g.email.toLowerCase());
+  if (!user) {
+    let username = g.email.split('@')[0].toLowerCase().replace(/[^a-z0-9._-]/g, '').slice(0, 24) || 'user';
+    while (store.findUser((u) => u.username === username)) username += Math.floor(Math.random() * 10);
+    user = store.createUser({
+      name: g.name, username, email: g.email.toLowerCase(), phone: null,
+      role: 'user', status: 'pending', passwordHash: null, googleSub: g.sub, via
+    });
+    store.audit('user.signup', `${username} via ${via} (pending approval)`, username);
+  } else if (!user.googleSub) {
+    store.updateUser(user.id, (u) => { u.googleSub = g.sub; });
+  }
+  if (user.status === 'suspended') {
+    throw Object.assign(new Error('This account is suspended — contact support'), { code: 403 });
+  }
+  store.audit('auth.login', `${user.username} via ${via}`, user.username);
+  return loginAs(user, ctx);
+}
+
 // A date (YYYY-MM-DD) is editable while "now" is before 8 PM on the previous day.
 function isEditable(dateStr, now = new Date()) {
   const cutoff = new Date(dateStr + 'T00:00:00');
@@ -160,7 +198,7 @@ const routes = {
 
   // ---------- Auth ----------
 
-  'GET /api/auth/config': async () => ({ googleClientId: GOOGLE_CLIENT_ID }),
+  'GET /api/auth/config': async () => ({ googleClientId: GOOGLE_CLIENT_ID, firebase: FIREBASE_CONFIG }),
 
   'GET /api/auth/me': async (req, q, ctx) => ({ user: safeUser(ctx.user) }),
 
@@ -239,23 +277,19 @@ const routes = {
     if (!GOOGLE_CLIENT_ID) throw Object.assign(new Error('Google sign-in is not configured (set GOOGLE_CLIENT_ID)'), { code: 503 });
     const b = await readBody(req);
     const g = await auth.verifyGoogleIdToken(b.credential, GOOGLE_CLIENT_ID);
-    let user = store.findUser((u) => u.googleSub === g.sub || u.email === g.email.toLowerCase());
-    if (!user) {
-      let username = g.email.split('@')[0].toLowerCase().replace(/[^a-z0-9._-]/g, '').slice(0, 24) || 'user';
-      while (store.findUser((u) => u.username === username)) username += Math.floor(Math.random() * 10);
-      user = store.createUser({
-        name: g.name, username, email: g.email.toLowerCase(), phone: null,
-        role: 'user', status: 'pending', passwordHash: null, googleSub: g.sub, via: 'google'
-      });
-      store.audit('user.signup', `${username} via Google (pending approval)`, username);
-    } else if (!user.googleSub) {
-      store.updateUser(user.id, (u) => { u.googleSub = g.sub; });
+    return googleProfileLogin(g, 'google', ctx);
+  },
+
+  // Firebase Authentication (Google provider) — the client signs in with the
+  // Firebase popup and posts the Firebase ID token; we verify it against
+  // Google's securetoken certs before creating the session.
+  'POST /api/auth/firebase': async (req, q, ctx) => {
+    if (!FIREBASE_CONFIG || !FIREBASE_CONFIG.projectId) {
+      throw Object.assign(new Error('Firebase sign-in is not configured'), { code: 503 });
     }
-    if (user.status === 'suspended') {
-      throw Object.assign(new Error('This account is suspended — contact support'), { code: 403 });
-    }
-    store.audit('auth.login', `${user.username} via Google`, user.username);
-    return loginAs(user, ctx);
+    const b = await readBody(req);
+    const g = await auth.verifyFirebaseIdToken(b.idToken, FIREBASE_CONFIG.projectId);
+    return googleProfileLogin(g, 'firebase', ctx);
   },
 
   // ---------- Admin ----------

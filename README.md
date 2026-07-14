@@ -63,12 +63,24 @@ Three profiles, backed by scrypt-hashed passwords and HttpOnly session cookies:
 - **Admin** — seeded in the backend database on first boot (**username `admin` / password `Admin@123`** — change it after first login, or override with `ADMIN_USERNAME` / `ADMIN_PASSWORD`). The Admin console monitors counts, **approves new accounts** (self-service signups start `pending` and cannot place orders while logged in until approved), **assigns roles (user / staff / admin)**, suspends/reactivates or removes accounts, creates **staff accounts**, manages every subscription (pause/resume/cancel), and shows the **audit log** (logins, signups, resets, approvals, role changes, order-status changes, admin actions).
 - **Staff** — created by the admin with a username & password. The Kitchen & delivery board lists each day's orders (customer, address, slot, meals to prepare) and staff mark per-order status: **accepted → preparing → scheduled → delivered**, or **rejected / not delivered**. Every change is audited.
 
-### Google sign-in setup
+### Google sign-in setup (Firebase Authentication — default)
 
-1. Create an OAuth 2.0 **Web** client at https://console.cloud.google.com/apis/credentials.
-2. Add your origin (e.g. `http://localhost:3000`) to **Authorized JavaScript origins**.
-3. Start the server with the client ID: `GOOGLE_CLIENT_ID=xxxx.apps.googleusercontent.com npm start`.
-4. The "Continue with Google" button appears on the sign-in/sign-up pages; the server verifies each ID token against Google's JWKS before creating the session. Google-created accounts also start `pending` until an admin approves them.
+A Firebase web config ships in `server.js` (public by design; security comes from
+server-side token verification). To make the button work end-to-end:
+
+1. In the [Firebase console](https://console.firebase.google.com) open your project → **Authentication → Sign-in method → Google → Enable**.
+2. Under **Authentication → Settings → Authorized domains** make sure your domain is listed (`localhost` is pre-authorized).
+3. That's it — "Continue with Google" opens the Firebase popup; the server verifies the Firebase ID token against Google's securetoken certs (audience = your project ID) before creating a session. Google accounts start `pending` until an admin approves them.
+
+Point it at your own project with `FIREBASE_CONFIG='{"apiKey":...}'`, or disable with `FIREBASE_CONFIG=off`.
+
+### Alternative: plain Google Identity Services
+
+Prefer no Firebase? Create an OAuth 2.0 **Web** client at
+https://console.cloud.google.com/apis/credentials, add your origin to
+**Authorized JavaScript origins**, run with `FIREBASE_CONFIG=off
+GOOGLE_CLIENT_ID=xxxx.apps.googleusercontent.com npm start` — the button then
+uses GIS and the server verifies tokens against Google's JWKS.
 
 ## API
 

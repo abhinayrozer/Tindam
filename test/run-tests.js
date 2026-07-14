@@ -401,6 +401,16 @@ async function apiTests() {
     });
     assert.strictEqual(dup.status, 400);
   });
+  await atest('firebase auth: config exposed, malformed tokens rejected', async () => {
+    const cfg = await req('GET', '/api/auth/config');
+    assert.strictEqual(cfg.status, 200);
+    assert.ok(cfg.body.firebase && cfg.body.firebase.projectId, 'firebase web config exposed to client');
+    const bad = await req('POST', '/api/auth/firebase', { idToken: 'not-a-jwt' });
+    assert.strictEqual(bad.status, 400);
+    assert.ok(/Malformed/i.test(bad.body.error));
+    const bad2 = await req('POST', '/api/auth/firebase', { idToken: 'a.b.c' });
+    assert.strictEqual(bad2.status, 400);
+  });
   await atest('forgot → reset link → new password works, old fails', async () => {
     const fg = await req('POST', '/api/auth/forgot', { id: 'testperson' });
     assert.ok(fg.body.devResetLink, 'dev reset link returned');
