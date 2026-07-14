@@ -383,6 +383,7 @@ async function apiTests() {
     }, jar);
     assert.strictEqual(su.status, 200, JSON.stringify(su.body));
     assert.strictEqual(su.body.user.role, 'user');
+    assert.strictEqual(su.body.user.status, 'pending'); // awaits admin approval
     assert.ok(jar.cookie, 'session cookie set');
     const me = await req('GET', '/api/auth/me', null, jar);
     assert.strictEqual(me.body.user.username, 'testperson');
@@ -434,6 +435,37 @@ async function apiTests() {
     const users = await req('GET', '/api/admin/users', null, adminJar);
     assert.ok(users.body.users.some((u) => u.username === 'kitchen1'));
     const victim = users.body.users.find((u) => u.username === 'testperson');
+
+    // Approval flow: pending signup can't subscribe while logged in; approved can.
+    assert.strictEqual(victim.status, 'pending');
+    const day = (o) => new Date(Date.now() + o * 86400000).toISOString().slice(0, 10);
+    const subBody = {
+      name: 'Test Person', phone: '9876501234', address: '1 Approval St, Pune 411001',
+      slot: 'morning', weeks: 1, diet: 'veg', targets: { kcal: 2000, protein: 100 },
+      days: [{ date: day(2), mealIds: ['m-masala-oats'] }]
+    };
+    const blocked = await req('POST', '/api/subscribe', subBody, userJar);
+    assert.strictEqual(blocked.status, 403, JSON.stringify(blocked.body));
+    const ap = await req('POST', '/api/admin/users/status', { userId: victim.id, status: 'active' }, adminJar);
+    assert.strictEqual(ap.status, 200, JSON.stringify(ap.body));
+    assert.strictEqual(ap.body.user.status, 'active');
+    const allowed = await req('POST', '/api/subscribe', subBody, userJar);
+    assert.strictEqual(allowed.status, 200, JSON.stringify(allowed.body));
+
+    // Role assignment: promote to staff, verify staff access, demote back.
+    const pr = await req('POST', '/api/admin/users/role', { userId: victim.id, role: 'staff' }, adminJar);
+    assert.strictEqual(pr.status, 200, JSON.stringify(pr.body));
+    assert.strictEqual(pr.body.user.role, 'staff');
+    const boardAsStaff = await req('GET', '/api/staff/orders', null, userJar);
+    assert.strictEqual(boardAsStaff.status, 200);
+    await req('POST', '/api/admin/users/role', { userId: victim.id, role: 'user' }, adminJar);
+
+    // Suspension blocks login.
+    await req('POST', '/api/admin/users/status', { userId: victim.id, status: 'suspended' }, adminJar);
+    const sLogin = await req('POST', '/api/auth/login', { id: 'testperson', password: 'NewPass123!' });
+    assert.strictEqual(sLogin.status, 403);
+    await req('POST', '/api/admin/users/status', { userId: victim.id, status: 'active' }, adminJar);
+
     const rm = await req('POST', '/api/admin/users/remove', { userId: victim.id }, adminJar);
     assert.strictEqual(rm.status, 200);
     const after = await req('GET', '/api/admin/users', null, adminJar);

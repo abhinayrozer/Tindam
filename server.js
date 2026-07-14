@@ -111,7 +111,10 @@ function sessionUser(req) {
 
 function safeUser(u) {
   if (!u) return null;
-  return { id: u.id, name: u.name, username: u.username, email: u.email, phone: u.phone, role: u.role, via: u.via, createdAt: u.createdAt };
+  return {
+    id: u.id, name: u.name, username: u.username, email: u.email, phone: u.phone,
+    role: u.role, via: u.via, status: u.status || 'active', createdAt: u.createdAt
+  };
 }
 
 function sessionCookie(token) {
@@ -172,12 +175,14 @@ const routes = {
     const email = String(b.email).toLowerCase().trim();
     if (store.findUser((u) => u.username === username)) throw new Error('That username is taken');
     if (store.findUser((u) => u.email === email)) throw new Error('An account with this email already exists — sign in instead');
+    // Self-service signups start "pending" — an admin approves them before
+    // they can place orders (they can still sign in and browse).
     const user = store.createUser({
       name: String(b.name).trim().slice(0, 80), username, email,
-      phone: b.phone ? String(b.phone) : null, role: 'user',
+      phone: b.phone ? String(b.phone) : null, role: 'user', status: 'pending',
       passwordHash: auth.hashPassword(b.password), via: 'password'
     });
-    store.audit('user.signup', `${username} <${email}>`, username);
+    store.audit('user.signup', `${username} <${email}> (pending approval)`, username);
     return loginAs(user, ctx);
   },
 
@@ -188,6 +193,10 @@ const routes = {
     if (!user || !user.passwordHash || !auth.verifyPassword(b.password, user.passwordHash)) {
       store.audit('auth.login_failed', id);
       throw Object.assign(new Error('Wrong username/email or password'), { code: 401 });
+    }
+    if (user.status === 'suspended') {
+      store.audit('auth.login_blocked', `${user.username} (suspended)`);
+      throw Object.assign(new Error('This account is suspended — contact support'), { code: 403 });
     }
     store.audit('auth.login', user.username, user.username);
     return loginAs(user, ctx);
@@ -236,11 +245,14 @@ const routes = {
       while (store.findUser((u) => u.username === username)) username += Math.floor(Math.random() * 10);
       user = store.createUser({
         name: g.name, username, email: g.email.toLowerCase(), phone: null,
-        role: 'user', passwordHash: null, googleSub: g.sub, via: 'google'
+        role: 'user', status: 'pending', passwordHash: null, googleSub: g.sub, via: 'google'
       });
-      store.audit('user.signup', `${username} via Google`, username);
+      store.audit('user.signup', `${username} via Google (pending approval)`, username);
     } else if (!user.googleSub) {
       store.updateUser(user.id, (u) => { u.googleSub = g.sub; });
+    }
+    if (user.status === 'suspended') {
+      throw Object.assign(new Error('This account is suspended — contact support'), { code: 403 });
     }
     store.audit('auth.login', `${user.username} via Google`, user.username);
     return loginAs(user, ctx);
@@ -253,6 +265,7 @@ const routes = {
     const db = store._loadAll();
     return {
       users: db.users.filter((u) => u.role === 'user').length,
+      pendingUsers: db.users.filter((u) => (u.status || 'active') === 'pending').length,
       staff: db.users.filter((u) => u.role === 'staff').length,
       subscriptions: db.subscriptions.length,
       activeSubscriptions: db.subscriptions.filter((s) => s.status === 'active').length,
@@ -276,6 +289,40 @@ const routes = {
     store.removeUser(target.id);
     store.audit('admin.user_removed', `${target.role} ${target.username}`, ctx.user.username);
     return { ok: true };
+  },
+
+  // Approve a pending account, or suspend / reactivate any non-admin account.
+  'POST /api/admin/users/status': async (req, q, ctx) => {
+    requireRole(ctx, 'admin');
+    const b = await readBody(req);
+    if (!['active', 'suspended'].includes(b.status)) throw new Error('Status must be active or suspended');
+    const target = store.findUser((u) => u.id === b.userId);
+    if (!target) throw Object.assign(new Error('User not found'), { code: 404 });
+    if (target.id === ctx.user.id) throw new Error('You cannot change your own account status');
+    if (target.role === 'admin' && b.status === 'suspended') throw new Error('Admins cannot be suspended — demote them first');
+    const wasPending = (target.status || 'active') === 'pending';
+    store.updateUser(target.id, (u) => { u.status = b.status; });
+    store.audit(
+      wasPending && b.status === 'active' ? 'admin.user_approved' : 'admin.user_status',
+      `${target.username} → ${b.status}`, ctx.user.username
+    );
+    return { ok: true, user: safeUser(store.findUser((u) => u.id === target.id)) };
+  },
+
+  // Assign a role: user, staff or admin.
+  'POST /api/admin/users/role': async (req, q, ctx) => {
+    requireRole(ctx, 'admin');
+    const b = await readBody(req);
+    if (!['user', 'staff', 'admin'].includes(b.role)) throw new Error('Role must be user, staff or admin');
+    const target = store.findUser((u) => u.id === b.userId);
+    if (!target) throw Object.assign(new Error('User not found'), { code: 404 });
+    if (target.id === ctx.user.id) throw new Error('You cannot change your own role');
+    store.updateUser(target.id, (u) => {
+      u.role = b.role;
+      if (b.role !== 'user') u.status = 'active'; // staff/admin are trusted accounts
+    });
+    store.audit('admin.role_assigned', `${target.username} → ${b.role}`, ctx.user.username);
+    return { ok: true, user: safeUser(store.findUser((u) => u.id === target.id)) };
   },
 
   'POST /api/admin/staff': async (req, q, ctx) => {
@@ -448,6 +495,13 @@ const routes = {
   },
 
   'POST /api/subscribe': async (req, q, ctx) => {
+    if (ctx && ctx.user && (ctx.user.status || 'active') !== 'active') {
+      throw Object.assign(new Error(
+        ctx.user.status === 'pending'
+          ? 'Your account is awaiting admin approval — you can order once it is approved'
+          : 'This account is suspended — contact support'
+      ), { code: 403 });
+    }
     const b = await readBody(req);
     const required = ['name', 'phone', 'address', 'weeks', 'targets', 'diet', 'days'];
     for (const k of required) {

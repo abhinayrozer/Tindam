@@ -1667,12 +1667,35 @@ function renderFoodRows() {
 
 /* ---------------- Account / My subscription ---------------- */
 
+function profileCardHtml(u) {
+  const st = u.status || 'active';
+  const initial = (u.name || u.username || '?').trim()[0].toUpperCase();
+  return `
+  <div class="card profile-card" style="margin-bottom:1.2rem">
+    <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+      <span class="avatar avatar-lg">${esc(initial)}</span>
+      <div style="flex:1;min-width:200px">
+        <h3 style="margin:0">${esc(u.name)}</h3>
+        <p class="muted" style="margin:.1rem 0 0">@${esc(u.username)}${u.email ? ` · ${esc(u.email)}` : ''}${u.phone ? ` · 📱 ${esc(u.phone)}` : ''}</p>
+      </div>
+      <span class="chip ${u.role === 'admin' ? '' : 'green'}">${esc(u.role)}</span>
+      <span class="pill-status ${st === 'active' ? 'active' : st === 'pending' ? 'paused' : 'cancelled'}">${esc(st)}</span>
+    </div>
+    ${st === 'pending' ? `<div class="notice" style="margin-bottom:0">⏳ Your account is <b>awaiting admin approval</b>. You can browse and build meals, and place orders as soon as you're approved.</div>` : ''}
+    ${u.role === 'admin' ? `<div class="notice" style="margin-bottom:0">You're an admin — open the <a href="#/admin"><b>admin console</b></a> to approve accounts, assign roles and manage subscriptions.</div>` : ''}
+    ${u.role === 'staff' ? `<div class="notice" style="margin-bottom:0">You're staff — open the <a href="#/staff"><b>order board</b></a> to see the day's deliveries and update their status.</div>` : ''}
+  </div>`;
+}
+
 async function renderAccount() {
-  const savedPhone = load('tindam.phone') || '';
+  const savedPhone = (state.user && state.user.phone) || load('tindam.phone') || '';
   app.innerHTML = `
-  <h2 class="section-title" style="margin-top:.4rem">My subscription</h2>
+  <h2 class="section-title" style="margin-top:.4rem">${state.user ? '👤 My profile' : 'My subscription'}</h2>
+  ${state.user ? profileCardHtml(state.user) : `
+    <div class="notice" style="max-width:640px"><a href="#/login"><b>Sign in</b></a> or <a href="#/signup"><b>create an account</b></a> to save your details — or manage your deliveries below with just your phone number.</div>`}
   <div class="card" style="max-width:480px">
-    <div class="field"><label>Registered phone number</label>
+    <h3 style="font-size:1.05rem">📦 My deliveries</h3>
+    <div class="field" style="margin-top:.6rem"><label>Registered phone number</label>
       <input id="acct-phone" maxlength="10" placeholder="10-digit phone" value="${esc(savedPhone)}"></div>
     <button class="btn btn-primary" onclick="lookup()">View my deliveries</button>
     <div id="acct-error"></div>
@@ -1810,7 +1833,12 @@ function renderLogin() {
     <p class="muted" style="margin-top:.7rem;text-align:center"><a href="#/forgot">Forgot password?</a></p>
     <div class="auth-divider"><span>or</span></div>
     <div id="google-slot"></div>
-    <p class="muted" style="margin-top:1rem;text-align:center">New to Tindam? <a href="#/signup"><b>Create an account</b></a></p>`);
+    <p class="muted" style="margin-top:1rem;text-align:center">New to Tindam? <a href="#/signup"><b>Create an account</b></a></p>
+    <div class="notice" style="font-size:.82rem;margin-bottom:0">
+      <b>Demo accounts</b> · admin: <code>admin</code> / <code>Admin@123</code>
+      <span class="muted">(seeded on first boot — change via ADMIN_USERNAME / ADMIN_PASSWORD env)</span><br>
+      Staff accounts are created by the admin in the console.
+    </div>`);
   mountGoogleButton();
   document.getElementById('l-pass').addEventListener('keydown', (e) => { if (e.key === 'Enter') window.doLogin(); });
 }
@@ -1962,6 +1990,7 @@ async function renderAdmin() {
   <h2 class="section-title" style="margin-top:.4rem">⚙️ Admin console</h2>
   <div class="result-strip">
     <div class="stat"><b>${ov.users}</b><small>Users</small></div>
+    <div class="stat"><b>${ov.pendingUsers || 0}</b><small>Pending approval</small></div>
     <div class="stat"><b>${ov.staff}</b><small>Staff</small></div>
     <div class="stat"><b>${ov.subscriptions}</b><small>Subscriptions</small></div>
     <div class="stat"><b>${ov.activeSubscriptions}</b><small>Active</small></div>
@@ -1971,13 +2000,25 @@ async function renderAdmin() {
   <div class="grid grid-2" style="align-items:start">
     <div class="card">
       <h3>👥 Accounts</h3>
-      <div class="table-wrap"><table class="nutri"><thead><tr><th>Name</th><th>Username</th><th>Role</th><th>Via</th><th></th></tr></thead><tbody>
-        ${users.users.map((u) => `<tr>
-          <td>${esc(u.name)}</td><td class="muted">${esc(u.username)}${u.email ? `<br><small>${esc(u.email)}</small>` : ''}</td>
-          <td><span class="chip ${u.role === 'admin' ? '' : 'green'}">${esc(u.role)}</span></td>
-          <td class="muted">${esc(u.via || '-')}</td>
-          <td>${u.role !== 'admin' ? `<button class="btn btn-danger btn-small" onclick="adminRemoveUser('${u.id}','${esc(u.username)}')">Remove</button>` : ''}</td>
-        </tr>`).join('')}
+      <p class="muted" style="font-size:.82rem">Approve new signups, assign roles (user / staff / admin), suspend or remove accounts.</p>
+      <div class="table-wrap"><table class="nutri"><thead><tr><th>Name</th><th>Role</th><th>Status</th><th style="min-width:170px">Actions</th></tr></thead><tbody>
+        ${users.users.map((u) => {
+          const st = u.status || 'active';
+          const self = state.user && u.id === state.user.id;
+          return `<tr>
+          <td>${esc(u.name)}${self ? ' <span class="chip">you</span>' : ''}<br><small class="muted">${esc(u.username)}${u.email ? ` · ${esc(u.email)}` : ''} · via ${esc(u.via || '-')}</small></td>
+          <td>${self ? `<span class="chip">${esc(u.role)}</span>` : `
+            <select class="role-select" onchange="adminSetRole('${u.id}','${esc(u.username)}',this)">
+              ${['user', 'staff', 'admin'].map((r) => `<option value="${r}" ${u.role === r ? 'selected' : ''}>${r}</option>`).join('')}
+            </select>`}</td>
+          <td><span class="pill-status ${st === 'active' ? 'active' : st === 'pending' ? 'paused' : 'cancelled'}">${esc(st)}</span></td>
+          <td>${self ? '' : `
+            ${st === 'pending' ? `<button class="btn btn-primary btn-small" onclick="adminSetStatus('${u.id}','active')">✓ Approve</button>` : ''}
+            ${st === 'active' && u.role !== 'admin' ? `<button class="btn btn-ghost btn-small" onclick="adminSetStatus('${u.id}','suspended')">Suspend</button>` : ''}
+            ${st === 'suspended' ? `<button class="btn btn-outline btn-small" onclick="adminSetStatus('${u.id}','active')">Reactivate</button>` : ''}
+            ${u.role !== 'admin' ? `<button class="btn btn-danger btn-small" onclick="adminRemoveUser('${u.id}','${esc(u.username)}')">Remove</button>` : ''}`}</td>
+        </tr>`;
+        }).join('')}
       </tbody></table></div>
       <div id="adm-user-msg"></div>
       <h3 style="margin-top:1.2rem">➕ Create staff account</h3>
@@ -2033,6 +2074,21 @@ window.adminRemoveUser = async (id, username) => {
   if (!confirm(`Remove account "${username}"? This cannot be undone.`)) return;
   try { await api('/api/admin/users/remove', { userId: id }); renderAdmin(); }
   catch (e) { document.getElementById('adm-user-msg').innerHTML = `<div class="error-box">${esc(e.message)}</div>`; }
+};
+
+window.adminSetStatus = async (id, status) => {
+  try { await api('/api/admin/users/status', { userId: id, status }); renderAdmin(); }
+  catch (e) { document.getElementById('adm-user-msg').innerHTML = `<div class="error-box">${esc(e.message)}</div>`; }
+};
+
+window.adminSetRole = async (id, username, sel) => {
+  const role = sel.value;
+  if (!confirm(`Make "${username}" a ${role}?`)) { renderAdmin(); return; }
+  try { await api('/api/admin/users/role', { userId: id, role }); renderAdmin(); }
+  catch (e) {
+    document.getElementById('adm-user-msg').innerHTML = `<div class="error-box">${esc(e.message)}</div>`;
+    renderAdmin();
+  }
 };
 
 window.adminCreateStaff = async () => {

@@ -60,8 +60,15 @@ npm test              # run the test suite
 Three profiles, backed by scrypt-hashed passwords and HttpOnly session cookies:
 
 - **User** — full self-serve flow: sign up (name, username, email, phone, password), sign in with username/email **or Google** (set `GOOGLE_CLIENT_ID` in the environment to enable the button; the server verifies the ID token against Google's JWKS), and password reset (`/#/forgot` → tokenized 30-minute reset link; without an email provider the link is shown in dev mode — wire your mailer into `POST /api/auth/forgot`).
-- **Admin** — seeded in the backend database on first boot (`admin` / `Admin@123`, override with `ADMIN_USERNAME` / `ADMIN_PASSWORD`). The Admin console monitors counts, lists/removes users, creates **staff accounts**, manages every subscription (pause/resume/cancel), and shows the **audit log** (logins, signups, resets, order-status changes, admin actions).
+- **Admin** — seeded in the backend database on first boot (**username `admin` / password `Admin@123`** — change it after first login, or override with `ADMIN_USERNAME` / `ADMIN_PASSWORD`). The Admin console monitors counts, **approves new accounts** (self-service signups start `pending` and cannot place orders while logged in until approved), **assigns roles (user / staff / admin)**, suspends/reactivates or removes accounts, creates **staff accounts**, manages every subscription (pause/resume/cancel), and shows the **audit log** (logins, signups, resets, approvals, role changes, order-status changes, admin actions).
 - **Staff** — created by the admin with a username & password. The Kitchen & delivery board lists each day's orders (customer, address, slot, meals to prepare) and staff mark per-order status: **accepted → preparing → scheduled → delivered**, or **rejected / not delivered**. Every change is audited.
+
+### Google sign-in setup
+
+1. Create an OAuth 2.0 **Web** client at https://console.cloud.google.com/apis/credentials.
+2. Add your origin (e.g. `http://localhost:3000`) to **Authorized JavaScript origins**.
+3. Start the server with the client ID: `GOOGLE_CLIENT_ID=xxxx.apps.googleusercontent.com npm start`.
+4. The "Continue with Google" button appears on the sign-in/sign-up pages; the server verifies each ID token against Google's JWKS before creating the session. Google-created accounts also start `pending` until an admin approves them.
 
 ## API
 
