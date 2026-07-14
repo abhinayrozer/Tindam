@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tindam — Fitness Food, Delivered Daily</title>
   <meta name="description" content="Personalized Indian fitness meals on subscription. Tell us your calories — we cook, we deliver, every day." />
+  <script>
+    // Apply the saved theme before first paint to avoid a flash.
+    try {
+      var t = JSON.parse(localStorage.getItem('tindam.theme'));
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
   <link rel="stylesheet" href="/styles.css" />
   <link rel="icon" href="/icons/1f957.svg" />
 </head>
@@ -25,6 +33,7 @@
       <a href="#/dashboard" data-route="/dashboard">Dashboard</a>
       <a href="#/account" data-route="/account">My Subscription</a>
     </nav>
+    <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" title="Toggle light/dark theme">🌙</button>
     <button class="cart-btn" onclick="location.hash='#/cart'" title="Your daily box"><img src="/icons/1f6d2.svg" alt="Cart" class="fico-sm"><span class="cart-badge" id="cart-badge" hidden>0</span></button>
     <span id="auth-area"></span>
   </header>

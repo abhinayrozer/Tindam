@@ -48,6 +48,20 @@ function load(key) {
 }
 function persist(key, val) { localStorage.setItem(key, JSON.stringify(val)); }
 
+/* ---------------- Theme (light / dark) ---------------- */
+
+function applyTheme(t) {
+  document.documentElement.dataset.theme = t;
+  persist('tindam.theme', t);
+  const btn = document.getElementById('theme-btn');
+  if (btn) btn.textContent = t === 'dark' ? '☀️' : '🌙';
+}
+window.toggleTheme = () => {
+  applyTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+};
+applyTheme(load('tindam.theme') ||
+  (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+
 async function api(path, opts) {
   const res = await fetch(path, opts && {
     method: 'POST',
@@ -566,8 +580,12 @@ function glassPos(id, qty, fillPct, i) {
 }
 function platePos(id, grams, i) {
   const h = posHash(id, 13 + (i || 0) * 11);
+  // Ring placement keeps items spread instead of piling at the centre.
+  const ang = ((i || 0) * 137 + (h % 60)) * Math.PI / 180; // golden-angle steps
+  const rad = 14 + ((h >>> 4) % 14);
   return {
-    x: 30 + (h % 41), y: 46 + ((h >>> 4) % 16),
+    x: Math.round(50 + Math.cos(ang) * rad * 1.35),
+    y: Math.round(52 + Math.sin(ang) * rad * 0.62),
     rot: -15 + ((h >>> 6) % 31), delay: ((h >>> 8) % 20) / 10,
     size: Math.round(Math.min(50, 24 + grams * 0.14))
   };
