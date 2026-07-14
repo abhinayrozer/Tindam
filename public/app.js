@@ -22,13 +22,13 @@ const state = {
 
 function uiIcon(key, cls) {
   const file = state.icons && state.icons.ui[key];
-  return file ? `<img class="${cls || 'fico'}" src="/icons/${file}" alt="" loading="lazy">` : '';
+  return file ? `<img class="${cls || 'fico'}" src="/icons/${file}" alt="" loading="lazy" decoding="async">` : '';
 }
 
 function foodIcon(f, cls) {
   const file = state.icons && (state.icons.foods[f.id] || state.icons.ui.custom);
   if (!file) return `<span class="${cls || 'fico'}">${foodEmoji(f)}</span>`;
-  return `<img class="${cls || 'fico'}" src="/icons/${file}" alt="" loading="lazy">`;
+  return `<img class="${cls || 'fico'}" src="/icons/${file}" alt="" loading="lazy" decoding="async">`;
 }
 
 function mealIcon(m, cls) {
@@ -40,7 +40,7 @@ function mealIcon(m, cls) {
       : state.icons.ui.custom;
   }
   if (!file) return `<span class="${cls || 'fico'}">${mealEmoji(m)}</span>`;
-  return `<img class="${cls || 'fico'}" src="/icons/${file}" alt="" loading="lazy">`;
+  return `<img class="${cls || 'fico'}" src="/icons/${file}" alt="" loading="lazy" decoding="async">`;
 }
 
 function load(key) {
@@ -71,6 +71,20 @@ async function api(path, opts) {
   const data = await res.json();
   if (!res.ok) throw new Error(data.error || 'Request failed');
   return data;
+}
+
+/* Foods are looked up constantly (builders, stages, tables) — index once. */
+let foodIndex = null;
+function foodById(id) {
+  if (!foodIndex && state.foods) {
+    foodIndex = new Map(state.foods.map((f) => [f.id, f]));
+  }
+  return foodIndex ? foodIndex.get(id) : null;
+}
+
+function debounce(fn, ms) {
+  let t;
+  return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
 }
 
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -311,10 +325,10 @@ function renderHome() {
   </div>
 
   <h2 class="section-title">Popular targets</h2>
-  <div class="grid grid-3">
-    <div class="card"><h3>🔥 Fat loss</h3><p class="muted">~1,800 kcal · 130 g protein. High-volume, high-protein meals that keep you full.</p><a class="btn btn-outline btn-small" href="#/plan" onclick="presetTarget(1800,130)">Try this target</a></div>
-    <div class="card"><h3>⚖️ Lean maintain</h3><p class="muted">~2,200 kcal · 120 g protein. Balanced thalis and bowls for staying in shape.</p><a class="btn btn-outline btn-small" href="#/plan" onclick="presetTarget(2200,120)">Try this target</a></div>
-    <div class="card"><h3>💪 Muscle gain</h3><p class="muted">~3,000 kcal · 160 g protein. Chicken-rice bulk bowls, paneer bowls, shakes.</p><a class="btn btn-outline btn-small" href="#/plan" onclick="presetTarget(3000,160)">Try this target</a></div>
+  <div class="grid grid-3 goal-cards">
+    <div class="card goal-1"><h3>🔥 Fat loss</h3><p class="muted">~1,800 kcal · 130 g protein. High-volume, high-protein meals that keep you full.</p><a class="btn btn-outline btn-small" href="#/plan" onclick="presetTarget(1800,130)">Try this target</a></div>
+    <div class="card goal-2"><h3>⚖️ Lean maintain</h3><p class="muted">~2,200 kcal · 120 g protein. Balanced thalis and bowls for staying in shape.</p><a class="btn btn-outline btn-small" href="#/plan" onclick="presetTarget(2200,120)">Try this target</a></div>
+    <div class="card goal-3"><h3>💪 Muscle gain</h3><p class="muted">~3,000 kcal · 160 g protein. Chicken-rice bulk bowls, paneer bowls, shakes.</p><a class="btn btn-outline btn-small" href="#/plan" onclick="presetTarget(3000,160)">Try this target</a></div>
   </div>`;
 }
 
@@ -401,10 +415,10 @@ async function renderCreate() {
     <h2 class="section-title">My creations</h2>
     <div class="grid grid-3">${state.customMeals.map(mealCardHtml).join('')}</div>` : ''}`;
 
-  document.getElementById('b-search').addEventListener('input', (e) => {
+  document.getElementById('b-search').addEventListener('input', debounce((e) => {
     builder.q = e.target.value;
     renderBuilderResults();
-  });
+  }, 120));
   renderBuilderResults();
   renderBuilderPicked();
 }
@@ -431,7 +445,7 @@ window.builderAdd = (ev, foodId) => {
   if (builder.items.length >= 15) { alert('Maximum 15 ingredients per meal'); return; }
   builder.items.push({ foodId, grams: 100 });
   renderBuilderPicked(foodId);
-  const f = state.foods.find((x) => x.id === foodId);
+  const f = foodById(foodId);
   const stageEl = document.getElementById('plate-stage');
   const srcEl = ev && ev.target ? ev.target : null;
   flyIcon(srcEl, stageEl, f, () => landStageItem(stageEl, foodId));
@@ -449,7 +463,7 @@ window.builderGrams = (foodId, val) => {
 
 function plateStageHtml(pendingId) {
   const items = builder.items.map((it, i) => {
-    const f = state.foods.find((x) => x.id === it.foodId);
+    const f = foodById(it.foodId);
     return f ? stageItemHtml(f, platePos(it.foodId, it.grams, i), it.foodId === pendingId) : '';
   }).join('');
   return `<div class="stage stage-plate" id="plate-stage">
@@ -478,7 +492,7 @@ function renderBuilderPicked(pendingId) {
   box.innerHTML = builder.items.length === 0
     ? '<p class="muted" style="padding:.6rem 0">No ingredients yet — search on the left and hit Add.</p>'
     : builder.items.map((it) => {
-      const f = state.foods.find((x) => x.id === it.foodId);
+      const f = foodById(it.foodId);
       return `<div class="picked-row">
         ${foodIcon(f, 'fico-xs')}${dietDot(f.diet)}<span style="flex:1">${esc(f.name)}</span>
         <input type="number" min="5" max="1000" step="5" value="${it.grams}"
@@ -494,7 +508,7 @@ function renderBuilderTotals() {
   if (!box) return;
   let kcal = 0, protein = 0, carbs = 0, fat = 0, fiber = 0;
   for (const it of builder.items) {
-    const f = state.foods.find((x) => x.id === it.foodId);
+    const f = foodById(it.foodId);
     const k = (Number(it.grams) || 0) / 100;
     kcal += f.kcal * k; protein += f.protein * k; carbs += f.carbs * k;
     fat += f.fat * k; fiber += (f.fiber || 0) * k;
@@ -562,8 +576,12 @@ function stageItemHtml(f, pos, pending) {
 /* Deterministic per-food positions (index-salted so items don't pile up). */
 function bowlPos(id, qty, i) {
   const h = posHash(id, 7 + (i || 0) * 11);
+  // Golden-angle steps around the bowl centre keep fruits from piling up.
+  const ang = ((i || 0) * 137 + (h % 50)) * Math.PI / 180;
+  const rad = 9 + ((h >>> 5) % 14);
   return {
-    x: 24 + (h % 53), y: 32 + ((h >>> 5) % 16),
+    x: Math.max(26, Math.min(74, Math.round(50 + Math.cos(ang) * rad * 1.5))),
+    y: Math.max(28, Math.min(48, Math.round(38 + Math.sin(ang) * rad * 0.55))),
     rot: -18 + ((h >>> 3) % 37), delay: ((h >>> 7) % 20) / 10,
     size: Math.round(Math.min(54, 26 + qty * 0.16))
   };
@@ -670,11 +688,16 @@ function flyIcon(srcEl, destEl, f, done) {
   anim.onfinish = () => { ghost.remove(); done && done(); };
 }
 
-/* Reveal the pending stage item with a drop-bounce and a landing ripple. */
+/* Reveal the pending stage item with a drop-bounce and a landing ripple.
+   The whole vessel gets a tiny "bump" so the landing feels physical. */
 function landStageItem(stageEl, foodId) {
   if (!stageEl) return;
   const item = stageEl.querySelector(`[data-stage-id="${foodId}"]`);
   if (!item) return;
+  stageEl.classList.remove('bump');
+  void stageEl.offsetWidth;
+  stageEl.classList.add('bump');
+  setTimeout(() => stageEl.classList.remove('bump'), 500);
   item.classList.remove('pending');
   item.classList.add('drop');
   const ripple = document.createElement('span');
@@ -762,7 +785,7 @@ async function renderMixer() {
         <h3 style="font-size:1.02rem">${esc(g.label)}</h3>
         <div class="shake-grid">
           ${g.ids.map((id) => {
-            const f = state.foods.find((x) => x.id === id);
+            const f = foodById(id);
             return f ? mixItemHtml(g, f) : '';
           }).join('')}
         </div>
@@ -805,7 +828,7 @@ function mixItemHtml(g, f) {
 function refreshMixTile(id) {
   const cfg = MIXERS[mixerKind];
   const g = cfg.groups.find((x) => x.ids.includes(id));
-  const f = state.foods.find((x) => x.id === id);
+  const f = foodById(id);
   const el = document.getElementById('mixitem-' + id);
   if (el && g && f) el.outerHTML = mixItemHtml(g, f);
 }
@@ -818,7 +841,7 @@ function mixerStageHtml(pendingId) {
 
   if (mixerKind === 'bowl') {
     const items = entries.map(([id, qty], i) => {
-      const f = state.foods.find((x) => x.id === id);
+      const f = foodById(id);
       return f ? stageItemHtml(f, bowlPos(id, qty, i), id === pendingId) : '';
     }).join('');
     return `<div class="stage stage-bowl" id="mix-stage">
@@ -836,7 +859,7 @@ function mixerStageHtml(pendingId) {
   let total = 0, colorW = 0;
   const colorAcc = [0, 0, 0];
   for (const [id, qty] of entries) {
-    const f = state.foods.find((x) => x.id === id);
+    const f = foodById(id);
     if (!f) continue;
     total += qty;
     const c = liquidColorFor(f);
@@ -849,7 +872,7 @@ function mixerStageHtml(pendingId) {
   const chunks = entries
     .filter(([id]) => !(baseGroup && baseGroup.ids.includes(id)))
     .map(([id, qty], i) => {
-      const f = state.foods.find((x) => x.id === id);
+      const f = foodById(id);
       return f ? stageItemHtml(f, glassPos(id, qty, fill, i), id === pendingId) : '';
     }).join('');
   const bubbles = fill ? Array.from({ length: 5 }, (_, i) =>
@@ -921,7 +944,7 @@ window.mixToggle = (ev, id, groupKey) => {
   cleared.forEach(refreshMixTile);
   renderMixSummary(adding ? id : null);
   if (adding) {
-    const f = state.foods.find((x) => x.id === id);
+    const f = foodById(id);
     const stageEl = document.getElementById('mix-stage');
     const srcEl = ev && ev.target ? ev.target.closest('.shake-pick') : null;
     flyIcon(srcEl, stageEl, f, () => landStageItem(stageEl, id));
@@ -940,7 +963,7 @@ window.mixQty = (id, delta) => {
 function mixTotals() {
   let kcal = 0, protein = 0, carbs = 0, fat = 0, fiber = 0;
   for (const [id, grams] of Object.entries(mixQtyState[mixerKind])) {
-    const f = state.foods.find((x) => x.id === id);
+    const f = foodById(id);
     if (!f) continue;
     const k = grams / 100;
     kcal += f.kcal * k; protein += f.protein * k; carbs += f.carbs * k;
@@ -960,7 +983,7 @@ function renderMixSummary(pendingId) {
   recipeBox.innerHTML = entries.length === 0
     ? `<p class="muted" style="padding:.5rem 0">Empty ${mixerKind === 'shake' ? 'glass — pick a base' : 'bowl — pick some fruits'} to start.</p>`
     : entries.map(([id, grams]) => {
-      const f = state.foods.find((x) => x.id === id);
+      const f = foodById(id);
       return `<div class="picked-row"><span style="flex:1;display:flex;align-items:center;gap:.4rem">${foodIcon(f, 'fico-xs')} ${esc(f.name.split('/')[0].split('(')[0].trim())}</span>
         <span class="muted">${grams}${f.unit === '100ml' ? ' ml' : ' g'}</span></div>`;
     }).join('');
@@ -1090,12 +1113,12 @@ function renderDashBody(d) {
   <div class="card" style="margin-top:1rem">
     <h3>Calories per day</h3>
     <p class="muted" style="font-size:.82rem">${esc(d.from)} → ${esc(d.to)}${t ? ` · dashed line = your ${t.kcal} kcal target` : ''}</p>
-    ${barChartSvg(d.daily, 'kcal', '#eb6834', t && t.kcal, 'kcal')}
+    ${barChartSvg(d.daily, 'kcal', '#f9813d', t && t.kcal, 'kcal')}
   </div>
   <div class="card" style="margin-top:1rem">
     <h3>Protein per day</h3>
     <p class="muted" style="font-size:.82rem">grams of protein delivered${t ? ` · dashed line = your ${t.protein} g target` : ''}</p>
-    ${barChartSvg(d.daily, 'protein', '#008300', t && t.protein, 'g')}
+    ${barChartSvg(d.daily, 'protein', '#57b46b', t && t.protein, 'g')}
   </div>
 
   <div class="grid grid-2" style="margin-top:1rem;align-items:start">
@@ -1575,19 +1598,14 @@ window.subscribePlan = async () => {
 
 let foodFilter = { q: '', category: '' };
 
+const FOOD_ROWS_CAP = 250; // keep the DOM light; search narrows the rest
+
 async function renderFoods() {
   if (!state.foods) {
     const res = await api('/api/foods');
     state.foods = res.foods;
     state.foodCategories = res.categories;
   }
-  let list = state.foods;
-  if (foodFilter.category) list = list.filter((f) => f.category === foodFilter.category);
-  if (foodFilter.q) {
-    const n = foodFilter.q.toLowerCase();
-    list = list.filter((f) => f.name.toLowerCase().includes(n) || (f.tags || []).some((t) => t.includes(n)));
-  }
-
   app.innerHTML = `
   <h2 class="section-title" style="margin-top:.4rem">Indian food nutrition database</h2>
   <p class="muted">${state.foods.length} foods · values per <b>100 g</b> (solids) or <b>100 ml</b> (liquids). Sources: IFCT 2017 (ICMR-NIN) & USDA FoodData Central.</p>
@@ -1597,7 +1615,7 @@ async function renderFoods() {
       <option value="">All categories</option>
       ${state.foodCategories.map((c) => `<option value="${esc(c)}" ${foodFilter.category === c ? 'selected' : ''}>${esc(c)}</option>`).join('')}
     </select>
-    <span class="muted" style="align-self:center">${list.length} results</span>
+    <span class="muted" style="align-self:center" id="food-count"></span>
   </div>
   <div class="table-wrap">
     <table class="nutri">
@@ -1606,33 +1624,45 @@ async function renderFoods() {
         <th class="num">Kcal</th><th class="num">Protein</th><th class="num">Carbs</th>
         <th class="num">Fat</th><th class="num">Fiber</th><th>Season</th>
       </tr></thead>
-      <tbody>
-        ${list.map((f) => `
-        <tr>
-          <td><span class="food-cell">${foodIcon(f, 'fico-xs')} ${dietDot(f.diet)} ${esc(f.name)}</span></td>
-          <td class="muted">${esc(f.category)}</td>
-          <td class="muted">${esc(f.unit)}</td>
-          <td class="num"><b>${f.kcal}</b></td>
-          <td class="num">${f.protein} g</td>
-          <td class="num">${f.carbs} g</td>
-          <td class="num">${f.fat} g</td>
-          <td class="num">${f.fiber} g</td>
-          <td>${f.season ? `<span class="chip">${esc(f.season)}</span>` : '<span class="muted">Year-round</span>'}</td>
-        </tr>`).join('')}
-      </tbody>
+      <tbody id="food-rows"></tbody>
     </table>
   </div>`;
 
-  document.getElementById('food-q').addEventListener('input', (e) => {
+  renderFoodRows();
+  // Only the rows re-render while typing — the input keeps focus and the
+  // page never rebuilds its 1,000+ nodes per keystroke.
+  document.getElementById('food-q').addEventListener('input', debounce((e) => {
     foodFilter.q = e.target.value;
-    renderFoods();
-    const el = document.getElementById('food-q');
-    el.focus(); el.setSelectionRange(el.value.length, el.value.length);
-  });
+    renderFoodRows();
+  }, 140));
   document.getElementById('food-cat').addEventListener('change', (e) => {
     foodFilter.category = e.target.value;
-    renderFoods();
+    renderFoodRows();
   });
+}
+
+function renderFoodRows() {
+  let list = state.foods;
+  if (foodFilter.category) list = list.filter((f) => f.category === foodFilter.category);
+  if (foodFilter.q) {
+    const n = foodFilter.q.toLowerCase();
+    list = list.filter((f) => f.name.toLowerCase().includes(n) || (f.tags || []).some((t) => t.includes(n)));
+  }
+  const shown = list.slice(0, FOOD_ROWS_CAP);
+  document.getElementById('food-count').textContent =
+    list.length > shown.length ? `showing ${shown.length} of ${list.length} — type to narrow` : `${list.length} results`;
+  document.getElementById('food-rows').innerHTML = shown.map((f) => `
+    <tr>
+      <td><span class="food-cell">${foodIcon(f, 'fico-xs')} ${dietDot(f.diet)} ${esc(f.name)}</span></td>
+      <td class="muted">${esc(f.category)}</td>
+      <td class="muted">${esc(f.unit)}</td>
+      <td class="num"><b>${f.kcal}</b></td>
+      <td class="num">${f.protein} g</td>
+      <td class="num">${f.carbs} g</td>
+      <td class="num">${f.fat} g</td>
+      <td class="num">${f.fiber} g</td>
+      <td>${f.season ? `<span class="chip">${esc(f.season)}</span>` : '<span class="muted">Year-round</span>'}</td>
+    </tr>`).join('') || '<tr><td colspan="9" class="muted" style="padding:1rem">No foods match.</td></tr>';
 }
 
 /* ---------------- Account / My subscription ---------------- */
@@ -2089,8 +2119,26 @@ window.staffSetStatus = async (subId, date, status) => {
 
 /* ---------------- Boot ---------------- */
 
+/* Decorate the top-nav links with their Twemoji icons once the map loads. */
+const NAV_ICONS = {
+  '/': 'logo', '/plan': 'chart', '/menu': 'lunch', '/create': 'custom',
+  '/shake': 'shake', '/bowl': 'fruit', '/foods': 'leaf',
+  '/dashboard': 'spark', '/account': 'box'
+};
+function decorateNav() {
+  if (!state.icons) return;
+  document.querySelectorAll('#nav a[data-route]').forEach((a) => {
+    const key = NAV_ICONS[a.dataset.route];
+    const file = key && state.icons.ui[key];
+    if (file && !a.querySelector('img')) {
+      a.insertAdjacentHTML('afterbegin', `<img class="nav-ico" src="/icons/${file}" alt="" loading="lazy" decoding="async">`);
+    }
+  });
+}
+
 (async function boot() {
   try { state.icons = await api('/icons/map.json'); } catch { /* emoji fallback */ }
+  decorateNav();
   try {
     const [me, cfg] = await Promise.all([api('/api/auth/me'), api('/api/auth/config')]);
     state.user = me.user;

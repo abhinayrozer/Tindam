@@ -8,6 +8,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const url = require('url');
+const zlib = require('zlib');
 
 const { targetsFromStats, targetsDirect, ACTIVITY_LEVELS } = require('./lib/nutrition');
 const { generatePlan } = require('./lib/planner');
@@ -58,7 +59,18 @@ const MIME = {
 
 function sendJson(res, code, data) {
   const body = JSON.stringify(data);
-  res.writeHead(code, { 'Content-Type': 'application/json; charset=utf-8' });
+  const headers = { 'Content-Type': 'application/json; charset=utf-8' };
+  const accept = (res.req && res.req.headers['accept-encoding']) || '';
+  // Big payloads (the 1,340-food database) shrink ~6x over the wire.
+  if (body.length > 4096 && /\bgzip\b/.test(accept)) {
+    return zlib.gzip(Buffer.from(body), (err, gz) => {
+      if (err) { res.writeHead(code, headers); return res.end(body); }
+      headers['Content-Encoding'] = 'gzip';
+      res.writeHead(code, headers);
+      res.end(gz);
+    });
+  }
+  res.writeHead(code, headers);
   res.end(body);
 }
 
@@ -612,7 +624,21 @@ function serveStatic(req, res, pathname) {
       }
       res.writeHead(404); return res.end('Not found');
     }
-    res.writeHead(200, { 'Content-Type': MIME[path.extname(full)] || 'application/octet-stream' });
+    const ext = path.extname(full);
+    const headers = { 'Content-Type': MIME[ext] || 'application/octet-stream' };
+    // Icons never change once shipped; app shell assets revalidate quickly.
+    if (ext === '.svg') headers['Cache-Control'] = 'public, max-age=604800';
+    else if (ext === '.css' || ext === '.js' || ext === '.json') headers['Cache-Control'] = 'public, max-age=300';
+    const compressible = ['.html', '.css', '.js', '.svg', '.json'].includes(ext);
+    if (compressible && data.length > 1024 && /\bgzip\b/.test(req.headers['accept-encoding'] || '')) {
+      return zlib.gzip(data, (zerr, gz) => {
+        if (zerr) { res.writeHead(200, headers); return res.end(data); }
+        headers['Content-Encoding'] = 'gzip';
+        res.writeHead(200, headers);
+        res.end(gz);
+      });
+    }
+    res.writeHead(200, headers);
     res.end(data);
   });
 }
